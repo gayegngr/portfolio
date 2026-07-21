@@ -1,316 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Gaye Güngör | Architecture Portfolio</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-
-background:#0f0f0f;
-color:white;
-font-family:'Inter',sans-serif;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-min-height:100vh;
-
-padding:40px;
-
-}
-
-.container{
-
-max-width:760px;
-width:100%;
-
-}
-
-.name{
-
-font-family:'Cormorant Garamond',serif;
-font-size:74px;
-font-weight:600;
-letter-spacing:1px;
-
-}
-
-.role{
-
-margin-top:8px;
-font-size:15px;
-letter-spacing:6px;
-text-transform:uppercase;
-color:#b5b5b5;
-
-}
-
-.line{
-
-width:90px;
-height:2px;
-background:white;
-margin:42px 0;
-
-}
-
-.description{
-
-font-size:18px;
-line-height:1.9;
-color:#d6d6d6;
-max-width:620px;
-
-}
-
-.buttons{
-
-display:flex;
-gap:18px;
-
-margin-top:55px;
-
-flex-wrap:wrap;
-
-}
-
-.button{
-
-text-decoration:none;
-
-padding:18px 34px;
-
-border-radius:100px;
-
-transition:.35s;
-
-font-weight:600;
-
-}
-
-.primary{
-
-background:white;
-color:black;
-
-}
-
-.primary:hover{
-
-background:#d8d8d8;
-
-}
-
-.secondary{
-
-border:1px solid white;
-color:white;
-
-}
-
-.secondary:hover{
-
-background:white;
-color:black;
-
-}
-
-.info{
-
-margin-top:70px;
-
-display:flex;
-
-gap:40px;
-
-flex-wrap:wrap;
-
-font-size:15px;
-
-color:#cfcfcf;
-
-}
-
-.info a{
-
-color:white;
-
-text-decoration:none;
-
-}
-
-.info a:hover{
-
-text-decoration:underline;
-
-}
-
-.qr{
-
-margin-top:60px;
-
-}
-
-.qr img{
-
-width:140px;
-
-background:white;
-
-padding:12px;
-
-border-radius:12px;
-
-}
-
-.footer{
-
-margin-top:20px;
-
-color:#8d8d8d;
-
-font-size:13px;
-
-}
-
-@media(max-width:700px){
-
-.name{
-
-font-size:52px;
-
-}
-
-.buttons{
-
-flex-direction:column;
-
-}
-
-.button{
-
-text-align:center;
-
-}
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaye Güngör | Architectural Designer</title>
+    <!-- Modern bir Google Font ekliyoruz -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* TEMEL AYARLAR */
+        :root {
+            --bg-color: #fafafa;
+            --text-main: #111111;
+            --text-light: #888888;
+            --accent-color: #000000;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex; /* Menü ve içeriği yan yana dizmek için */
+            min-height: 100vh;
+        }
+
+        /* SOL MENÜ (SIDEBAR) */
+        .sidebar {
+            width: 300px;
+            padding: 50px 40px;
+            position: fixed; /* Ekranda sabit durur */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #eaeaea;
+            background-color: var(--bg-color);
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: -0.03em;
+            margin-bottom: 5px;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .title {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex-grow: 1; /* Alt kısmı aşağı itmek için */
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .sidebar-footer {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .sidebar-footer a {
+            color: var(--text-main);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* SAĞ İÇERİK ALANI */
+        .main-content {
+            margin-left: 300px; /* Sidebar'ın genişliği kadar boşluk bırak */
+            padding: 50px;
+            width: calc(100% - 300px);
+        }
+
+        /* VİTRİN GÖRSELLERİ (Şimdilik yer tutucu) */
+        .showcase {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 50px;
+        }
+
+        .project-item {
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            group: hover;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 70vh; /* Ekranın %70'i kadar yüksek */
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            transition: transform 0.4s ease;
+            overflow: hidden;
+        }
+
+        /* İleride görselleri eklediğimizde çalışacak efekt */
+        .project-item:hover .image-placeholder {
+            transform: scale(0.98); 
+        }
+
+        .project-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .project-name {
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+
+        .project-category {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* MOBİL UYUM */
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 30px;
+                border-right: none;
+                border-bottom: 1px solid #eaeaea;
+            }
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                padding: 30px;
+            }
+            .image-placeholder {
+                height: 50vh;
+            }
+            nav {
+                flex-direction: row;
+                margin-bottom: 30px;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
+    <!-- SOL SABİT MENÜ -->
+    <aside class="sidebar">
+        <a href="index.html" class="logo">Gaye Güngör</a>
+        <div class="title">Architectural Designer</div>
+        
+        <nav>
+            <a href="index.html" class="active">Selected Works</a>
+            <a href="about.html">About & Contact</a>
+            <!-- PDF Portfolyonu buraya koydum -->
+            <a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank">Download Full PDF</a> 
+        </nav>
 
-<div class="name">
+        <div class="sidebar-footer">
+            <a href="mailto:gungorggaye174@gmail.com">gungorggaye174@gmail.com</a>
+            <div>© 2026 Gaye Güngör</div>
+        </div>
+    </aside>
 
-Gaye Güngör
+    <!-- SAĞ İÇERİK ALANI -->
+    <main class="main-content">
+        <div class="showcase">
+            
+            <!-- Proje 1 (Şimdilik yer tutucu) -->
+            <a href="#" class="project-item">
+                <div class="image-placeholder">
+                    [Görsel Gelecek: Hallstatt]
+                </div>
+                <div class="project-info">
+                    <div class="project-name">Hallstatt Resilient Settlement</div>
+                    <div class="project-category">2023 / Infrastructure</div>
+                </div>
+            </a>
 
-</div>
+            <!-- Proje 2 (Şimdilik yer tutucu) -->
+            <a href="#" class="project-item">
+                <div class="image-placeholder">
+                    [Görsel Gelecek: Rotterdam]
+                </div>
+                <div class="project-info">
+                    <div class="project-name">Rotterdam Merwehaven</div>
+                    <div class="project-category">2022 / Urban Design</div>
+                </div>
+            </a>
 
-<div class="role">
-
-Architectural Designer
-
-</div>
-
-<div class="line"></div>
-
-<p class="description">
-
-A selected collection of architectural work focused on adaptive reuse,
-heritage conservation, computational design, and sustainable spatial strategies.
-Explore the interactive portfolio or download the complete PDF.
-
-</p>
-
-<div class="buttons">
-
-<a class="button primary"
-
-href="https://heyzine.com/flip-book/fa36f7c1f8.html"
-
-target="_blank">
-
-View Interactive Portfolio
-
-</a>
-
-<a class="button secondary"
-
-href="Gaye_Gungor_Portfolio%20(1).pdf"
-
-target="_blank">
-
-Download PDF
-
-</a>
-
-</div>
-
-<div class="info">
-
-<div>
-
-<strong>Email</strong><br>
-
-<a href="mailto:gungorggaye174@gmail.com">
-
-gungorggaye174@gmail.com
-
-</a>
-
-</div>
-
-<div>
-
-<strong>LinkedIn</strong><br>
-
-<a href="https://www.linkedin.com/in/gayeg%C3%BCng%C3%B6r"
-
-target="_blank">
-
-linkedin.com/in/gayegüngör
-
-</a>
-
-</div>
-
-</div>
-
-<div class="qr">
-
-<img src="qr%20(2).png">
-
-</div>
-
-<div class="footer">
-
-© 2026 Gaye Güngör
-
-</div>
-
-</div>
+        </div>
+    </main>
 
 </body>
-
 </html>
