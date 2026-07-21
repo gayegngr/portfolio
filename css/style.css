@@ -1492,3 +1492,98 @@ html{
 scroll-padding-top:120px;
 
 }
+/* ==========================================
+PROGRESS BAR
+========================================== */
+
+.progress-bar{
+
+position:fixed;
+
+left:0;
+
+top:0;
+
+height:3px;
+
+width:0;
+
+background:white;
+
+z-index:99999;
+
+transition:.1s;
+
+}
+
+
+/* ==========================================
+BACK TO TOP
+========================================== */
+
+.top-button{
+
+position:fixed;
+
+right:40px;
+
+bottom:40px;
+
+width:52px;
+
+height:52px;
+
+border-radius:50%;
+
+background:white;
+
+color:black;
+
+border:none;
+
+cursor:pointer;
+
+font-size:22px;
+
+opacity:0;
+
+visibility:hidden;
+
+transition:.35s;
+
+z-index:999;
+
+}
+
+.top-button:hover{
+
+transform:translateY(-6px);
+
+}
+
+.top-button.show{
+
+opacity:1;
+
+visibility:visible;
+
+}
+
+
+/* ==========================================
+BODY LOADED
+========================================== */
+
+body{
+
+opacity:0;
+
+transition:1s;
+
+}
+
+body.loaded{
+
+opacity:1;
+
+}
