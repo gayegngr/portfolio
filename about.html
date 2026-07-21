@@ -3,95 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Gaye Güngör</title>
+    <title>Hakkımda | Gaye Güngör</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Ana sayfadaki ile aynı temel ayarlar ve menü CSS'i */
-        :root { --bg-color: #fafafa; --text-main: #111111; --text-light: #888888; }
+        /* TEMEL AYARLAR VE ANİMASYON */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); display: flex; min-height: 100vh; }
-        
-        .sidebar { width: 300px; padding: 50px 40px; position: fixed; height: 100vh; display: flex; flex-direction: column; border-right: 1px solid #eaeaea; background-color: var(--bg-color); z-index: 100; }
-        .logo { font-size: 1.5rem; font-weight: 500; letter-spacing: -0.03em; margin-bottom: 5px; text-decoration: none; color: var(--text-main); }
-        .title { font-size: 0.85rem; color: var(--text-light); margin-bottom: 60px; text-transform: uppercase; letter-spacing: 0.05em; }
-        nav { display: flex; flex-direction: column; gap: 20px; flex-grow: 1; }
-        nav a { text-decoration: none; color: var(--text-light); font-size: 1.1rem; font-weight: 400; transition: color 0.3s ease; }
-        nav a:hover, nav a.active { color: var(--text-main); font-weight: 500; }
-        .sidebar-footer { font-size: 0.8rem; color: var(--text-light); line-height: 1.6; }
-        .sidebar-footer a { color: var(--text-main); text-decoration: none; display: block; margin-bottom: 10px; }
+        body { font-family: 'Inter', sans-serif; background-color: #fafafa; color: #111111; opacity: 0; transition: opacity 0.6s ease-in-out; }
+        body.loaded { opacity: 1; }
+        body.fade-out { opacity: 0; }
 
-        /* ABOUT SAYFASI ÖZEL İÇERİĞİ */
-        .main-content { margin-left: 300px; padding: 50px 10%; width: calc(100% - 300px); max-width: 1200px; }
-        
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-top: 50px; }
-        
-        h1 { font-size: 2.5rem; font-weight: 300; margin-bottom: 30px; letter-spacing: -0.02em; }
-        
-        .bio p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; color: #333; }
-        
-        .contact-info { margin-top: 50px; padding-top: 30px; border-top: 1px solid #eaeaea; }
-        .contact-item { margin-bottom: 20px; }
-        .contact-label { font-size: 0.85rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px; }
-        .contact-value a { color: var(--text-main); text-decoration: none; font-size: 1.1rem; transition: opacity 0.3s; }
-        .contact-value a:hover { opacity: 0.6; border-bottom: 1px solid var(--text-main); }
+        /* SİYAH GİRİŞ EKRANI */
+        .hero { height: 100vh; background-color: #050505; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; }
+        .hero h1 { color: #ffffff; font-size: clamp(3rem, 5vw, 5rem); font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; animation: slideUp 1.5s ease-out forwards; opacity: 0; transform: translateY(30px); }
+        @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
 
-        .profile-image { width: 100%; aspect-ratio: 3/4; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #999; }
+        .scroll-down { position: absolute; bottom: 50px; color: #ffffff; font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; opacity: 0.7; transition: opacity 0.3s; animation: bounce 2s infinite; cursor: pointer; }
+        .scroll-down:hover { opacity: 1; }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
 
-        @media (max-width: 900px) {
-            body { flex-direction: column; }
-            .sidebar { width: 100%; height: auto; position: relative; padding: 30px; border-right: none; border-bottom: 1px solid #eaeaea; }
-            .main-content { margin-left: 0; width: 100%; padding: 30px; }
-            nav { flex-direction: row; margin-bottom: 30px; flex-wrap: wrap; }
-            .about-grid { grid-template-columns: 1fr; }
-            .profile-image { aspect-ratio: 16/9; margin-bottom: 30px; }
-        }
+        /* YAPIŞKAN MENÜ */
+        .nav-container { position: sticky; top: 0; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(5px); padding: 20px 0; border-bottom: 1px solid #eaeaea; z-index: 1000; text-align: center; }
+        .nav-links { list-style: none; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; color: #888888; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s ease; cursor: pointer; }
+        .nav-links a:hover, .nav-links a.active { color: #111111; }
+
+        /* İÇERİK (BEYAZ ALAN) */
+        .content-section { padding: 80px 10%; min-height: 100vh; max-width: 1200px; margin: 0 auto; }
+        
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 50px; }
+        .bio-text p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px; color: #444; }
+        
+        .contact-box { margin-top: 40px; padding-top: 30px; border-top: 1px solid #eaeaea; }
+        .contact-item { margin-bottom: 15px; }
+        .contact-item span { display: block; font-size: 0.8rem; color: #888; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px; }
+        .contact-item a { color: #111; text-decoration: none; font-size: 1.1rem; border-bottom: 1px solid transparent; transition: border-color 0.3s; }
+        .contact-item a:hover { border-color: #111; }
+
+        .profile-img-container { width: 100%; aspect-ratio: 3/4; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #999; }
+        .profile-img-container img { width: 100%; height: 100%; object-fit: cover; }
+
+        footer { padding: 40px 10%; text-align: center; border-top: 1px solid #eaeaea; font-size: 0.85rem; color: #888888; background-color: #ffffff; }
+
+        @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } .nav-links { gap: 20px; } }
     </style>
 </head>
 <body>
 
-    <!-- SOL SABİT MENÜ -->
-    <aside class="sidebar">
-        <a href="index.html" class="logo">Gaye Güngör</a>
-        <div class="title">Architectural Designer</div>
-        <nav>
-            <a href="index.html">Selected Works</a>
-            <a href="about.html" class="active">About & Contact</a>
-            <a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank">Download Full PDF</a> 
-        </nav>
-        <div class="sidebar-footer">
-            <a href="mailto:gungorggaye174@gmail.com">gungorggaye174@gmail.com</a>
-            <div>© 2026 Gaye Güngör</div>
-        </div>
-    </aside>
+    <section class="hero" id="home">
+        <h1>Hakkımda</h1>
+        <a class="scroll-down" onclick="scrollToContent()">Scroll Down ↓</a>
+    </section>
 
-    <!-- SAĞ İÇERİK ALANI -->
-    <main class="main-content">
-        <h1>About</h1>
-        
+    <nav class="nav-container" id="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html" onclick="transitionToPage(event, 'index.html')">Projeler</a></li>
+            <li><a href="#navbar" class="active">Hakkımda</a></li>
+            <li><a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank">CV / PDF</a></li>
+            <li><a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank">İnteraktif Portfolyo</a></li>
+        </ul>
+    </nav>
+
+    <section class="content-section" id="content">
         <div class="about-grid">
-            <div class="bio">
+            <div class="bio-text">
                 <p>Hello, I am a fourth-year architecture student at Izmir Institute of Technology (IZTECH). My work is deeply focused on adaptive reuse, heritage conservation, computational design, and sustainable spatial strategies.</p>
                 <p>I am particularly interested in how architecture can respond to complex environmental challenges, from rising sea levels to structural resilience in extreme topologies. My design process relies heavily on advanced 3D modeling, detailed structural diagramming, and creating high-quality architectural visualizations to communicate spatial narratives.</p>
                 
-                <div class="contact-info">
+                <div class="contact-box">
                     <div class="contact-item">
-                        <div class="contact-label">Email</div>
-                        <div class="contact-value"><a href="mailto:gungorggaye174@gmail.com">gungorggaye174@gmail.com</a></div>
+                        <span>Email</span>
+                        <a href="mailto:gungorggaye174@gmail.com">gungorggaye174@gmail.com</a>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-label">LinkedIn</div>
-                        <div class="contact-value"><a href="https://www.linkedin.com/in/gayeg%C3%BCng%C3%B6r" target="_blank">linkedin.com/in/gayegüngör</a></div>
+                        <span>LinkedIn</span>
+                        <a href="https://www.linkedin.com/in/gayeg%C3%BCng%C3%B6r" target="_blank">linkedin.com/in/gayegüngör</a>
                     </div>
                 </div>
             </div>
             
-            <div>
-                <div class="profile-image">
-                    [Profil Fotoğrafı Gelecek]
-                </div>
+            <div class="profile-img-container">
+                <!-- Profil fotoğrafını buraya ekle -->
+                <img src="profil.jpg" alt="Gaye Güngör">
             </div>
         </div>
-    </main>
+    </section>
 
+    <footer>
+        <p>© 2026 Gaye Güngör | Architectural Designer</p>
+    </footer>
+
+    <script>
+        window.onload = function() { document.body.classList.add('loaded'); };
+        function scrollToContent() { document.getElementById('navbar').scrollIntoView({ behavior: 'smooth' }); }
+        function transitionToPage(event, url) {
+            event.preventDefault();
+            document.body.classList.remove('loaded');
+            document.body.classList.add('fade-out');
+            setTimeout(function() { window.location.href = url; }, 600);
+        }
+    </script>
 </body>
 </html>
