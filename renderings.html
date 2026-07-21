@@ -1,1 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architectural Renderings | Gaye Güngör</title>
+    <!-- Stil kodları (CSS) aynı -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-color: #fafafa; --text-main: #111111; --text-light: #888888; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); display: flex; min-height: 100vh; }
+        .sidebar { width: 300px; padding: 50px 40px; position: fixed; height: 100vh; display: flex; flex-direction: column; border-right: 1px solid #eaeaea; background-color: var(--bg-color); z-index: 100; }
+        .logo { font-size: 1.5rem; font-weight: 500; letter-spacing: -0.03em; margin-bottom: 5px; text-decoration: none; color: var(--text-main); }
+        .title { font-size: 0.85rem; color: var(--text-light); margin-bottom: 60px; text-transform: uppercase; letter-spacing: 0.05em; }
+        nav { display: flex; flex-direction: column; gap: 20px; flex-grow: 1; }
+        nav a { text-decoration: none; color: var(--text-light); font-size: 1.1rem; font-weight: 400; transition: color 0.3s ease; }
+        nav a:hover, nav a.active { color: var(--text-main); font-weight: 500; }
+        .sidebar-footer { font-size: 0.8rem; color: var(--text-light); line-height: 1.6; }
+        .sidebar-footer a { color: var(--text-main); text-decoration: none; display: block; margin-bottom: 10px; }
+        .main-content { margin-left: 300px; padding: 50px; width: calc(100% - 300px); }
+        .project-header { margin-bottom: 50px; max-width: 800px; }
+        .project-title { font-size: 3rem; font-weight: 300; margin-bottom: 15px; letter-spacing: -0.02em; line-height: 1.1; }
+        .project-meta { display: flex; gap: 30px; margin-bottom: 30px; font-size: 0.9rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em; }
+        .project-description { font-size: 1.1rem; line-height: 1.8; color: #333; }
+        .project-images { display: flex; flex-direction: column; gap: 40px; margin-top: 50px; }
+        .img-block { width: 100%; min-height: 60vh; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #999; overflow: hidden; }
+        .img-caption { margin-top: 10px; font-size: 0.85rem; color: var(--text-light); text-align: right; }
+        .back-link { display: inline-block; margin-top: 50px; text-decoration: none; color: var(--text-main); border-bottom: 1px solid var(--text-main); padding-bottom: 3px; }
+        @media (max-width: 900px) { body { flex-direction: column; } .sidebar { width: 100%; height: auto; position: relative; padding: 30px; border-right: none; border-bottom: 1px solid #eaeaea; } .main-content { margin-left: 0; width: 100%; padding: 30px; } nav { flex-direction: row; margin-bottom: 30px; flex-wrap: wrap; } .project-title { font-size: 2rem; } .project-meta { flex-direction: column; gap: 10px; } .img-block { min-height: 40vh; } }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <a href="index.html" class="logo">Gaye Güngör</a>
+        <div class="title">Architectural Designer</div>
+        <nav>
+            <a href="index.html" class="active">Selected Works</a>
+            <a href="about.html">About & Contact</a>
+            <a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank">Download Full PDF</a> 
+        </nav>
+        <div class="sidebar-footer">
+            <a href="mailto:gungorggaye174@gmail.com">gungorggaye174@gmail.com</a>
+            <div>© 2026 Gaye Güngör</div>
+        </div>
+    </aside>
 
+    <main class="main-content">
+        <div class="project-header">
+            <h1 class="project-title">Architectural Renderings</h1>
+            <div class="project-meta">
+                <span>Focus: Architectural Visualization</span>
+                <span>Tools: SketchUp, Digital Rendering</span>
+            </div>
+            <div class="project-description">
+                <p>A curated selection of high-resolution architectural visualizations. These explorations focus on atmosphere, lighting, and material qualities, communicating spatial narratives and conceptual ideas through digital mediums.</p>
+            </div>
+        </div>
+
+        <div class="project-images">
+            <!-- Görsel 1 -->
+            <div>
+                <div class="img-block">
+                    <img src="rendering-1.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Render 1">
+                </div>
+                <div class="img-caption">Atmospheric interior visualization</div>
+            </div>
+            
+            <!-- Görsel 2 -->
+            <div>
+                <div class="img-block">
+                    <img src="rendering-2.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Render 2">
+                </div>
+                <div class="img-caption">Exterior facade study and lighting</div>
+            </div>
+
+            <!-- Görsel 3 -->
+            <div>
+                <div class="img-block">
+                    <img src="rendering-3.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Render 3">
+                </div>
+                <div class="img-caption">Spatial diagram and conceptual mapping</div>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-link">← Back to Projects</a>
+    </main>
+</body>
+</html>
