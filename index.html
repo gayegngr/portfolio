@@ -4,110 +4,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gaye Güngör | Architectural Designer</title>
-    <!-- Modern bir Google Font ekliyoruz -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* TEMEL AYARLAR */
-        :root {
-            --bg-color: #fafafa;
-            --text-main: #111111;
-            --text-light: #888888;
-            --accent-color: #000000;
+        /* TEMEL AYARLAR VE ANİMASYON GEÇİŞİ */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fafafa; 
+            color: #111111; 
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+        }
+        
+        body.loaded { opacity: 1; }
+        body.fade-out { opacity: 0; }
+
+        /* 1. SİYAH GİRİŞ EKRANI (İLK AÇILAN YER) */
+        .hero {
+            height: 100vh; /* Tam ekran yüksekliği */
+            background-color: #050505; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        .hero h1 {
+            color: #ffffff; 
+            font-size: clamp(3rem, 6vw, 6rem);
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            animation: slideUp 1.5s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+            text-align: center;
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            display: flex; /* Menü ve içeriği yan yana dizmek için */
+        .hero p { 
+            color: #888888; 
+            margin-top: 20px; 
+            font-size: 1rem; 
+            text-transform: uppercase; 
+            letter-spacing: 0.2em; 
+            animation: slideUp 1.5s ease-out forwards 0.3s; 
+            opacity: 0; 
+            transform: translateY(30px); 
+            text-align: center;
+        }
+
+        @keyframes slideUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 50px;
+            color: #ffffff;
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+        .scroll-down:hover { opacity: 1; }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* 2. YAPIŞKAN MENÜ (İNGİLİZCE) */
+        .nav-container {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95); 
+            backdrop-filter: blur(5px);
+            padding: 20px 0;
+            border-bottom: 1px solid #eaeaea;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #888888;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #111111;
+        }
+
+        /* 3. PROJELER ALANI */
+        .content-section {
+            padding: 80px 10%;
             min-height: 100vh;
         }
 
-        /* SOL MENÜ (SIDEBAR) */
-        .sidebar {
-            width: 300px;
-            padding: 50px 40px;
-            position: fixed; /* Ekranda sabit durur */
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            border-right: 1px solid #eaeaea;
-            background-color: var(--bg-color);
-            z-index: 100;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 500;
-            letter-spacing: -0.03em;
-            margin-bottom: 5px;
-            text-decoration: none;
-            color: var(--text-main);
-        }
-
-        .title {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            margin-bottom: 60px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        nav {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            flex-grow: 1; /* Alt kısmı aşağı itmek için */
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-light);
-            font-size: 1.1rem;
-            font-weight: 400;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover, nav a.active {
-            color: var(--text-main);
-            font-weight: 500;
-        }
-
-        .sidebar-footer {
-            font-size: 0.8rem;
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        .sidebar-footer a {
-            color: var(--text-main);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        /* SAĞ İÇERİK ALANI */
-        .main-content {
-            margin-left: 300px; /* Sidebar'ın genişliği kadar boşluk bırak */
-            padding: 50px;
-            width: calc(100% - 300px);
-        }
-
-        /* VİTRİN GÖRSELLERİ (Şimdilik yer tutucu) */
-        .showcase {
+        .grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 50px;
         }
 
         .project-item {
-            position: relative;
             text-decoration: none;
             color: inherit;
             display: block;
@@ -116,168 +136,159 @@
 
         .image-placeholder {
             width: 100%;
-            height: 70vh; /* Ekranın %70'i kadar yüksek */
+            aspect-ratio: 4/3;
             background-color: #e0e0e0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 1.2rem;
             margin-bottom: 20px;
-            transition: transform 0.4s ease;
             overflow: hidden;
         }
 
-        /* İleride görselleri eklediğimizde çalışacak efekt */
-        .project-item:hover .image-placeholder {
-            transform: scale(0.98); 
+        .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
         }
 
-        .project-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .project-item:hover .image-placeholder img {
+            transform: scale(1.04);
         }
 
-        .project-name {
-            font-size: 1.5rem;
-            font-weight: 400;
+        .project-name { font-size: 1.4rem; font-weight: 400; margin-bottom: 5px; }
+        .project-category { font-size: 0.9rem; color: #888888; text-transform: uppercase; letter-spacing: 0.05em; }
+
+        footer {
+            padding: 40px 10%;
+            text-align: center;
+            border-top: 1px solid #eaeaea;
+            font-size: 0.85rem;
+            color: #888888;
+            background-color: #ffffff;
         }
 
-        .project-category {
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        /* MOBİL UYUM */
-        @media (max-width: 900px) {
-            body {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-                padding: 30px;
-                border-right: none;
-                border-bottom: 1px solid #eaeaea;
-            }
-            .main-content {
-                margin-left: 0;
-                width: 100%;
-                padding: 30px;
-            }
-            .image-placeholder {
-                height: 50vh;
-            }
-            nav {
-                flex-direction: row;
-                margin-bottom: 30px;
-                flex-wrap: wrap;
-            }
+        @media (max-width: 768px) {
+            .nav-links { gap: 20px; }
+            .content-section { padding: 50px 5%; }
         }
     </style>
 </head>
 <body>
 
-    <!-- SOL SABİT MENÜ -->
-    <aside class="sidebar">
-        <a href="index.html" class="logo">Gaye Güngör</a>
-        <div class="title">Architectural Designer</div>
-        
-        <nav>
-            <a href="index.html" class="active">Selected Works</a>
-            <a href="about.html">About & Contact</a>
-            <!-- PDF Portfolyonu buraya koydum -->
-            <a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank">Download Full PDF</a> 
-        </nav>
+    <!-- BURASI İLK AÇILAN SİYAH EKRAN (İSMİN YAZIYOR) -->
+    <section class="hero" id="home">
+        <h1>Gaye Güngör</h1>
+        <p>Architectural Designer</p>
+        <a class="scroll-down" onclick="scrollToProjects()">Scroll Down ↓</a>
+    </section>
 
-        <div class="sidebar-footer">
-            <a href="mailto:gungorggaye174@gmail.com">gungorggaye174@gmail.com</a>
-            <div>© 2026 Gaye Güngör</div>
-        </div>
-    </aside>
+    <!-- MENÜ (İNGİLİZCE OLDU) -->
+    <nav class="nav-container" id="navbar">
+        <ul class="nav-links">
+            <li><a href="#navbar" class="active">Projects</a></li>
+            <li><a href="about.html" onclick="transitionToPage(event, 'about.html')">About</a></li>
+            <li><a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank">CV / PDF</a></li>
+            <li><a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank">Interactive Portfolio</a></li>
+        </ul>
+    </nav>
 
-    <!-- SAĞ İÇERİK ALANI -->
-    <main class="main-content">
-        <div class="showcase">
+    <!-- PROJELER LİSTESİ -->
+    <section class="content-section" id="projects">
+        <div class="grid">
             
-           <!-- Proje 1: AFTERGROUND -->
-            <a href="afterground.html" class="project-item">
+            <a href="afterground.html" class="project-item" onclick="transitionToPage(event, 'afterground.html')">
                 <div class="image-placeholder">
-                    <!-- Görselini buraya bağla. Örn: afterground-cover.jpg -->
-                    <img src="afterground-cover.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="AFTERGROUND">
+                    <img src="afterground-cover.jpg" alt="AFTERGROUND">
                 </div>
                 <div class="project-info">
-                    <div class="project-name">AFTERGROUND</div>
+                    <div class="project-name">01 AFTERGROUND</div>
                     <div class="project-category">Graduation Project</div>
                 </div>
             </a>
 
-           <!-- Proje 2: SOLACEPOINT -->
-            <a href="solacepoint.html" class="project-item">
+            <a href="solacepoint.html" class="project-item" onclick="transitionToPage(event, 'solacepoint.html')">
                 <div class="image-placeholder">
-                    <!-- Görselini buraya bağla. Örn: solacepoint-cover.jpg -->
-                    <img src="solacepoint-cover.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="SOLACEPOINT">
+                    <img src="solacepoint-cover.jpg" alt="SOLACEPOINT">
                 </div>
                 <div class="project-info">
-                    <div class="project-name">SOLACEPOINT</div>
+                    <div class="project-name">02 SOLACEPOINT</div>
                     <div class="project-category">Architectural Design IV</div>
                 </div>
             </a>
-        </div>
-        <!-- Proje 3: TERRAHAUS -->
-            <a href="terrahaus.html" class="project-item">
+
+            <a href="terrahaus.html" class="project-item" onclick="transitionToPage(event, 'terrahaus.html')">
                 <div class="image-placeholder">
-                    <!-- Görselini buraya bağla. Örn: terrahaus-cover.jpg -->
-                    <img src="terrahaus-cover.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="TERRAHAUS">
+                    <img src="terrahaus-cover.jpg" alt="TERRAHAUS">
                 </div>
                 <div class="project-info">
-                    <div class="project-name">TERRAHAUS</div>
+                    <div class="project-name">03 TERRAHAUS</div>
                     <div class="project-category">Residential Design</div>
                 </div>
             </a>
-        <!-- Proje 4: CONFLUX -->
-            <a href="conflux.html" class="project-item">
+
+            <a href="conflux.html" class="project-item" onclick="transitionToPage(event, 'conflux.html')">
                 <div class="image-placeholder">
-                    <!-- Görselini buraya bağla. Örn: conflux-cover.jpg -->
-                    <img src="conflux-cover.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="CONFLUX">
+                    <img src="conflux-cover.jpg" alt="CONFLUX">
                 </div>
                 <div class="project-info">
-                    <div class="project-name">CONFLUX</div>
+                    <div class="project-name">04 CONFLUX</div>
                     <div class="project-category">Urban Design</div>
                 </div>
             </a>
-        <!-- Proje 5: BIOSPHERE NEXUS -->
-            <a href="biosphere.html" class="project-item">
+
+            <a href="biosphere.html" class="project-item" onclick="transitionToPage(event, 'biosphere.html')">
                 <div class="image-placeholder">
-                    <!-- Görselini buraya bağla. Örn: biosphere-cover.jpg -->
-                    <img src="biosphere-cover.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="BIOSPHERE NEXUS">
+                    <img src="biosphere-cover.jpg" alt="BIOSPHERE NEXUS">
                 </div>
                 <div class="project-info">
-                    <div class="project-name">BIOSPHERE NEXUS</div>
+                    <div class="project-name">05 BIOSPHERE NEXUS</div>
                     <div class="project-category">Ecological Infrastructure</div>
                 </div>
             </a>
-<!-- Proje 6: BIBLIOTHÈQUE -->
-            <a href="bibliotheque.html" class="project-item">
+
+            <a href="bibliotheque.html" class="project-item" onclick="transitionToPage(event, 'bibliotheque.html')">
                 <div class="image-placeholder">
-                    <!-- Görselini buraya bağla. Örn: bibliotheque-cover.jpg -->
-                    <img src="bibliotheque-cover.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="BIBLIOTHÈQUE">
+                    <img src="bibliotheque-cover.jpg" alt="BIBLIOTHÈQUE">
                 </div>
                 <div class="project-info">
-                    <div class="project-name">BIBLIOTHÈQUE</div>
-                    <div class="project-category">Public Building / Library</div>
+                    <div class="project-name">06 BIBLIOTHÈQUE</div>
+                    <div class="project-category">Public Building</div>
                 </div>
             </a>
-<!-- Proje 7: Architectural Renderings -->
-            <a href="renderings.html" class="project-item">
+
+            <a href="renderings.html" class="project-item" onclick="transitionToPage(event, 'renderings.html')">
                 <div class="image-placeholder">
-                    <!-- En iyi/en iddialı renderını kapak yap. Örn: rendering-cover.jpg -->
-                    <img src="rendering-cover.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="Architectural Renderings">
+                    <img src="rendering-cover.jpg" alt="Architectural Renderings">
                 </div>
                 <div class="project-info">
-                    <div class="project-name">Architectural Renderings</div>
+                    <div class="project-name">07 ARCHITECTURAL RENDERINGS</div>
                     <div class="project-category">Visualization / 3D Art</div>
                 </div>
             </a>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Gaye Güngör | Architectural Designer</p>
+    </footer>
+
+    <script>
+        window.onload = function() {
+            document.body.classList.add('loaded');
+        };
+
+        function scrollToProjects() {
+            document.getElementById('navbar').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function transitionToPage(event, url) {
+            event.preventDefault(); 
+            document.body.classList.remove('loaded');
+            document.body.classList.add('fade-out'); 
+            
+            setTimeout(function() {
+                window.location.href = url;
+            }, 600);
+        }
+    </script>
+</body>
+</html>
