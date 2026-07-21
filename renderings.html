@@ -4,86 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Architectural Renderings | Gaye Güngör</title>
-    <!-- Stil kodları (CSS) aynı -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        :root { --bg-color: #fafafa; --text-main: #111111; --text-light: #888888; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); display: flex; min-height: 100vh; }
-        .sidebar { width: 300px; padding: 50px 40px; position: fixed; height: 100vh; display: flex; flex-direction: column; border-right: 1px solid #eaeaea; background-color: var(--bg-color); z-index: 100; }
-        .logo { font-size: 1.5rem; font-weight: 500; letter-spacing: -0.03em; margin-bottom: 5px; text-decoration: none; color: var(--text-main); }
-        .title { font-size: 0.85rem; color: var(--text-light); margin-bottom: 60px; text-transform: uppercase; letter-spacing: 0.05em; }
-        nav { display: flex; flex-direction: column; gap: 20px; flex-grow: 1; }
-        nav a { text-decoration: none; color: var(--text-light); font-size: 1.1rem; font-weight: 400; transition: color 0.3s ease; }
-        nav a:hover, nav a.active { color: var(--text-main); font-weight: 500; }
-        .sidebar-footer { font-size: 0.8rem; color: var(--text-light); line-height: 1.6; }
-        .sidebar-footer a { color: var(--text-main); text-decoration: none; display: block; margin-bottom: 10px; }
-        .main-content { margin-left: 300px; padding: 50px; width: calc(100% - 300px); }
-        .project-header { margin-bottom: 50px; max-width: 800px; }
-        .project-title { font-size: 3rem; font-weight: 300; margin-bottom: 15px; letter-spacing: -0.02em; line-height: 1.1; }
-        .project-meta { display: flex; gap: 30px; margin-bottom: 30px; font-size: 0.9rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em; }
-        .project-description { font-size: 1.1rem; line-height: 1.8; color: #333; }
-        .project-images { display: flex; flex-direction: column; gap: 40px; margin-top: 50px; }
-        .img-block { width: 100%; min-height: 60vh; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #999; overflow: hidden; }
-        .img-caption { margin-top: 10px; font-size: 0.85rem; color: var(--text-light); text-align: right; }
-        .back-link { display: inline-block; margin-top: 50px; text-decoration: none; color: var(--text-main); border-bottom: 1px solid var(--text-main); padding-bottom: 3px; }
-        @media (max-width: 900px) { body { flex-direction: column; } .sidebar { width: 100%; height: auto; position: relative; padding: 30px; border-right: none; border-bottom: 1px solid #eaeaea; } .main-content { margin-left: 0; width: 100%; padding: 30px; } nav { flex-direction: row; margin-bottom: 30px; flex-wrap: wrap; } .project-title { font-size: 2rem; } .project-meta { flex-direction: column; gap: 10px; } .img-block { min-height: 40vh; } }
+        body { font-family: 'Inter', sans-serif; background-color: #fafafa; color: #111111; opacity: 0; transition: opacity 0.6s ease-in-out; }
+        body.loaded { opacity: 1; }
+        body.fade-out { opacity: 0; }
+        .hero { height: 100vh; background-color: #050505; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; }
+        .hero h1 { color: #ffffff; font-size: clamp(2.5rem, 5vw, 5rem); font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; animation: slideUp 1.5s ease-out forwards; opacity: 0; transform: translateY(30px); text-align: center; padding: 0 20px;}
+        .hero p { color: #888888; margin-top: 20px; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.2em; animation: slideUp 1.5s ease-out forwards 0.3s; opacity: 0; transform: translateY(30px); }
+        @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+        .scroll-down { position: absolute; bottom: 50px; color: #ffffff; font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; opacity: 0.7; transition: opacity 0.3s; animation: bounce 2s infinite; cursor: pointer; }
+        .scroll-down:hover { opacity: 1; }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
+        .nav-container { position: sticky; top: 0; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(5px); padding: 20px 0; border-bottom: 1px solid #eaeaea; z-index: 1000; text-align: center; }
+        .nav-links { list-style: none; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; color: #888888; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s ease; cursor: pointer; }
+        .nav-links a:hover { color: #111111; }
+        .content-section { padding: 80px 10%; min-height: 100vh; max-width: 1000px; margin: 0 auto; }
+        .project-description { font-size: 1.1rem; line-height: 1.8; color: #333; margin-bottom: 60px; text-align: justify;}
+        .project-images { display: flex; flex-direction: column; gap: 60px; }
+        .img-block { width: 100%; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; }
+        .img-block img { width: 100%; height: auto; display: block; }
+        .img-caption { margin-top: 15px; font-size: 0.85rem; color: #888; text-align: right; font-style: italic; }
+        .back-link { display: inline-block; margin-top: 80px; text-decoration: none; color: #111; font-weight: 500; border-bottom: 1px solid #111; padding-bottom: 3px; text-transform: uppercase; letter-spacing: 0.1em;}
+        footer { padding: 40px 10%; text-align: center; border-top: 1px solid #eaeaea; font-size: 0.85rem; color: #888888; background-color: #ffffff; }
+        @media (max-width: 768px) { .nav-links { gap: 20px; } .content-section { padding: 50px 5%; } }
     </style>
 </head>
 <body>
-    <aside class="sidebar">
-        <a href="index.html" class="logo">Gaye Güngör</a>
-        <div class="title">Architectural Designer</div>
-        <nav>
-            <a href="index.html" class="active">Selected Works</a>
-            <a href="about.html">About & Contact</a>
-            <a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank">Download Full PDF</a> 
-        </nav>
-        <div class="sidebar-footer">
-            <a href="mailto:gungorggaye174@gmail.com">gungorggaye174@gmail.com</a>
-            <div>© 2026 Gaye Güngör</div>
-        </div>
-    </aside>
+    <section class="hero" id="home">
+        <h1>07 RENDERINGS</h1>
+        <p>Visualization / 3D Art</p>
+        <a class="scroll-down" onclick="scrollToContent()">Explore Gallery ↓</a>
+    </section>
 
-    <main class="main-content">
-        <div class="project-header">
-            <h1 class="project-title">Architectural Renderings</h1>
-            <div class="project-meta">
-                <span>Focus: Architectural Visualization</span>
-                <span>Tools: SketchUp, Digital Rendering</span>
-            </div>
-            <div class="project-description">
-                <p>A curated selection of high-resolution architectural visualizations. These explorations focus on atmosphere, lighting, and material qualities, communicating spatial narratives and conceptual ideas through digital mediums.</p>
-            </div>
+    <nav class="nav-container" id="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html" onclick="transitionToPage(event, 'index.html')">Projeler</a></li>
+            <li><a href="about.html" onclick="transitionToPage(event, 'about.html')">Hakkımda</a></li>
+            <li><a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank">CV / PDF</a></li>
+            <li><a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank">İnteraktif Portfolyo</a></li>
+        </ul>
+    </nav>
+
+    <section class="content-section" id="content">
+        <div class="project-description">
+            <p>A curated selection of high-resolution architectural visualizations. These explorations focus on atmosphere, lighting, and material qualities, communicating spatial narratives and conceptual ideas through digital mediums.</p>
         </div>
 
         <div class="project-images">
-            <!-- Görsel 1 -->
             <div>
                 <div class="img-block">
-                    <img src="rendering-1.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Render 1">
+                    <img src="rendering-1.jpg" alt="Render 1">
                 </div>
                 <div class="img-caption">Atmospheric interior visualization</div>
             </div>
-            
-            <!-- Görsel 2 -->
             <div>
                 <div class="img-block">
-                    <img src="rendering-2.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Render 2">
+                    <img src="rendering-2.jpg" alt="Render 2">
                 </div>
                 <div class="img-caption">Exterior facade study and lighting</div>
             </div>
-
-            <!-- Görsel 3 -->
             <div>
                 <div class="img-block">
-                    <img src="rendering-3.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Render 3">
+                    <img src="rendering-3.jpg" alt="Render 3">
                 </div>
                 <div class="img-caption">Spatial diagram and conceptual mapping</div>
             </div>
         </div>
 
-        <a href="index.html" class="back-link">← Back to Projects</a>
-    </main>
+        <a href="index.html" class="back-link" onclick="transitionToPage(event, 'index.html')">← Tüm Projeler</a>
+    </section>
+
+    <footer>
+        <p>© 2026 Gaye Güngör | Architectural Designer</p>
+    </footer>
+
+    <script>
+        window.onload = function() { document.body.classList.add('loaded'); };
+        function scrollToContent() { document.getElementById('navbar').scrollIntoView({ behavior: 'smooth' }); }
+        function transitionToPage(event, url) { event.preventDefault(); document.body.classList.remove('loaded'); document.body.classList.add('fade-out'); setTimeout(function() { window.location.href = url; }, 600); }
+    </script>
 </body>
 </html>
