@@ -32,6 +32,9 @@
         .content-section { padding: 80px 10%; min-height: 100vh; max-width: 1000px; margin: 0 auto; }
         
         .project-description { font-size: 1.1rem; line-height: 1.8; color: #333; margin-bottom: 60px; text-align: justify;}
+        /* Yeni eklenen başlık stili */
+        .project-description h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 15px; color: #111; }
+        .project-description p { margin-bottom: 20px; }
         
         .project-images { display: flex; flex-direction: column; gap: 60px; }
         .img-block { width: 100%; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; }
@@ -66,30 +69,41 @@
 
     <!-- PROJE DETAYLARI (BEYAZ ZEMİN) -->
     <section class="content-section" id="content">
+        
+        <!-- YENİ METİN BURADA -->
         <div class="project-description">
-            <p>Designed as a landslide-resilient settlement located inside a mountain chasm. Responding to local salt mining risks, the project utilizes a structural "zipper" concept to connect and stabilize the rock faces, creating habitable spaces within extreme topologies.</p>
+            <h3>Adaptive Living: A Future Shaped by Water and Landscape</h3>
+            <p>This project explores a future where rising lake levels transform existing settlements and redefine the relationship between people, water, and the landscape. Instead of resisting environmental change, the proposal embraces adaptation as a design opportunity, creating a resilient settlement that evolves with its surroundings.</p>
+            <p>Organized through a layered terrace system, the settlement follows the natural topography while responding to changing water conditions. A continuous spatial network connects housing, public spaces, and ecological landscapes across different elevations, allowing the community to grow and transform together with the environment.</p>
+            <p>Through integrated water management strategies, green corridors, and landscape-based infrastructure, the project proposes a new model of habitation where architecture and nature coexist. It presents a vision of future living that adapts, rather than opposes, the realities of a changing climate.</p>
         </div>
 
+        <!-- RENDER ALANI -->
         <div class="project-images">
-            <!-- Görsel 1 -->
+            <!-- Render 1 -->
             <div>
                 <div class="img-block">
-                    <img src="afterground-1.jpg" alt="Afterground Render">
+                    <!-- 1. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
+                    <img src="afterground-render1.jpg" alt="Afterground Adaptive Living Render 1">
                 </div>
-                <div class="img-caption">Structural integration with the mountain chasm</div>
+                <!-- 1. GÖRSELİN AÇIKLAMASI -->
+                <div class="img-caption">Layered terrace system adapting to the topography</div>
             </div>
             
-            <!-- Görsel 2 (Eğer varsa) -->
+            <!-- Render 2 -->
              <div>
                 <div class="img-block">
-                    <img src="afterground-2.jpg" alt="Afterground Diagram">
+                    <!-- 2. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
+                    <img src="afterground-render2.jpg" alt="Afterground Spatial Network">
                 </div>
-                <div class="img-caption">Structural "zipper" concept diagram</div>
+                <!-- 2. GÖRSELİN AÇIKLAMASI -->
+                <div class="img-caption">Continuous spatial network and ecological corridors</div>
             </div>
+            
+            <!-- İhtiyacın varsa aşağıya Render 3, Render 4 diye blokları kopyalayıp yapıştırarak çoğaltabilirsin -->
         </div>
 
-        <!-- Animasyonlu geri dön linki -->
-        <a href="index.html" class="back-link" onclick="transitionToPage(event, 'index.html')">← Tüm Projeler</a>
+        <a href="index.html" class="back-link" onclick="transitionToPage(event, 'index.html')">← Back to Projects</a>
     </section>
 
     <footer>
