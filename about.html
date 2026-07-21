@@ -31,7 +31,7 @@
         .content-section { padding: 80px 10%; min-height: 100vh; max-width: 1200px; margin: 0 auto; }
         
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 50px; }
-        .bio-text p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px; color: #444; }
+        .bio-text p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px; color: #444; text-align: justify; }
         
         .contact-box { margin-top: 40px; padding-top: 30px; border-top: 1px solid #eaeaea; }
         .contact-item { margin-bottom: 15px; }
@@ -39,7 +39,7 @@
         .contact-item a { color: #111; text-decoration: none; font-size: 1.1rem; border-bottom: 1px solid transparent; transition: border-color 0.3s; }
         .contact-item a:hover { border-color: #111; }
 
-        .profile-img-container { width: 100%; aspect-ratio: 3/4; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #999; }
+        .profile-img-container { width: 100%; aspect-ratio: 3/4; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #999; overflow: hidden;}
         .profile-img-container img { width: 100%; height: 100%; object-fit: cover; }
 
         footer { padding: 40px 10%; text-align: center; border-top: 1px solid #eaeaea; font-size: 0.85rem; color: #888888; background-color: #ffffff; }
@@ -66,8 +66,9 @@
     <section class="content-section" id="content">
         <div class="about-grid">
             <div class="bio-text">
-                <p>Hello, I am a fourth-year architecture student at Izmir Institute of Technology (IZTECH). My work is deeply focused on adaptive reuse, heritage conservation, computational design, and sustainable spatial strategies.</p>
-                <p>I am particularly interested in how architecture can respond to complex environmental challenges, from rising sea levels to structural resilience in extreme topologies. My design process relies heavily on advanced 3D modeling, detailed structural diagramming, and creating high-quality architectural visualizations to communicate spatial narratives.</p>
+                <p>Hello, I am an architectural designer and a recent architecture graduate from the Izmir Institute of Technology (IZTECH). Over the course of my academic journey and professional development, my design philosophy has evolved to focus deeply on adaptive reuse, heritage conservation, computational design, and sustainable spatial strategies.</p>
+                <p>I am particularly driven by the challenge of how architecture can respond to complex environmental crises and shifting contexts—ranging from rising sea levels to establishing structural resilience in extreme topologies. My methodology relies on rigorous contextual research, advanced 3D modeling, and complex structural design methodologies.</p>
+                <p>By producing high-resolution architectural visualizations and detailed diagrams, I aim to translate innovative infrastructural solutions into compelling spatial narratives that bridge the gap between technical resilience and human experience.</p>
                 
                 <div class="contact-box">
                     <div class="contact-item">
@@ -82,7 +83,7 @@
             </div>
             
             <div class="profile-img-container">
-                <!-- Profil fotoğrafını buraya ekle -->
+                <!-- Profil fotoğrafını buraya ekle (örn: profil.jpg) -->
                 <img src="profil.jpg" alt="Gaye Güngör">
             </div>
         </div>
