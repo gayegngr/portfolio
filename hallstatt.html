@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hallstatt Resilient Settlement | Gaye Güngör</title>
+    <title>AFTERGROUND | Gaye Güngör</title>
+    <!-- Stil kodları (CSS) aynı kalıyor -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Temel CSS */
         :root { --bg-color: #fafafa; --text-main: #111111; --text-light: #888888; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); display: flex; min-height: 100vh; }
-        
         .sidebar { width: 300px; padding: 50px 40px; position: fixed; height: 100vh; display: flex; flex-direction: column; border-right: 1px solid #eaeaea; background-color: var(--bg-color); z-index: 100; }
         .logo { font-size: 1.5rem; font-weight: 500; letter-spacing: -0.03em; margin-bottom: 5px; text-decoration: none; color: var(--text-main); }
         .title { font-size: 0.85rem; color: var(--text-light); margin-bottom: 60px; text-transform: uppercase; letter-spacing: 0.05em; }
@@ -19,36 +18,19 @@
         nav a:hover, nav a.active { color: var(--text-main); font-weight: 500; }
         .sidebar-footer { font-size: 0.8rem; color: var(--text-light); line-height: 1.6; }
         .sidebar-footer a { color: var(--text-main); text-decoration: none; display: block; margin-bottom: 10px; }
-
-        /* PROJE DETAY CSS */
         .main-content { margin-left: 300px; padding: 50px; width: calc(100% - 300px); }
-        
         .project-header { margin-bottom: 50px; max-width: 800px; }
         .project-title { font-size: 3rem; font-weight: 300; margin-bottom: 15px; letter-spacing: -0.02em; line-height: 1.1; }
-        
         .project-meta { display: flex; gap: 30px; margin-bottom: 30px; font-size: 0.9rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em; }
-        
         .project-description { font-size: 1.1rem; line-height: 1.8; color: #333; }
-        
         .project-images { display: flex; flex-direction: column; gap: 40px; margin-top: 50px; }
-        .img-block { width: 100%; min-height: 60vh; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #999; }
+        .img-block { width: 100%; min-height: 60vh; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #999; overflow: hidden; }
         .img-caption { margin-top: 10px; font-size: 0.85rem; color: var(--text-light); text-align: right; }
-
         .back-link { display: inline-block; margin-top: 50px; text-decoration: none; color: var(--text-main); border-bottom: 1px solid var(--text-main); padding-bottom: 3px; }
-
-        @media (max-width: 900px) {
-            body { flex-direction: column; }
-            .sidebar { width: 100%; height: auto; position: relative; padding: 30px; border-right: none; border-bottom: 1px solid #eaeaea; }
-            .main-content { margin-left: 0; width: 100%; padding: 30px; }
-            nav { flex-direction: row; margin-bottom: 30px; flex-wrap: wrap; }
-            .project-title { font-size: 2rem; }
-            .project-meta { flex-direction: column; gap: 10px; }
-            .img-block { min-height: 40vh; }
-        }
+        @media (max-width: 900px) { body { flex-direction: column; } .sidebar { width: 100%; height: auto; position: relative; padding: 30px; border-right: none; border-bottom: 1px solid #eaeaea; } .main-content { margin-left: 0; width: 100%; padding: 30px; } nav { flex-direction: row; margin-bottom: 30px; flex-wrap: wrap; } .project-title { font-size: 2rem; } .project-meta { flex-direction: column; gap: 10px; } .img-block { min-height: 40vh; } }
     </style>
 </head>
 <body>
-
     <aside class="sidebar">
         <a href="index.html" class="logo">Gaye Güngör</a>
         <div class="title">Architectural Designer</div>
@@ -65,32 +47,27 @@
 
     <main class="main-content">
         <div class="project-header">
-            <h1 class="project-title">Hallstatt Resilient Settlement</h1>
+            <h1 class="project-title">AFTERGROUND</h1>
             <div class="project-meta">
                 <span>Location: Hallstatt, Austria</span>
                 <span>Type: Graduation Project</span>
-                <span>Focus: Infrastructure / Structural Resilience</span>
             </div>
             <div class="project-description">
-                <p>Designed as a landslide-resilient settlement located inside a mountain chasm in Hallstatt. Responding to local salt mining risks, the project utilizes a structural "zipper" concept to connect and stabilize the rock faces, creating habitable spaces within extreme topologies.</p>
+                <p>Designed as a landslide-resilient settlement located inside a mountain chasm. Responding to local salt mining risks, the project utilizes a structural "zipper" concept to connect and stabilize the rock faces, creating habitable spaces within extreme topologies.</p>
             </div>
         </div>
 
         <div class="project-images">
-            <!-- Görseller buraya gelecek -->
             <div>
-                <div class="img-block">[Hallstatt Render 1 - Ana Görsel Gelecek]</div>
+                <!-- Görsellerini ekle -->
+                <div class="img-block">
+                    <img src="afterground-1.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Afterground Render">
+                </div>
                 <div class="img-caption">Structural integration with the mountain chasm</div>
-            </div>
-            
-            <div>
-                <div class="img-block">[Hallstatt Render 2 - Diyagram Gelecek]</div>
-                <div class="img-caption">Structural "zipper" concept diagram</div>
             </div>
         </div>
 
         <a href="index.html" class="back-link">← Back to Projects</a>
     </main>
-
 </body>
 </html>
