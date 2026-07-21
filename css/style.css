@@ -1166,3 +1166,239 @@ font-size:28px;
 }
 
 }
+/* ==========================================
+   PREMIUM EFFECTS
+========================================== */
+
+/* Glass Navigation */
+
+.navbar{
+
+backdrop-filter:blur(18px);
+
+-webkit-backdrop-filter:blur(18px);
+
+background:rgba(17,17,17,.75);
+
+transition:.4s ease;
+
+}
+
+/* Hero Gradient */
+
+.hero{
+
+background:
+radial-gradient(circle at top right,
+rgba(255,255,255,.05),
+transparent 40%),
+
+radial-gradient(circle at bottom left,
+rgba(255,255,255,.03),
+transparent 40%),
+
+#111;
+
+}
+
+/* Buttons */
+
+.btn,
+.primary,
+.secondary{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.btn::before,
+.primary::before,
+.secondary::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-120%;
+
+width:100%;
+
+height:100%;
+
+background:linear-gradient(
+
+90deg,
+
+transparent,
+
+rgba(255,255,255,.18),
+
+transparent
+
+);
+
+transition:.7s;
+
+}
+
+.btn:hover::before,
+.primary:hover::before,
+.secondary:hover::before{
+
+left:120%;
+
+}
+
+/* Project Hover */
+
+.project-row{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.project-row::after{
+
+content:"";
+
+position:absolute;
+
+bottom:0;
+
+left:0;
+
+width:0;
+
+height:1px;
+
+background:white;
+
+transition:.5s;
+
+}
+
+.project-row:hover::after{
+
+width:100%;
+
+}
+
+/* About */
+
+.about p{
+
+font-size:20px;
+
+line-height:2;
+
+color:#b8b8b8;
+
+margin-bottom:24px;
+
+}
+
+/* Smooth Image Placeholder */
+
+.project-row:hover{
+
+background:rgba(255,255,255,.02);
+
+}
+
+/* Footer */
+
+footer{
+
+padding:90px 0;
+
+text-align:center;
+
+}
+
+footer p{
+
+color:#888;
+
+letter-spacing:2px;
+
+font-size:14px;
+
+margin-top:10px;
+
+}
+
+/* Scroll Indicator */
+
+.scroll-indicator{
+
+position:absolute;
+
+bottom:45px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+font-size:12px;
+
+letter-spacing:4px;
+
+color:#888;
+
+animation:scrollMove 2s infinite;
+
+}
+
+@keyframes scrollMove{
+
+0%{
+
+transform:translate(-50%,0);
+
+opacity:.3;
+
+}
+
+50%{
+
+transform:translate(-50%,12px);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translate(-50%,0);
+
+opacity:.3;
+
+}
+
+}
+
+/* Section Fade */
+
+.fade{
+
+opacity:0;
+
+transform:translateY(40px);
+
+transition:all .8s ease;
+
+}
+
+.fade.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
