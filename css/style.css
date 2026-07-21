@@ -987,3 +987,182 @@ margin-bottom:14px;
 color:white;
 
 }
+/* ==========================================
+   CURRENT FOCUS
+========================================== */
+
+.focus{
+    padding:140px 0;
+}
+
+.section-label{
+    font-size:12px;
+    letter-spacing:4px;
+    color:#8d8d8d;
+    margin-bottom:60px;
+    text-transform:uppercase;
+}
+
+.focus-list{
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+}
+
+.focus-item{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:52px;
+
+    font-weight:500;
+
+    padding-bottom:24px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    transition:.35s;
+
+}
+
+.focus-item:hover{
+
+    color:white;
+
+    transform:translateX(16px);
+
+}
+
+/* ==========================================
+   PROJECTS
+========================================== */
+
+.featured-projects{
+
+    padding:160px 0;
+
+}
+
+.project-row{
+
+    display:grid;
+
+    grid-template-columns:100px 1fr;
+
+    align-items:center;
+
+    gap:50px;
+
+    padding:45px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    transition:.4s;
+
+}
+
+.project-row:hover{
+
+    padding-left:18px;
+
+}
+
+.number{
+
+    font-size:15px;
+
+    color:#777;
+
+    letter-spacing:3px;
+
+}
+
+.project-row h2{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:64px;
+
+    font-weight:500;
+
+    transition:.35s;
+
+}
+
+.project-row p{
+
+    margin-top:10px;
+
+    color:#999;
+
+    font-size:18px;
+
+}
+
+.project-row:hover h2{
+
+    letter-spacing:2px;
+
+}
+
+.project-row:hover{
+
+    border-color:white;
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:900px){
+
+.project-row{
+
+grid-template-columns:60px 1fr;
+
+}
+
+.project-row h2{
+
+font-size:42px;
+
+}
+
+.focus-item{
+
+font-size:38px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.project-row{
+
+grid-template-columns:1fr;
+
+gap:15px;
+
+}
+
+.number{
+
+margin-bottom:8px;
+
+}
+
+.project-row h2{
+
+font-size:34px;
+
+}
+
+.focus-item{
+
+font-size:28px;
+
+}
+
+}
