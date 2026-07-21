@@ -8,7 +8,10 @@
 
 <title>Gaye Güngör | Architecture Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -20,60 +23,61 @@ box-sizing:border-box;
 
 body{
 
-background:#efefef;
+background:#0f0f0f;
+color:white;
 font-family:'Inter',sans-serif;
+
 display:flex;
 justify-content:center;
 align-items:center;
+
 min-height:100vh;
+
 padding:40px;
 
 }
 
-.card{
+.container{
 
-width:700px;
-background:white;
-border-radius:22px;
-padding:70px;
-box-shadow:0 25px 60px rgba(0,0,0,.12);
+max-width:760px;
+width:100%;
 
 }
 
-h1{
+.name{
 
-font-family:'Playfair Display',serif;
-font-size:54px;
+font-family:'Cormorant Garamond',serif;
+font-size:74px;
 font-weight:600;
-margin-bottom:10px;
+letter-spacing:1px;
 
 }
 
-.subtitle{
+.role{
 
-font-size:17px;
-letter-spacing:2px;
+margin-top:8px;
+font-size:15px;
+letter-spacing:6px;
 text-transform:uppercase;
-color:#888;
-margin-bottom:45px;
+color:#b5b5b5;
 
 }
 
 .line{
 
-width:70px;
+width:90px;
 height:2px;
-background:black;
-margin-bottom:45px;
+background:white;
+margin:42px 0;
 
 }
 
 .description{
 
-font-size:17px;
-line-height:1.8;
-color:#555;
-margin-bottom:45px;
+font-size:18px;
+line-height:1.9;
+color:#d6d6d6;
+max-width:620px;
 
 }
 
@@ -81,91 +85,129 @@ margin-bottom:45px;
 
 display:flex;
 gap:18px;
+
+margin-top:55px;
+
 flex-wrap:wrap;
-margin-bottom:45px;
 
 }
 
 .button{
 
-flex:1;
-text-align:center;
 text-decoration:none;
-padding:18px;
-border-radius:12px;
+
+padding:18px 34px;
+
+border-radius:100px;
+
+transition:.35s;
+
 font-weight:600;
-transition:.3s;
 
 }
 
-.dark{
+.primary{
 
-background:#111;
+background:white;
+color:black;
+
+}
+
+.primary:hover{
+
+background:#d8d8d8;
+
+}
+
+.secondary{
+
+border:1px solid white;
 color:white;
 
 }
 
-.dark:hover{
+.secondary:hover{
 
-background:#333;
-
-}
-
-.light{
-
-border:2px solid #111;
-color:#111;
+background:white;
+color:black;
 
 }
 
-.light:hover{
+.info{
 
-background:#111;
+margin-top:70px;
+
+display:flex;
+
+gap:40px;
+
+flex-wrap:wrap;
+
+font-size:15px;
+
+color:#cfcfcf;
+
+}
+
+.info a{
+
 color:white;
+
+text-decoration:none;
+
+}
+
+.info a:hover{
+
+text-decoration:underline;
 
 }
 
 .qr{
 
-margin-top:30px;
-text-align:center;
+margin-top:60px;
 
 }
 
 .qr img{
 
-width:170px;
+width:140px;
+
+background:white;
+
+padding:12px;
+
 border-radius:12px;
-box-shadow:0 8px 25px rgba(0,0,0,.12);
 
 }
 
-footer{
+.footer{
 
-margin-top:35px;
-font-size:14px;
-color:#999;
-text-align:center;
+margin-top:20px;
+
+color:#8d8d8d;
+
+font-size:13px;
 
 }
 
 @media(max-width:700px){
 
-.card{
+.name{
 
-padding:35px;
-
-}
-
-h1{
-
-font-size:40px;
+font-size:52px;
 
 }
 
 .buttons{
 
 flex-direction:column;
+
+}
+
+.button{
+
+text-align:center;
 
 }
 
@@ -177,41 +219,81 @@ flex-direction:column;
 
 <body>
 
-<div class="card">
+<div class="container">
 
-<h1>Gaye Güngör</h1>
+<div class="name">
 
-<div class="subtitle">
-Architecture Portfolio
+Gaye Güngör
+
+</div>
+
+<div class="role">
+
+Architectural Designer
+
 </div>
 
 <div class="line"></div>
 
 <p class="description">
 
-A selected collection of academic and professional architectural work,
-exploring adaptive reuse, computational design, heritage preservation,
-and sustainable spatial strategies.
+A selected collection of architectural work focused on adaptive reuse,
+heritage conservation, computational design, and sustainable spatial strategies.
+Explore the interactive portfolio or download the complete PDF.
 
 </p>
 
 <div class="buttons">
 
-<a class="button dark"
+<a class="button primary"
+
 href="https://heyzine.com/flip-book/fa36f7c1f8.html"
+
 target="_blank">
 
-📖 View Interactive Portfolio
+View Interactive Portfolio
 
 </a>
 
-<a class="button light"
+<a class="button secondary"
+
 href="Gaye_Gungor_Portfolio%20(1).pdf"
+
 target="_blank">
 
-📄 Download PDF
+Download PDF
 
 </a>
+
+</div>
+
+<div class="info">
+
+<div>
+
+<strong>Email</strong><br>
+
+<a href="mailto:gungorggaye174@gmail.com">
+
+gungorggaye174@gmail.com
+
+</a>
+
+</div>
+
+<div>
+
+<strong>LinkedIn</strong><br>
+
+<a href="https://www.linkedin.com/in/gayeg%C3%BCng%C3%B6r"
+
+target="_blank">
+
+linkedin.com/in/gayegüngör
+
+</a>
+
+</div>
 
 </div>
 
@@ -221,11 +303,11 @@ target="_blank">
 
 </div>
 
-<footer>
+<div class="footer">
 
-Designed by Gaye Güngör · 2026
+© 2026 Gaye Güngör
 
-</footer>
+</div>
 
 </div>
 
