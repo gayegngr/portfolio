@@ -1,1 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Gaye Güngör</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Ana sayfadaki ile aynı temel ayarlar ve menü CSS'i */
+        :root { --bg-color: #fafafa; --text-main: #111111; --text-light: #888888; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); display: flex; min-height: 100vh; }
+        
+        .sidebar { width: 300px; padding: 50px 40px; position: fixed; height: 100vh; display: flex; flex-direction: column; border-right: 1px solid #eaeaea; background-color: var(--bg-color); z-index: 100; }
+        .logo { font-size: 1.5rem; font-weight: 500; letter-spacing: -0.03em; margin-bottom: 5px; text-decoration: none; color: var(--text-main); }
+        .title { font-size: 0.85rem; color: var(--text-light); margin-bottom: 60px; text-transform: uppercase; letter-spacing: 0.05em; }
+        nav { display: flex; flex-direction: column; gap: 20px; flex-grow: 1; }
+        nav a { text-decoration: none; color: var(--text-light); font-size: 1.1rem; font-weight: 400; transition: color 0.3s ease; }
+        nav a:hover, nav a.active { color: var(--text-main); font-weight: 500; }
+        .sidebar-footer { font-size: 0.8rem; color: var(--text-light); line-height: 1.6; }
+        .sidebar-footer a { color: var(--text-main); text-decoration: none; display: block; margin-bottom: 10px; }
 
+        /* ABOUT SAYFASI ÖZEL İÇERİĞİ */
+        .main-content { margin-left: 300px; padding: 50px 10%; width: calc(100% - 300px); max-width: 1200px; }
+        
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-top: 50px; }
+        
+        h1 { font-size: 2.5rem; font-weight: 300; margin-bottom: 30px; letter-spacing: -0.02em; }
+        
+        .bio p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; color: #333; }
+        
+        .contact-info { margin-top: 50px; padding-top: 30px; border-top: 1px solid #eaeaea; }
+        .contact-item { margin-bottom: 20px; }
+        .contact-label { font-size: 0.85rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px; }
+        .contact-value a { color: var(--text-main); text-decoration: none; font-size: 1.1rem; transition: opacity 0.3s; }
+        .contact-value a:hover { opacity: 0.6; border-bottom: 1px solid var(--text-main); }
+
+        .profile-image { width: 100%; aspect-ratio: 3/4; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #999; }
+
+        @media (max-width: 900px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; position: relative; padding: 30px; border-right: none; border-bottom: 1px solid #eaeaea; }
+            .main-content { margin-left: 0; width: 100%; padding: 30px; }
+            nav { flex-direction: row; margin-bottom: 30px; flex-wrap: wrap; }
+            .about-grid { grid-template-columns: 1fr; }
+            .profile-image { aspect-ratio: 16/9; margin-bottom: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SOL SABİT MENÜ -->
+    <aside class="sidebar">
+        <a href="index.html" class="logo">Gaye Güngör</a>
+        <div class="title">Architectural Designer</div>
+        <nav>
+            <a href="index.html">Selected Works</a>
+            <a href="about.html" class="active">About & Contact</a>
+            <a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank">Download Full PDF</a> 
+        </nav>
+        <div class="sidebar-footer">
+            <a href="mailto:gungorggaye174@gmail.com">gungorggaye174@gmail.com</a>
+            <div>© 2026 Gaye Güngör</div>
+        </div>
+    </aside>
+
+    <!-- SAĞ İÇERİK ALANI -->
+    <main class="main-content">
+        <h1>About</h1>
+        
+        <div class="about-grid">
+            <div class="bio">
+                <p>Hello, I am a fourth-year architecture student at Izmir Institute of Technology (IZTECH). My work is deeply focused on adaptive reuse, heritage conservation, computational design, and sustainable spatial strategies.</p>
+                <p>I am particularly interested in how architecture can respond to complex environmental challenges, from rising sea levels to structural resilience in extreme topologies. My design process relies heavily on advanced 3D modeling, detailed structural diagramming, and creating high-quality architectural visualizations to communicate spatial narratives.</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value"><a href="mailto:gungorggaye174@gmail.com">gungorggaye174@gmail.com</a></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">LinkedIn</div>
+                        <div class="contact-value"><a href="https://www.linkedin.com/in/gayeg%C3%BCng%C3%B6r" target="_blank">linkedin.com/in/gayegüngör</a></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <div class="profile-image">
+                    [Profil Fotoğrafı Gelecek]
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
