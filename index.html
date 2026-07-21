@@ -20,9 +20,9 @@
         body.loaded { opacity: 1; }
         body.fade-out { opacity: 0; }
 
-        /* 1. SİYAH GİRİŞ EKRANI (İLK AÇILAN YER) */
+        /* 1. SİYAH GİRİŞ EKRANI (HERO) */
         .hero {
-            height: 100vh; /* Tam ekran yüksekliği */
+            height: 100vh;
             background-color: #050505; 
             display: flex;
             flex-direction: column;
@@ -59,9 +59,43 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Hero İçi İletişim Bilgileri */
+        .hero-social, .hero-contact {
+            position: absolute;
+            bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            opacity: 0;
+            animation: slideUp 1.5s ease-out forwards 0.6s; /* Yazılardan hemen sonra belirir */
+        }
+
+        .hero-social {
+            left: 50px;
+            text-align: left;
+        }
+
+        .hero-contact {
+            right: 50px;
+            text-align: right;
+        }
+
+        .contact-link {
+            color: #666666;
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: #ffffff;
+        }
+
         .scroll-down {
             position: absolute;
-            bottom: 50px;
+            bottom: 40px;
             color: #ffffff;
             font-size: 0.8rem;
             letter-spacing: 0.2em;
@@ -80,7 +114,7 @@
             60% { transform: translateY(-5px); }
         }
 
-        /* 2. YAPIŞKAN MENÜ (İNGİLİZCE) */
+        /* 2. YAPIŞKAN MENÜ */
         .nav-container {
             position: sticky;
             top: 0;
@@ -165,22 +199,40 @@
             background-color: #ffffff;
         }
 
+        /* MOBİL UYUM İÇİN KÜÇÜK DÜZELTMELER */
         @media (max-width: 768px) {
             .nav-links { gap: 20px; }
             .content-section { padding: 50px 5%; }
+            /* Mobilde yazılar üst üste binmesin diye ayarlama */
+            .hero-social, .hero-contact { bottom: 20px; gap: 5px; }
+            .hero-social { left: 20px; }
+            .hero-contact { right: 20px; }
+            .contact-link { font-size: 0.65rem; }
+            .scroll-down { bottom: 80px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- BURASI İLK AÇILAN SİYAH EKRAN (İSMİN YAZIYOR) -->
     <section class="hero" id="home">
         <h1>Gaye Güngör</h1>
         <p>Architectural Designer</p>
+        
+        <!-- Sol Alt: LinkedIn -->
+        <div class="hero-social">
+            <a href="https://www.linkedin.com/in/gayeg%C3%BCng%C3%B6r" target="_blank" class="contact-link">LinkedIn</a>
+        </div>
+
+        <!-- Sağ Alt: Email ve Telefon -->
+        <div class="hero-contact">
+            <a href="mailto:gungorggaye174@gmail.com" class="contact-link">gungorggaye174@gmail.com</a>
+            <!-- TELEFON NUMARANI AŞAĞIDAKİ YERE YAZABİLİRSİN -->
+            <a href="tel:+905550000000" class="contact-link">+90 552 211 8345</a>
+        </div>
+
         <a class="scroll-down" onclick="scrollToProjects()">Scroll Down ↓</a>
     </section>
 
-    <!-- MENÜ (İNGİLİZCE OLDU) -->
     <nav class="nav-container" id="navbar">
         <ul class="nav-links">
             <li><a href="#navbar" class="active">Projects</a></li>
@@ -190,7 +242,6 @@
         </ul>
     </nav>
 
-    <!-- PROJELER LİSTESİ -->
     <section class="content-section" id="projects">
         <div class="grid">
             
