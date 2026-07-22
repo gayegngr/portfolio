@@ -63,9 +63,36 @@
             .nav-links { gap: 20px; } 
             .fixed-logo { top: 20px; left: 20px; font-size: 0.8rem; }
         }
+        /* DİL GİZLEME/GÖSTERME SİSTEMİ */
+        body.lang-tr .en-text { display: none !important; }
+        body.lang-en .tr-text { display: none !important; }
+
+        /* SAĞ ÜST KÖŞE DİL SEÇENEĞİ (ENG / TR) */
+        .lang-toggle {
+            position: fixed;
+            top: 30px;
+            right: 40px;
+            color: #111111; /* Eğer arka planın beyazsa rengi koyu yapabilirsin */
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            cursor: pointer;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: opacity 0.3s ease;
+        }
+        .lang-toggle:hover { opacity: 0.6; }
+
+        @media (max-width: 768px) {
+            .lang-toggle { top: 20px; right: 20px; font-size: 0.8rem; }
+        }
     </style>
 </head>
-<body>
+<body class="lang-en">
+
+    <!-- SAĞ ÜST DİL SEÇENEĞİ -->
+    <div class="lang-toggle" onclick="toggleLanguage()">ENG / TR</div>
 
     <!-- SABİT ANA SAYFA LOGOSU BURAYA EKLENDİ (İSMİ 'HOME' OLARAK GÜNCELLENDİ) -->
     <a href="index.html" class="fixed-logo" onclick="transitionToPage(event, 'index.html')">Home</a>
@@ -121,6 +148,21 @@
             document.body.classList.remove('loaded');
             document.body.classList.add('fade-out');
             setTimeout(function() { window.location.href = url; }, 600);
+        }
+        // Sayfa yüklendiğinde hafızadaki dili kontrol et ve uygula
+        const savedLang = localStorage.getItem('siteLang') || 'en';
+        document.body.classList.replace('lang-en', 'lang-' + savedLang);
+
+        // Dil Değiştirme Fonksiyonu
+        function toggleLanguage() {
+            const body = document.body;
+            if (body.classList.contains('lang-en')) {
+                body.classList.replace('lang-en', 'lang-tr');
+                localStorage.setItem('siteLang', 'tr');
+            } else {
+                body.classList.replace('lang-tr', 'lang-en');
+                localStorage.setItem('siteLang', 'en');
+            }
         }
     </script>
 </body>
