@@ -46,10 +46,32 @@
         footer { padding: 40px 10%; text-align: center; border-top: 1px solid #eaeaea; font-size: 0.85rem; color: #888888; background-color: #ffffff; }
 
         @media (max-width: 768px) { .nav-links { gap: 20px; } .content-section { padding: 50px 5%; } }
+        /* SOL ÜST KÖŞE SABİT ANA SAYFA LOGOSU */
+        .fixed-logo {
+            position: fixed;
+            top: 30px;
+            left: 40px;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            text-decoration: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: opacity 0.3s ease;
+        }
+        .fixed-logo:hover {
+            opacity: 0.6;
+        }
+        @media (max-width: 768px) {
+            .fixed-logo { top: 20px; left: 20px; font-size: 0.8rem; }
+        }
     </style>
 </head>
 <body>
-
+<!-- SABİT ANA SAYFA LOGOSU -->
+    <a href="index.html" class="fixed-logo" onclick="transitionToPage(event, 'index.html')">Gaye Güngör</a>
     <!-- SİYAH PROJE KAPAK EKRANI -->
     <section class="hero" id="home">
         <h1>02 SOLACEPOINT</h1>
