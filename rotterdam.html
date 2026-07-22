@@ -36,8 +36,28 @@
         .project-meta { display: flex; gap: 30px; margin-bottom: 30px; font-size: 0.9rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em; }
         .project-description { font-size: 1.1rem; line-height: 1.8; color: #333; }
         .project-images { display: flex; flex-direction: column; gap: 40px; margin-top: 50px; }
-        .img-block { width: 100%; min-height: 60vh; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #999; overflow: hidden; }
-        .img-caption { margin-top: 10px; font-size: 0.85rem; color: var(--text-light); text-align: right; }
+/* GÖRSEL DOKUSUNA HOVER ZOOM EFEKTİ */
+        .img-block { 
+            width: 100%; 
+            background-color: #e0e0e0; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            overflow: hidden; /* Büyüyen resmin kutudan dışarı taşmasını engeller */
+            cursor: pointer;
+        }
+
+        .img-block img { 
+            width: 100%; 
+            height: auto; 
+            display: block; 
+            transition: transform 0.6s ease; /* Yumuşak büyüme animasyonu */
+        }
+
+        /* Fare görselin üzerine geldiğinde hafifçe büyütür */
+        .img-block:hover img { 
+            transform: scale(1.03); 
+        }        .img-caption { margin-top: 10px; font-size: 0.85rem; color: var(--text-light); text-align: right; }
         .back-link { display: inline-block; margin-top: 50px; text-decoration: none; color: var(--text-main); border-bottom: 1px solid var(--text-main); padding-bottom: 3px; }
         
         @media (max-width: 900px) { 
