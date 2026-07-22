@@ -6,7 +6,7 @@
     <title>Rotterdam Merwehaven | Gaye Güngör</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* CSS AYARLARI (Hallstatt ile aynı) */
+        /* CSS AYARLARI */
         :root { --bg-color: #fafafa; --text-main: #111111; --text-light: #888888; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); display: flex; min-height: 100vh; }
@@ -27,8 +27,18 @@
         .img-block { width: 100%; min-height: 60vh; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #999; overflow: hidden; }
         .img-caption { margin-top: 10px; font-size: 0.85rem; color: var(--text-light); text-align: right; }
         .back-link { display: inline-block; margin-top: 50px; text-decoration: none; color: var(--text-main); border-bottom: 1px solid var(--text-main); padding-bottom: 3px; }
-        @media (max-width: 900px) { body { flex-direction: column; } .sidebar { width: 100%; height: auto; position: relative; padding: 30px; border-right: none; border-bottom: 1px solid #eaeaea; } .main-content { margin-left: 0; width: 100%; padding: 30px; } nav { flex-direction: row; margin-bottom: 30px; flex-wrap: wrap; } .project-title { font-size: 2rem; } .project-meta { flex-direction: column; gap: 10px; } .img-block { min-height: 40vh; } }
-    /* SOL ÜST KÖŞE SABİT ANA SAYFA LOGOSU */
+        
+        @media (max-width: 900px) { 
+            body { flex-direction: column; } 
+            .sidebar { width: 100%; height: auto; position: relative; padding: 30px; border-right: none; border-bottom: 1px solid #eaeaea; } 
+            .main-content { margin-left: 0; width: 100%; padding: 30px; } 
+            nav { flex-direction: row; margin-bottom: 30px; flex-wrap: wrap; } 
+            .project-title { font-size: 2rem; } 
+            .project-meta { flex-direction: column; gap: 10px; } 
+            .img-block { min-height: 40vh; } 
+        }
+
+        /* SOL ÜST KÖŞE SABİT ANA SAYFA LOGOSU */
         .fixed-logo {
             position: fixed;
             top: 30px;
@@ -43,31 +53,74 @@
             mix-blend-mode: difference;
             transition: opacity 0.3s ease;
         }
-        .fixed-logo:hover {
-            opacity: 0.6;
-        }
+        .fixed-logo:hover { opacity: 0.6; }
+        
         @media (max-width: 768px) {
             .fixed-logo { top: 20px; left: 20px; font-size: 0.8rem; }
         }
+
+        /* DİL GİZLEME/GÖSTERME SİSTEMİ */
+        body.lang-tr .en-text { display: none !important; }
+        body.lang-en .tr-text { display: none !important; }
+
+        /* SAĞ ÜST KÖŞE DİL SEÇENEĞİ (ENG / TR) */
+        .lang-toggle {
+            position: fixed;
+            top: 30px;
+            right: 40px;
+            color: #111111; 
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            cursor: pointer;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: opacity 0.3s ease;
+        }
+        .lang-toggle:hover { opacity: 0.6; }
+
+        @media (max-width: 768px) {
+            .lang-toggle { top: 20px; right: 20px; font-size: 0.8rem; }
+        }
     </style>
 </head>
-<body>
-   <!-- SABİT ANA SAYFA LOGOSU -->
-    <a href="index.html" class="fixed-logo" onclick="transitionToPage(event, 'index.html')">Home</a>
+<body class="lang-en">
+
+    <!-- SAĞ ÜST DİL SEÇENEĞİ -->
+    <div class="lang-toggle" onclick="toggleLanguage()">ENG / TR</div>
+    
+    <!-- SABİT ANA SAYFA LOGOSU -->
+    <a href="index.html" class="fixed-logo en-text" onclick="transitionToPage(event, 'index.html')">Home</a>
+    <a href="index.html" class="fixed-logo tr-text" onclick="transitionToPage(event, 'index.html')">Ana Sayfa</a>
+    
     <aside class="sidebar">
         <a href="index.html" class="logo">Gaye Güngör</a>
-        <div class="title">Architectural Designer</div>
-       <nav class="nav-container" id="navbar">
-        <ul class="nav-links">
-            <li><a href="index.html" onclick="transitionToPage(event, 'index.html')">Projects</a></li>
-            <li><a href="about.html" onclick="transitionToPage(event, 'about.html')">About</a></li>
-            <li><a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank">CV / PDF</a></li>
-            <li><a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank">Interactive Portfolio</a></li>
-        </ul>
-    </nav>
+        <div class="title en-text">Architectural Designer</div>
+        <div class="title tr-text">Mimari Tasarımcı</div>
+        
+        <nav class="nav-container" id="navbar">
+            <ul class="nav-links" style="list-style: none; padding: 0;">
+                <li>
+                    <a href="index.html" class="en-text" onclick="transitionToPage(event, 'index.html')">Projects</a>
+                    <a href="index.html" class="tr-text" onclick="transitionToPage(event, 'index.html')">Projeler</a>
+                </li>
+                <li>
+                    <a href="about.html" class="en-text" onclick="transitionToPage(event, 'about.html')">About</a>
+                    <a href="about.html" class="tr-text" onclick="transitionToPage(event, 'about.html')">Hakkımda</a>
+                </li>
+                <li><a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank">CV / PDF</a></li>
+                <li>
+                    <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="en-text">Interactive Portfolio</a>
+                    <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="tr-text">Etkileşimli Portfolyo</a>
+                </li>
+            </ul>
+        </nav>
+        
         <div class="sidebar-footer">
             <a href="mailto:gungorggaye174@gmail.com">gungorggaye174@gmail.com</a>
-            <div>© 2026 Gaye Güngör</div>
+            <div class="en-text">© 2026 Gaye Güngör</div>
+            <div class="tr-text">© 2026 Gaye Güngör</div>
         </div>
     </aside>
 
@@ -75,22 +128,58 @@
         <div class="project-header">
             <h1 class="project-title">Rotterdam Merwehaven</h1>
             <div class="project-meta">
-                <span>Location: Rotterdam, Netherlands</span>
-                <span>Focus: Adaptive Water-Level Massing Concept</span>
+                <span class="en-text">Location: Rotterdam, Netherlands</span>
+                <span class="tr-text">Konum: Rotterdam, Hollanda</span>
+                
+                <span class="en-text">Focus: Adaptive Water-Level Massing Concept</span>
+                <span class="tr-text">Odak: Adaptif Su Seviyesi Kütle Konsepti</span>
             </div>
             <div class="project-description">
-                <p>A dynamic massing proposal responding directly to rising water levels in the Merwehaven area. Rejecting generic stilted or pillar-based typologies, the design introduces a structural transition: lower floors consist of lighter concrete volumes that seamlessly evolve into denser, heavier occupied spaces on the upper levels as the water rises.</p>
+                <p class="en-text">A dynamic massing proposal responding directly to rising water levels in the Merwehaven area. Rejecting generic stilted or pillar-based typologies, the design introduces a structural transition: lower floors consist of lighter concrete volumes that seamlessly evolve into denser, heavier occupied spaces on the upper levels as the water rises.</p>
+                <p class="tr-text">Merwehaven bölgesindeki yükselen su seviyelerine doğrudan yanıt veren dinamik bir kütle önerisi. Sıradan ayaklı veya kolonlu tipolojileri reddeden tasarım, yapısal bir geçiş sunuyor: alt katlar daha hafif beton hacimlerden oluşurken, sular yükseldikçe üst katlarda kesintisiz bir şekilde daha yoğun ve ağır yaşam alanlarına dönüşüyor.</p>
             </div>
         </div>
 
         <div class="project-images">
             <div>
                 <div class="img-block">[Rotterdam Render 1 - Ana Görsel Gelecek]</div>
-                <div class="img-caption">Volumetric transition and massing strategy</div>
+                <div class="img-caption en-text">Volumetric transition and massing strategy</div>
+                <div class="img-caption tr-text">Hacimsel geçiş ve kütle stratejisi</div>
             </div>
         </div>
 
-        <a href="index.html" class="back-link">← Back to Projects</a>
+        <a href="index.html" class="back-link en-text">← Back to Projects</a>
+        <a href="index.html" class="back-link tr-text">← Projelere Dön</a>
     </main>
+
+    <!-- DİL HAFIZASI VE DEĞİŞTİRME SCRİPTİ -->
+    <script>
+        // Sayfa yüklendiğinde hafızadaki dili kontrol et ve uygula
+        const savedLang = localStorage.getItem('siteLang') || 'en';
+        document.body.classList.replace('lang-en', 'lang-' + savedLang);
+
+        // Dil Değiştirme Fonksiyonu
+        function toggleLanguage() {
+            const body = document.body;
+            if (body.classList.contains('lang-en')) {
+                body.classList.replace('lang-en', 'lang-tr');
+                localStorage.setItem('siteLang', 'tr');
+            } else {
+                body.classList.replace('lang-tr', 'lang-en');
+                localStorage.setItem('siteLang', 'en');
+            }
+        }
+
+        // Sayfa Geçiş Animasyonu (transitionToPage fonksiyonun için gerekli)
+        function transitionToPage(event, url) {
+            event.preventDefault(); 
+            document.body.classList.remove('loaded');
+            document.body.classList.add('fade-out'); 
+            
+            setTimeout(function() {
+                window.location.href = url;
+            }, 600);
+        }
+    </script>
 </body>
 </html>
