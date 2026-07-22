@@ -76,7 +76,7 @@
             position: fixed;
             top: 30px;
             right: 40px;
-            color: #111111; /* Eğer arka planın beyazsa rengi koyu yapabilirsin */
+            color: #111111; 
             font-size: 0.9rem;
             font-weight: 500;
             text-transform: uppercase;
@@ -97,34 +97,55 @@
 
     <!-- SAĞ ÜST DİL SEÇENEĞİ -->
     <div class="lang-toggle" onclick="toggleLanguage()">ENG / TR</div>
-<!-- SABİT ANA SAYFA LOGOSU -->
-    <a href="index.html" class="fixed-logo" onclick="transitionToPage(event, 'index.html')">Home</a>
+
+    <!-- SABİT ANA SAYFA LOGOSU -->
+    <a href="index.html" class="fixed-logo en-text" onclick="transitionToPage(event, 'index.html')">Home</a>
+    <a href="index.html" class="fixed-logo tr-text" onclick="transitionToPage(event, 'index.html')">Ana Sayfa</a>
+
     <!-- SİYAH PROJE KAPAK EKRANI -->
     <section class="hero" id="home">
         <h1>05 BIOSPHERE NEXUS</h1>
-        <p>Ecological Infrastructure</p>
-        <a class="scroll-down" onclick="scrollToContent()">Explore Project ↓</a>
+        <p class="en-text">Ecological Infrastructure</p>
+        <p class="tr-text">Ekolojik Altyapı</p>
+        <a class="scroll-down en-text" onclick="scrollToContent()">Explore Project ↓</a>
+        <a class="scroll-down tr-text" onclick="scrollToContent()">Projeyi İncele ↓</a>
     </section>
 
     <!-- YAPIŞKAN MENÜ -->
     <nav class="nav-container" id="navbar">
         <ul class="nav-links">
-            <li><a href="index.html" onclick="transitionToPage(event, 'index.html')">Projects</a></li>
-            <li><a href="about.html" onclick="transitionToPage(event, 'about.html')">About</a></li>
+            <li>
+                <a href="index.html" class="en-text" onclick="transitionToPage(event, 'index.html')">Projects</a>
+                <a href="index.html" class="tr-text" onclick="transitionToPage(event, 'index.html')">Projeler</a>
+            </li>
+            <li>
+                <a href="about.html" class="en-text" onclick="transitionToPage(event, 'about.html')">About</a>
+                <a href="about.html" class="tr-text" onclick="transitionToPage(event, 'about.html')">Hakkımda</a>
+            </li>
             <li><a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank">CV / PDF</a></li>
-            <li><a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank">Interactive Portfolio</a></li>
+            <li>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="en-text">Interactive Portfolio</a>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="tr-text">Etkileşimli Portfolyo</a>
+            </li>
         </ul>
     </nav>
 
     <!-- PROJE DETAYLARI (BEYAZ ZEMİN) -->
     <section class="content-section" id="content">
         
-        <!-- YENİ METİN BURADA -->
+        <!-- METİN ALANI -->
         <div class="project-description">
-            <h3>Wildlife Research Center</h3>
-            <p>Located within a biologically rich landscape, this research center is designed to support wildlife conservation while strengthening the relationship between people and nature. Beyond its research facilities, the project includes workshops, a library, exhibition spaces, a conference hall, and accommodation for both researchers and visiting guests.</p>
-            <p>Positioned on the site's steepest slope, the building captures panoramic sea views while carefully adapting to the natural terrain. Sustainability and environmental sensitivity guide every aspect of the design, creating a low-impact architecture that responds to its surroundings.</p>
-            <p>More than a scientific facility, the project serves as a platform for education, collaboration, and public engagement, encouraging cultural exchange and fostering a deeper awareness of the region's unique ecological heritage.</p>
+            <h3 class="en-text">Wildlife Research Center</h3>
+            <h3 class="tr-text">Yaban Hayatı Araştırma Merkezi</h3>
+            
+            <p class="en-text">Located within a biologically rich landscape, this research center is designed to support wildlife conservation while strengthening the relationship between people and nature. Beyond its research facilities, the project includes workshops, a library, exhibition spaces, a conference hall, and accommodation for both researchers and visiting guests.</p>
+            <p class="tr-text">Biyolojik açıdan zengin bir peyzaj içinde yer alan bu araştırma merkezi, bir yandan yaban hayatı koruma çalışmalarını desteklemek, diğer yandan insan ile doğa arasındaki ilişkiyi güçlendirmek amacıyla tasarlanmıştır. Araştırma birimlerinin ötesinde proje; atölyeler, bir kütüphane, sergi alanları, bir konferans salonu ve hem araştırmacılar hem de misafirler için konaklama birimlerini içermektedir.</p>
+            
+            <p class="en-text">Positioned on the site's steepest slope, the building captures panoramic sea views while carefully adapting to the natural terrain. Sustainability and environmental sensitivity guide every aspect of the design, creating a low-impact architecture that responds to its surroundings.</p>
+            <p class="tr-text">Arazinin en dik eğiminde konumlanan yapı, doğal araziye özenle adapte olurken panoramik deniz manzarasını yakalamaktadır. Sürdürülebilirlik ve çevresel duyarlılık tasarımın her unsuruna rehberlik ederek, çevresiyle uyumlu düşük etkili bir mimari ortaya koymaktadır.</p>
+            
+            <p class="en-text">More than a scientific facility, the project serves as a platform for education, collaboration, and public engagement, encouraging cultural exchange and fostering a deeper awareness of the region's unique ecological heritage.</p>
+            <p class="tr-text">Bilimsel bir tesisin ötesinde bu proje; eğitim, iş birliği ve kamusal katılım için bir platform görevi görerek kültürel alışverişi teşvik etmekte ve bölgenin eşsiz ekolojik mirasına dair farkındalığı artırmaktadır.</p>
         </div>
 
         <!-- RENDER ALANI -->
@@ -132,35 +153,33 @@
             <!-- Render 1 -->
             <div>
                 <div class="img-block">
-                    <!-- 1. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
                     <img src="BIOSPHERE NEXUSrender1.png" alt="Biosphere Nexus - Steep Slope and Sea View">
                 </div>
-                <!-- 1. GÖRSELİN AÇIKLAMASI -->
-                <div class="img-caption">Positioned on the steep slope to capture panoramic sea views</div>
+                <div class="img-caption en-text">Positioned on the steep slope to capture panoramic sea views</div>
+                <div class="img-caption tr-text">Panoramik deniz manzarasını yakalamak için sarp eğimde konumlanış</div>
             </div>
             
             <!-- Render 2 -->
              <div>
                 <div class="img-block">
-                    <!-- 2. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
                     <img src="BIOSPHERE NEXUSrender2.png" alt="Biosphere Nexus - Ecological Integration">
                 </div>
-                <!-- 2. GÖRSELİN AÇIKLAMASI -->
                 <div class="img-caption"></div>
             </div>
-            
         </div>
 
-        <a href="index.html" class="back-link" onclick="transitionToPage(event, 'index.html')">← Back to Projects</a>
+        <a href="index.html" class="back-link en-text" onclick="transitionToPage(event, 'index.html')">← Back to Projects</a>
+        <a href="index.html" class="back-link tr-text" onclick="transitionToPage(event, 'index.html')">← Projelere Dön</a>
     </section>
 
     <footer>
-        <p>© 2026 Gaye Güngör | Architectural Designer</p>
+        <p class="en-text">© 2026 Gaye Güngör | Architectural Designer</p>
+        <p class="tr-text">© 2026 Gaye Güngör | Mimari Tasarımcı</p>
     </footer>
 
     <!-- JS SCRIPTLERİ -->
     <script>
-   // 1. Dil Hafızası (Daha Güçlü Versiyon)
+        // 1. Dil Hafızası (Daha Güçlü Versiyon)
         const savedLang = localStorage.getItem('siteLang') || 'en';
         document.body.classList.remove('lang-en', 'lang-tr');
         document.body.classList.add('lang-' + savedLang);
@@ -193,6 +212,11 @@
             setTimeout(function() {
                 window.location.href = url;
             }, 600);
+        }
+
+        // 5. Scroll Down Butonu İçin Kaydırma Fonksiyonu
+        function scrollToContent() {
+            document.getElementById('content').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
