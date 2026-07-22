@@ -76,7 +76,7 @@
             position: fixed;
             top: 30px;
             right: 40px;
-            color: #111111; /* Eğer arka planın beyazsa rengi koyu yapabilirsin */
+            color: #111111; 
             font-size: 0.9rem;
             font-weight: 500;
             text-transform: uppercase;
@@ -97,34 +97,55 @@
 
     <!-- SAĞ ÜST DİL SEÇENEĞİ -->
     <div class="lang-toggle" onclick="toggleLanguage()">ENG / TR</div>
-<!-- SABİT ANA SAYFA LOGOSU -->
-    <a href="index.html" class="fixed-logo" onclick="transitionToPage(event, 'index.html')">Home</a>
+
+    <!-- SABİT ANA SAYFA LOGOSU -->
+    <a href="index.html" class="fixed-logo en-text" onclick="transitionToPage(event, 'index.html')">Home</a>
+    <a href="index.html" class="fixed-logo tr-text" onclick="transitionToPage(event, 'index.html')">Ana Sayfa</a>
+
     <!-- SİYAH PROJE KAPAK EKRANI -->
     <section class="hero" id="home">
         <h1>02 SOLACEPOINT</h1>
-        <p>Architectural Design IV</p>
-        <a class="scroll-down" onclick="scrollToContent()">Explore Project ↓</a>
+        <p class="en-text">Architectural Design IV</p>
+        <p class="tr-text">Mimari Tasarım IV</p>
+        <a class="scroll-down en-text" onclick="scrollToContent()">Explore Project ↓</a>
+        <a class="scroll-down tr-text" onclick="scrollToContent()">Projeyi İncele ↓</a>
     </section>
 
     <!-- YAPIŞKAN MENÜ -->
     <nav class="nav-container" id="navbar">
         <ul class="nav-links">
-            <li><a href="index.html" onclick="transitionToPage(event, 'index.html')">Projects</a></li>
-            <li><a href="about.html" onclick="transitionToPage(event, 'about.html')">About</a></li>
+            <li>
+                <a href="index.html" class="en-text" onclick="transitionToPage(event, 'index.html')">Projects</a>
+                <a href="index.html" class="tr-text" onclick="transitionToPage(event, 'index.html')">Projeler</a>
+            </li>
+            <li>
+                <a href="about.html" class="en-text" onclick="transitionToPage(event, 'about.html')">About</a>
+                <a href="about.html" class="tr-text" onclick="transitionToPage(event, 'about.html')">Hakkımda</a>
+            </li>
             <li><a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank">CV / PDF</a></li>
-            <li><a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank">Interactive Portfolio</a></li>
+            <li>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="en-text">Interactive Portfolio</a>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="tr-text">Etkileşimli Portfolyo</a>
+            </li>
         </ul>
     </nav>
 
     <!-- PROJE DETAYLARI (BEYAZ ZEMİN) -->
     <section class="content-section" id="content">
         
-        <!-- YENİ METİN BURADA -->
+        <!-- METİN ALANI -->
         <div class="project-description">
-            <h3>Community-Centered Housing in Urla</h3>
-            <p>Located in the heart of Urla, this 11,200 m² residential development reimagines housing as a vibrant social environment. Comprising 64 residences across six blocks, the project is designed to encourage everyday interaction through shared spaces, communal facilities, and open public areas that strengthen neighborhood connections.</p>
-            <p>Five different housing typologies respond to the needs of an intergenerational community, accommodating students, families, and elderly residents within a unified architectural language. Shared amenities are integrated into the ground floors, creating an active and permeable street level that blurs the boundary between private living and collective life.</p>
-            <p>By balancing individual comfort with community engagement, the project proposes a contemporary residential model where architecture becomes a catalyst for social connection and inclusive urban living.</p>
+            <h3 class="en-text">Community-Centered Housing in Urla</h3>
+            <h3 class="tr-text">Urla'da Topluluk Odaklı Konut Yerleşkesi</h3>
+            
+            <p class="en-text">Located in the heart of Urla, this 11,200 m² residential development reimagines housing as a vibrant social environment. Comprising 64 residences across six blocks, the project is designed to encourage everyday interaction through shared spaces, communal facilities, and open public areas that strengthen neighborhood connections.</p>
+            <p class="tr-text">Urla'nın kalbinde yer alan bu 11.200 m²'lik konut projesi, yaşam alanını canlı bir sosyal çevre olarak yeniden ele alıyor. Altı blokta yer alan 64 konuttan oluşan proje; paylaşılan mekanlar, ortak tesisler ve mahalle bağlarını güçlendiren açık kamusal alanlar aracılığıyla günlük etkileşimi teşvik edecek şekilde tasarlanmıştır.</p>
+            
+            <p class="en-text">Five different housing typologies respond to the needs of an intergenerational community, accommodating students, families, and elderly residents within a unified architectural language. Shared amenities are integrated into the ground floors, creating an active and permeable street level that blurs the boundary between private living and collective life.</p>
+            <p class="tr-text">Beş farklı konut tipolojisi, öğrencileri, aileleri ve yaşlı sakinleri bir arada barındıran nesiller arası bir topluluğun ihtiyaçlarına bütüncül bir mimari dille yanıt verir. Ortak donatılar zemin katlara entegre edilerek; bireysel yaşam ile kolektif yaşam arasındaki sınırları bulanıklaştıran, aktif ve geçirgen bir sokak seviyesi yaratılmıştır.</p>
+            
+            <p class="en-text">By balancing individual comfort with community engagement, the project proposes a contemporary residential model where architecture becomes a catalyst for social connection and inclusive urban living.</p>
+            <p class="tr-text">Bireysel konforu toplumsal katılım ile dengeleyen proje; mimarinin sosyal bağlantılar ve kapsayıcı kentsel yaşam için bir katalizör haline geldiği çağdaş bir konut modeli önermektedir.</p>
         </div>
 
         <!-- RENDER ALANI -->
@@ -132,40 +153,36 @@
             <!-- Render 1 -->
             <div>
                 <div class="img-block">
-                    <!-- 1. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
                     <img src="konut.png" alt="SolacePoint Exterior Render">
                 </div>
-                <!-- 1. GÖRSELİN AÇIKLAMASI -->
-                <div class="img-caption">
-This visualization captures the project's vision of community-oriented living, where architecture encourages interaction while respecting individual privacy. The composition emphasizes the relationship between the residential blocks, shared open spaces, and landscaped courtyards, illustrating how everyday life extends beyond the boundaries of each home. Human activity, natural light, and greenery work together to convey a welcoming neighborhood atmosphere, highlighting the project's balance between private living and collective experience.</div>
+                <div class="img-caption en-text">This visualization captures the project's vision of community-oriented living, where architecture encourages interaction while respecting individual privacy. The composition emphasizes the relationship between the residential blocks, shared open spaces, and landscaped courtyards, illustrating how everyday life extends beyond the boundaries of each home. Human activity, natural light, and greenery work together to convey a welcoming neighborhood atmosphere, highlighting the project's balance between private living and collective experience.</div>
+                <div class="img-caption tr-text">Bu görselleştirme, mimarinin bireysel mahremiyete saygı duyarken etkileşimi teşvik ettiği, projenin topluluk odaklı yaşam vizyonunu yakalamaktadır. Kompozisyon; konut blokları, paylaşılan açık alanlar ve peyzajlı avlular arasındaki ilişkiyi vurgulayarak, günlük yaşamın her evin sınırlarının ötesine nasıl uzandığını gözler önüne serer. İnsan aktivitesi, doğal ışık ve yeşillik, sıcak bir mahalle atmosferi aktarmak için birlikte çalışarak projenin özel yaşam ile kolektif deneyim arasındaki dengesini öne çıkarır.</div>
             </div>
             
             <!-- Render 2 -->
              <div>
                 <div class="img-block">
-                    <!-- 2. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
                     <img src="render2.png" alt="SolacePoint Exterior Render">
                 </div>
-                <!-- 2. GÖRSELİN AÇIKLAMASI -->
                 <div class="img-caption"></div>
             </div>
+            
              <!-- Render 3 -->
              <div>
                 <div class="img-block">
-                    <!-- 2. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
                     <img src="render3.png" alt="SolacePoint Exterior Render">
                 </div>
-                <!-- 2. GÖRSELİN AÇIKLAMASI -->
                 <div class="img-caption"></div>
             </div>
-            <!-- İhtiyacın varsa aşağıya Render 3, Render 4 diye çoğaltabilirsin -->
         </div>
 
-        <a href="index.html" class="back-link" onclick="transitionToPage(event, 'index.html')">← Back to Projects</a>
+        <a href="index.html" class="back-link en-text" onclick="transitionToPage(event, 'index.html')">← Back to Projects</a>
+        <a href="index.html" class="back-link tr-text" onclick="transitionToPage(event, 'index.html')">← Projelere Dön</a>
     </section>
 
     <footer>
-        <p>© 2026 Gaye Güngör | Architectural Designer</p>
+        <p class="en-text">© 2026 Gaye Güngör | Architectural Designer</p>
+        <p class="tr-text">© 2026 Gaye Güngör | Mimari Tasarımcı</p>
     </footer>
 
     <!-- JS SCRIPTLERİ -->
@@ -203,6 +220,11 @@ This visualization captures the project's vision of community-oriented living, w
             setTimeout(function() {
                 window.location.href = url;
             }, 600);
+        }
+
+        // 5. Scroll Down Butonu İçin Kaydırma Fonksiyonu
+        function scrollToContent() {
+            document.getElementById('content').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
