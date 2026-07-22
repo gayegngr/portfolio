@@ -6,40 +6,59 @@
     <title>BIBLIOTHÈQUE | Gaye Güngör</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        /* TEMEL AYARLAR VE ANİMASYON */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Inter', sans-serif; background-color: #fafafa; color: #111111; opacity: 0; transition: opacity 0.6s ease-in-out; }
         body.loaded { opacity: 1; }
         body.fade-out { opacity: 0; }
+
+        /* SİYAH GİRİŞ EKRANI */
         .hero { height: 100vh; background-color: #050505; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; }
         .hero h1 { color: #ffffff; font-size: clamp(2.5rem, 5vw, 5rem); font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; animation: slideUp 1.5s ease-out forwards; opacity: 0; transform: translateY(30px); text-align: center; padding: 0 20px;}
         .hero p { color: #888888; margin-top: 20px; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.2em; animation: slideUp 1.5s ease-out forwards 0.3s; opacity: 0; transform: translateY(30px); }
         @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+
         .scroll-down { position: absolute; bottom: 50px; color: #ffffff; font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; opacity: 0.7; transition: opacity 0.3s; animation: bounce 2s infinite; cursor: pointer; }
         .scroll-down:hover { opacity: 1; }
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
+
+        /* YAPIŞKAN MENÜ */
         .nav-container { position: sticky; top: 0; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(5px); padding: 20px 0; border-bottom: 1px solid #eaeaea; z-index: 1000; text-align: center; }
         .nav-links { list-style: none; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
         .nav-links a { text-decoration: none; color: #888888; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s ease; cursor: pointer; }
         .nav-links a:hover { color: #111111; }
+
+        /* PROJE İÇERİĞİ */
         .content-section { padding: 80px 10%; min-height: 100vh; max-width: 1000px; margin: 0 auto; }
+        
         .project-description { font-size: 1.1rem; line-height: 1.8; color: #333; margin-bottom: 60px; text-align: justify;}
+        /* Kalın Başlık Stili */
+        .project-description h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 15px; color: #111; }
+        .project-description p { margin-bottom: 20px; }
+        
         .project-images { display: flex; flex-direction: column; gap: 60px; }
         .img-block { width: 100%; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; }
         .img-block img { width: 100%; height: auto; display: block; }
         .img-caption { margin-top: 15px; font-size: 0.85rem; color: #888; text-align: right; font-style: italic; }
+
         .back-link { display: inline-block; margin-top: 80px; text-decoration: none; color: #111; font-weight: 500; border-bottom: 1px solid #111; padding-bottom: 3px; text-transform: uppercase; letter-spacing: 0.1em;}
+
         footer { padding: 40px 10%; text-align: center; border-top: 1px solid #eaeaea; font-size: 0.85rem; color: #888888; background-color: #ffffff; }
+
         @media (max-width: 768px) { .nav-links { gap: 20px; } .content-section { padding: 50px 5%; } }
     </style>
 </head>
 <body>
+
+    <!-- SİYAH PROJE KAPAK EKRANI -->
     <section class="hero" id="home">
         <h1>06 BIBLIOTHÈQUE</h1>
         <p>Public Building / Library</p>
         <a class="scroll-down" onclick="scrollToContent()">Explore Project ↓</a>
     </section>
 
-   <nav class="nav-container" id="navbar">
+    <!-- YAPIŞKAN MENÜ -->
+    <nav class="nav-container" id="navbar">
         <ul class="nav-links">
             <li><a href="index.html" onclick="transitionToPage(event, 'index.html')">Projects</a></li>
             <li><a href="about.html" onclick="transitionToPage(event, 'about.html')">About</a></li>
@@ -47,37 +66,59 @@
             <li><a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank">Interactive Portfolio</a></li>
         </ul>
     </nav>
+
+    <!-- PROJE DETAYLARI (BEYAZ ZEMİN) -->
     <section class="content-section" id="content">
+        
+        <!-- YENİ METİN BURADA -->
         <div class="project-description">
-            <p>Designed as an accessible library hub, BIBLIOTHÈQUE redefines the modern reading space as a dynamic civic center. The spatial organization prioritizes natural illumination, flexible learning areas, and inclusive design principles to create an inviting environment for knowledge exchange.</p>
+            <h3>Seferihisar Library</h3>
+            <p>Located in the heart of Seferihisar, this library is envisioned as a vibrant civic space that extends beyond the traditional concept of a reading facility. Designed to encourage learning, collaboration, and everyday social interaction, it offers a variety of spaces for quiet study, group work, and community gathering.</p>
+            <p>The project responds to the character of the city through an accessible and sustainable design approach. Inclusive spaces, modern technologies, and barrier-free circulation ensure that the library welcomes users of all ages and abilities.</p>
+            <p>Complemented by exhibition areas, workshops, and cultural events, the library becomes more than a place for books—it serves as a dynamic community hub where education, culture, and public life come together.</p>
         </div>
 
+        <!-- RENDER ALANI -->
         <div class="project-images">
+            <!-- Render 1 -->
             <div>
                 <div class="img-block">
-                    <img src="bibliotheque-1.jpg" alt="Bibliotheque Render 1">
+                    <!-- 1. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
+                    <img src="bibliotheque-render1.jpg" alt="Seferihisar Library Exterior View">
                 </div>
-                <div class="img-caption">Main facade and public entrance approach</div>
+                <!-- 1. GÖRSELİN AÇIKLAMASI -->
+                <div class="img-caption">A vibrant civic space integrating with the heart of Seferihisar</div>
             </div>
-            <div>
+            
+            <!-- Render 2 -->
+             <div>
                 <div class="img-block">
-                    <img src="bibliotheque-2.jpg" alt="Bibliotheque Render 2">
+                    <!-- 2. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
+                    <img src="bibliotheque-render2.jpg" alt="Seferihisar Library Interior Spaces">
                 </div>
-                <div class="img-caption">Interior reading spaces and natural light integration</div>
+                <!-- 2. GÖRSELİN AÇIKLAMASI -->
+                <div class="img-caption">Barrier-free circulation and inclusive spaces for community gathering</div>
             </div>
+            
         </div>
 
-        <a href="index.html" class="back-link" onclick="transitionToPage(event, 'index.html')">← Tüm Projeler</a>
+        <a href="index.html" class="back-link" onclick="transitionToPage(event, 'index.html')">← Back to Projects</a>
     </section>
 
     <footer>
         <p>© 2026 Gaye Güngör | Architectural Designer</p>
     </footer>
 
+    <!-- JS SCRIPTLERİ -->
     <script>
         window.onload = function() { document.body.classList.add('loaded'); };
         function scrollToContent() { document.getElementById('navbar').scrollIntoView({ behavior: 'smooth' }); }
-        function transitionToPage(event, url) { event.preventDefault(); document.body.classList.remove('loaded'); document.body.classList.add('fade-out'); setTimeout(function() { window.location.href = url; }, 600); }
+        function transitionToPage(event, url) {
+            event.preventDefault();
+            document.body.classList.remove('loaded');
+            document.body.classList.add('fade-out');
+            setTimeout(function() { window.location.href = url; }, 600);
+        }
     </script>
 </body>
 </html>
