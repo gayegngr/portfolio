@@ -20,6 +20,25 @@
         body.loaded { opacity: 1; }
         body.fade-out { opacity: 0; }
 
+        /* SOL ÜST KÖŞE SABİT ANA SAYFA LOGOSU */
+        .fixed-logo {
+            position: fixed;
+            top: 30px;
+            left: 40px;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            text-decoration: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: opacity 0.3s ease;
+        }
+        .fixed-logo:hover {
+            opacity: 0.6;
+        }
+
         /* 1. SİYAH GİRİŞ EKRANI (HERO) */
         .hero {
             height: 100vh;
@@ -67,7 +86,7 @@
             flex-direction: column;
             gap: 8px;
             opacity: 0;
-            animation: slideUp 1.5s ease-out forwards 0.6s; /* Yazılardan hemen sonra belirir */
+            animation: slideUp 1.5s ease-out forwards 0.6s; 
         }
 
         .hero-social {
@@ -199,35 +218,35 @@
             background-color: #ffffff;
         }
 
-        /* MOBİL UYUM İÇİN KÜÇÜK DÜZELTMELER */
+        /* MOBİL UYUM */
         @media (max-width: 768px) {
             .nav-links { gap: 20px; }
             .content-section { padding: 50px 5%; }
-            /* Mobilde yazılar üst üste binmesin diye ayarlama */
             .hero-social, .hero-contact { bottom: 20px; gap: 5px; }
             .hero-social { left: 20px; }
             .hero-contact { right: 20px; }
             .contact-link { font-size: 0.65rem; }
             .scroll-down { bottom: 80px; }
+            .fixed-logo { top: 20px; left: 20px; font-size: 0.8rem; }
         }
     </style>
 </head>
 <body>
 
+    <!-- SABİT ANA SAYFA LOGOSU BURAYA EKLENDİ -->
+    <a href="index.html" class="fixed-logo" onclick="transitionToPage(event, 'index.html')">Gaye Güngör</a>
+
     <section class="hero" id="home">
         <h1>Gaye Güngör</h1>
         <p>Architectural Designer</p>
         
-        <!-- Sol Alt: LinkedIn -->
         <div class="hero-social">
             <a href="https://www.linkedin.com/in/gayeg%C3%BCng%C3%B6r" target="_blank" class="contact-link">LinkedIn</a>
         </div>
 
-        <!-- Sağ Alt: Email ve Telefon -->
         <div class="hero-contact">
             <a href="mailto:gungorggaye174@gmail.com" class="contact-link">gungorggaye174@gmail.com</a>
-            <!-- TELEFON NUMARANI AŞAĞIDAKİ YERE YAZABİLİRSİN -->
-            <a href="tel:+905550000000" class="contact-link">+90 552 211 8345</a>
+            <a href="tel:+905550000000" class="contact-link">+90 555 XXX XX XX</a>
         </div>
 
         <a class="scroll-down" onclick="scrollToProjects()">Scroll Down ↓</a>
@@ -244,7 +263,6 @@
 
     <section class="content-section" id="projects">
         <div class="grid">
-            
             <a href="afterground.html" class="project-item" onclick="transitionToPage(event, 'afterground.html')">
                 <div class="image-placeholder">
                     <img src="afterground-cover.jpg" alt="AFTERGROUND">
@@ -314,7 +332,6 @@
                     <div class="project-category">Visualization / 3D Art</div>
                 </div>
             </a>
-
         </div>
     </section>
 
