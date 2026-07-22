@@ -76,7 +76,7 @@
             position: fixed;
             top: 30px;
             right: 40px;
-            color: #111111; /* Eğer arka planın beyazsa rengi koyu yapabilirsin */
+            color: #111111; 
             font-size: 0.9rem;
             font-weight: 500;
             text-transform: uppercase;
@@ -97,34 +97,55 @@
 
     <!-- SAĞ ÜST DİL SEÇENEĞİ -->
     <div class="lang-toggle" onclick="toggleLanguage()">ENG / TR</div>
-<!-- SABİT ANA SAYFA LOGOSU -->
-    <a href="index.html" class="fixed-logo" onclick="transitionToPage(event, 'index.html')">Home</a>
+
+    <!-- SABİT ANA SAYFA LOGOSU -->
+    <a href="index.html" class="fixed-logo en-text" onclick="transitionToPage(event, 'index.html')">Home</a>
+    <a href="index.html" class="fixed-logo tr-text" onclick="transitionToPage(event, 'index.html')">Ana Sayfa</a>
+
     <!-- SİYAH PROJE KAPAK EKRANI -->
     <section class="hero" id="home">
         <h1>03 TERRAHAUS</h1>
-        <p>Residential Design</p>
-        <a class="scroll-down" onclick="scrollToContent()">Explore Project ↓</a>
+        <p class="en-text">Residential Design</p>
+        <p class="tr-text">Konut Tasarımı</p>
+        <a class="scroll-down en-text" onclick="scrollToContent()">Explore Project ↓</a>
+        <a class="scroll-down tr-text" onclick="scrollToContent()">Projeyi İncele ↓</a>
     </section>
 
     <!-- YAPIŞKAN MENÜ -->
     <nav class="nav-container" id="navbar">
         <ul class="nav-links">
-            <li><a href="index.html" onclick="transitionToPage(event, 'index.html')">Projects</a></li>
-            <li><a href="about.html" onclick="transitionToPage(event, 'about.html')">About</a></li>
+            <li>
+                <a href="index.html" class="en-text" onclick="transitionToPage(event, 'index.html')">Projects</a>
+                <a href="index.html" class="tr-text" onclick="transitionToPage(event, 'index.html')">Projeler</a>
+            </li>
+            <li>
+                <a href="about.html" class="en-text" onclick="transitionToPage(event, 'about.html')">About</a>
+                <a href="about.html" class="tr-text" onclick="transitionToPage(event, 'about.html')">Hakkımda</a>
+            </li>
             <li><a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank">CV / PDF</a></li>
-            <li><a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank">Interactive Portfolio</a></li>
+            <li>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="en-text">Interactive Portfolio</a>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="tr-text">Etkileşimli Portfolyo</a>
+            </li>
         </ul>
     </nav>
 
     <!-- PROJE DETAYLARI (BEYAZ ZEMİN) -->
     <section class="content-section" id="content">
         
-        <!-- YENİ METİN BURADA -->
+        <!-- METİN ALANI -->
         <div class="project-description">
-            <h3>Vineyard House</h3>
-            <p>Designed as a peaceful retreat within the vineyard, this house embraces the simplicity of rural living through a strong connection with nature. Its U-shaped layout is formed by two primary volumes linked by a central corridor, creating a sheltered veranda that becomes the heart of everyday life. Living spaces open directly onto this outdoor area, dissolving the boundary between interior and landscape.</p>
-            <p>The building is carefully oriented to maximize natural daylight while minimizing the impact of the western sun. Generous openings frame views of the surrounding vineyard, filling the interior with light and reinforcing the relationship between architecture and its environment.</p>
-            <p>With a compact footprint and an efficient spatial organization, the project offers a calm, functional, and timeless living experience that celebrates both simplicity and place.</p>
+            <h3 class="en-text">Vineyard House</h3>
+            <h3 class="tr-text">Bağ Evi</h3>
+            
+            <p class="en-text">Designed as a peaceful retreat within the vineyard, this house embraces the simplicity of rural living through a strong connection with nature. Its U-shaped layout is formed by two primary volumes linked by a central corridor, creating a sheltered veranda that becomes the heart of everyday life. Living spaces open directly onto this outdoor area, dissolving the boundary between interior and landscape.</p>
+            <p class="tr-text">Bağların arasında huzurlu bir sığınak olarak tasarlanan bu ev, doğayla kurduğu güçlü bağ aracılığıyla kırsal yaşamın sadeliğini kucaklar. Merkezi bir koridorla birbirine bağlanan iki ana hacimden oluşan U biçimli yerleşim, günlük yaşamın kalbi haline gelen korunaklı bir veranda yaratır. Yaşam alanları doğrudan bu açık alana açılarak iç mekan ile peyzaj arasındaki sınırları ortadan kaldırır.</p>
+            
+            <p class="en-text">The building is carefully oriented to maximize natural daylight while minimizing the impact of the western sun. Generous openings frame views of the surrounding vineyard, filling the interior with light and reinforcing the relationship between architecture and its environment.</p>
+            <p class="tr-text">Yapı; batı güneşinin etkisini en aza indirirken doğal gün ışığından maksimum düzeyde yararlanacak şekilde özenle yönlendirilmiştir. Cömert açıklıklar çevreleyen bağın manzaralarını çerçeveleyerek iç mekanı ışıkla doldurur ve mimari ile çevresi arasındaki ilişkiyi güçlendirir.</p>
+            
+            <p class="en-text">With a compact footprint and an efficient spatial organization, the project offers a calm, functional, and timeless living experience that celebrates both simplicity and place.</p>
+            <p class="tr-text">Kompakt bir taban izine ve verimli bir mekansal kurguya sahip olan proje; hem sadeliği hem de mekanı kutlayan sakin, işlevsel ve zamansız bir yaşam deneyimi sunar.</p>
         </div>
 
         <!-- RENDER ALANI -->
@@ -132,52 +153,49 @@
             <!-- Render 1 -->
             <div>
                 <div class="img-block">
-                    <!-- 1. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
                     <img src="terrahaus render1.png" alt="Terrahaus Exterior Visualization">
                 </div>
-                <!-- 1. GÖRSELİN AÇIKLAMASI -->
-                <div class="img-caption">The exterior visualization highlights the seamless relationship between the house and its natural surroundings. Nestled within the vineyard, the building follows the landscape with a quiet architectural presence, allowing nature to remain the dominant element. Warm natural materials, soft daylight, and carefully framed views reinforce the sense of harmony between architecture and the environment. The rendering captures the project not simply as a building in nature, but as a place where everyday life unfolds in close connection with the landscape.</div>
+                <div class="img-caption en-text">The exterior visualization highlights the seamless relationship between the house and its natural surroundings. Nestled within the vineyard, the building follows the landscape with a quiet architectural presence, allowing nature to remain the dominant element. Warm natural materials, soft daylight, and carefully framed views reinforce the sense of harmony between architecture and the environment. The rendering captures the project not simply as a building in nature, but as a place where everyday life unfolds in close connection with the landscape.</div>
+                <div class="img-caption tr-text">Dış mekan görselleştirmesi, evin doğal çevresiyle olan kusursuz ilişkisini vurgulamaktadır. Bağların arasına yerleşen yapı, sakin bir mimari duruşla peyzajı takip ederek doğanın baskın unsur olarak kalmasına izin verir. Sıcak doğal malzemeler, yumuşak gün ışığı ve özenle çerçevelenmiş manzaralar, mimari ile çevre arasındaki uyum hissiyatını güçlendirir. Render, projeyi doğada sadece bir bina olarak değil, günlük yaşamın peyzajla yakın bir bağ içinde akıp gittiği bir mekan olarak yakalamaktadır.</div>
             </div>
             
             <!-- Render 2 -->
              <div>
                 <div class="img-block">
-                    <!-- 2. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
                     <img src="terrahaus render2.png" alt="Terrahaus Exterior Visualization">
                 </div>
-                <!-- 2. GÖRSELİN AÇIKLAMASI -->
                 <div class="img-caption"></div>
             </div>
+
             <!-- Render 3 -->
              <div>
                 <div class="img-block">
-                    <!-- 2. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
                     <img src="terrahaus render3.png" alt="Terrahaus Exterior Visualization">
                 </div>
-                <!-- 2. GÖRSELİN AÇIKLAMASI -->
                 <div class="img-caption"></div>
             </div>
+            
              <!-- Render 4 -->
              <div>
                 <div class="img-block">
-                    <!-- 2. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
                     <img src="terrahaus render4.png" alt="Terrahaus Exterior Visualization">
                 </div>
-                <!-- 2. GÖRSELİN AÇIKLAMASI -->
                 <div class="img-caption"></div>
             </div>
-           
+        </div>
 
-        <a href="index.html" class="back-link" onclick="transitionToPage(event, 'index.html')">← Back to Projects</a>
+        <a href="index.html" class="back-link en-text" onclick="transitionToPage(event, 'index.html')">← Back to Projects</a>
+        <a href="index.html" class="back-link tr-text" onclick="transitionToPage(event, 'index.html')">← Projelere Dön</a>
     </section>
 
     <footer>
-        <p>© 2026 Gaye Güngör | Architectural Designer</p>
+        <p class="en-text">© 2026 Gaye Güngör | Architectural Designer</p>
+        <p class="tr-text">© 2026 Gaye Güngör | Mimari Tasarımcı</p>
     </footer>
 
     <!-- JS SCRIPTLERİ -->
     <script>
-  // 1. Dil Hafızası (Daha Güçlü Versiyon)
+        // 1. Dil Hafızası (Daha Güçlü Versiyon)
         const savedLang = localStorage.getItem('siteLang') || 'en';
         document.body.classList.remove('lang-en', 'lang-tr');
         document.body.classList.add('lang-' + savedLang);
@@ -210,6 +228,11 @@
             setTimeout(function() {
                 window.location.href = url;
             }, 600);
+        }
+
+        // 5. Scroll Down Butonu İçin Kaydırma Fonksiyonu
+        function scrollToContent() {
+            document.getElementById('content').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
