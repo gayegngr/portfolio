@@ -178,28 +178,39 @@
 
     <!-- JS SCRIPTLERİ -->
     <script>
-        window.onload = function() { document.body.classList.add('loaded'); };
-        function scrollToContent() { document.getElementById('navbar').scrollIntoView({ behavior: 'smooth' }); }
-        function transitionToPage(event, url) {
-            event.preventDefault();
-            document.body.classList.remove('loaded');
-            document.body.classList.add('fade-out');
-            setTimeout(function() { window.location.href = url; }, 600);
-        }
-        // Sayfa yüklendiğinde hafızadaki dili kontrol et ve uygula
+     // 1. Dil Hafızası (Daha Güçlü Versiyon)
         const savedLang = localStorage.getItem('siteLang') || 'en';
-        document.body.classList.replace('lang-en', 'lang-' + savedLang);
+        document.body.classList.remove('lang-en', 'lang-tr');
+        document.body.classList.add('lang-' + savedLang);
 
-        // Dil Değiştirme Fonksiyonu
+        // 2. Sayfa Yüklenme Animasyonu
+        window.onload = function() {
+            document.body.classList.add('loaded');
+        };
+
+        // 3. Dil Değiştirme Butonu İşlevi
         function toggleLanguage() {
             const body = document.body;
             if (body.classList.contains('lang-en')) {
-                body.classList.replace('lang-en', 'lang-tr');
+                body.classList.remove('lang-en');
+                body.classList.add('lang-tr');
                 localStorage.setItem('siteLang', 'tr');
             } else {
-                body.classList.replace('lang-tr', 'lang-en');
+                body.classList.remove('lang-tr');
+                body.classList.add('lang-en');
                 localStorage.setItem('siteLang', 'en');
             }
+        }
+
+        // 4. Sayfalar Arası Geçiş
+        function transitionToPage(event, url) {
+            event.preventDefault(); 
+            document.body.classList.remove('loaded');
+            document.body.classList.add('fade-out'); 
+            
+            setTimeout(function() {
+                window.location.href = url;
+            }, 600);
         }
     </script>
 </body>
