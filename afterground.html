@@ -76,7 +76,7 @@
             position: fixed;
             top: 30px;
             right: 40px;
-            color: #111111; /* Eğer arka planın beyazsa rengi koyu yapabilirsin */
+            color: #111111; 
             font-size: 0.9rem;
             font-weight: 500;
             text-transform: uppercase;
@@ -97,22 +97,36 @@
 
     <!-- SAĞ ÜST DİL SEÇENEĞİ -->
     <div class="lang-toggle" onclick="toggleLanguage()">ENG / TR</div>
-<!-- SABİT ANA SAYFA LOGOSU -->
-    <a href="index.html" class="fixed-logo" onclick="transitionToPage(event, 'index.html')">Home</a>
+
+    <!-- SABİT ANA SAYFA LOGOSU -->
+    <a href="index.html" class="fixed-logo en-text" onclick="transitionToPage(event, 'index.html')">Home</a>
+    <a href="index.html" class="fixed-logo tr-text" onclick="transitionToPage(event, 'index.html')">Ana Sayfa</a>
+
     <!-- SİYAH PROJE KAPAK EKRANI -->
     <section class="hero" id="home">
         <h1>01 AFTERGROUND</h1>
-        <p>Graduation Project</p>
-        <a class="scroll-down" onclick="scrollToContent()">Explore Project ↓</a>
+        <p class="en-text">Graduation Project</p>
+        <p class="tr-text">Mezuniyet Projesi</p>
+        <a class="scroll-down en-text" onclick="scrollToContent()">Explore Project ↓</a>
+        <a class="scroll-down tr-text" onclick="scrollToContent()">Projeyi İncele ↓</a>
     </section>
 
     <!-- YAPIŞKAN MENÜ -->
     <nav class="nav-container" id="navbar">
         <ul class="nav-links">
-            <li><a href="index.html" onclick="transitionToPage(event, 'index.html')">Projects</a></li>
-            <li><a href="about.html" onclick="transitionToPage(event, 'about.html')">About</a></li>
+            <li>
+                <a href="index.html" class="en-text" onclick="transitionToPage(event, 'index.html')">Projects</a>
+                <a href="index.html" class="tr-text" onclick="transitionToPage(event, 'index.html')">Projeler</a>
+            </li>
+            <li>
+                <a href="about.html" class="en-text" onclick="transitionToPage(event, 'about.html')">About</a>
+                <a href="about.html" class="tr-text" onclick="transitionToPage(event, 'about.html')">Hakkımda</a>
+            </li>
             <li><a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank">CV / PDF</a></li>
-            <li><a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank">Interactive Portfolio</a></li>
+            <li>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="en-text">Interactive Portfolio</a>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="tr-text">Etkileşimli Portfolyo</a>
+            </li>
         </ul>
     </nav>
 
@@ -121,10 +135,17 @@
         
         <!-- YENİ METİN BURADA -->
         <div class="project-description">
-            <h3>Adaptive Living: A Future Shaped by Water and Landscape</h3>
-            <p>This project explores a future where rising lake levels transform existing settlements and redefine the relationship between people, water, and the landscape. Instead of resisting environmental change, the proposal embraces adaptation as a design opportunity, creating a resilient settlement that evolves with its surroundings.</p>
-            <p>Organized through a layered terrace system, the settlement follows the natural topography while responding to changing water conditions. A continuous spatial network connects housing, public spaces, and ecological landscapes across different elevations, allowing the community to grow and transform together with the environment.</p>
-            <p>Through integrated water management strategies, green corridors, and landscape-based infrastructure, the project proposes a new model of habitation where architecture and nature coexist. It presents a vision of future living that adapts, rather than opposes, the realities of a changing climate.</p>
+            <h3 class="en-text">Adaptive Living: A Future Shaped by Water and Landscape</h3>
+            <h3 class="tr-text">Adaptif Yaşam: Su ve Peyzaj Tarafından Şekillenen Bir Gelecek</h3>
+            
+            <p class="en-text">This project explores a future where rising lake levels transform existing settlements and redefine the relationship between people, water, and the landscape. Instead of resisting environmental change, the proposal embraces adaptation as a design opportunity, creating a resilient settlement that evolves with its surroundings.</p>
+            <p class="tr-text">Bu proje, yükselen göl seviyelerinin mevcut yerleşimleri dönüştürdüğü; insan, su ve peyzaj arasındaki ilişkinin yeniden tanımlandığı bir geleceği araştırıyor. Çevresel değişime direnmek yerine adaptasyonu bir tasarım fırsatı olarak benimseyen bu öneri, çevresiyle birlikte evrilen dirençli bir yerleşim yaratıyor.</p>
+            
+            <p class="en-text">Organized through a layered terrace system, the settlement follows the natural topography while responding to changing water conditions. A continuous spatial network connects housing, public spaces, and ecological landscapes across different elevations, allowing the community to grow and transform together with the environment.</p>
+            <p class="tr-text">Katmanlı bir teras sistemi ile kurgulanan yerleşim, doğal topografyayı izlerken değişen su koşullarına uyum sağlar. Kesintisiz bir mekansal ağ; konutları, kamusal alanları ve ekolojik peyzajları farklı kotlarda birbirine bağlayarak topluluğun çevreyle birlikte büyümesine ve dönüşmesine olanak tanır.</p>
+            
+            <p class="en-text">Through integrated water management strategies, green corridors, and landscape-based infrastructure, the project proposes a new model of habitation where architecture and nature coexist. It presents a vision of future living that adapts, rather than opposes, the realities of a changing climate.</p>
+            <p class="tr-text">Entegre su yönetimi stratejileri, yeşil koridorlar ve peyzaj tabanlı altyapı aracılığıyla proje, mimari ve doğanın bir arada var olduğu yeni bir yaşama modeli önermektedir. Değişen iklimin gerçeklerine karşı çıkmak yerine ona adapte olan bir geleceğin yaşam vizyonunu sunar.</p>
         </div>
 
         <!-- RENDER ALANI -->
@@ -136,7 +157,8 @@
                     <img src="final4.jpg" alt="Afterground Adaptive Living Render 1">
                 </div>
                 <!-- 1. GÖRSELİN AÇIKLAMASI -->
-                <div class="img-caption">Layered terrace system adapting to the topography</div>
+                <div class="img-caption en-text">Layered terrace system adapting to the topography</div>
+                <div class="img-caption tr-text">Topografyaya uyum sağlayan katmanlı teras sistemi</div>
             </div>
             
             <!-- Render 2 -->
@@ -146,39 +168,43 @@
                     <img src="final3.jpg" alt="Afterground Adaptive Living Render 2">
                 </div>
                 <!-- 2. GÖRSELİN AÇIKLAMASI -->
-                <div class="img-caption">Continuous spatial network and ecological corridors</div>
+                <div class="img-caption en-text">Continuous spatial network and ecological corridors</div>
+                <div class="img-caption tr-text">Kesintisiz mekansal ağ ve ekolojik koridorlar</div>
             </div>
 
             <!-- Render 3 -->
              <div>
                 <div class="img-block">
-                    <!-- 2. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
+                    <!-- 3. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
                     <img src="final2.jpg" alt="Afterground Adaptive Living Render 3">
                 </div>
-                <!-- 2. GÖRSELİN AÇIKLAMASI -->
+                <!-- 3. GÖRSELİN AÇIKLAMASI BOŞ BIRAKILMIŞ -->
                 <div class="img-caption"></div>
             </div>
+            
             <!-- Render 4 -->
              <div>
                 <div class="img-block">
-                    <!-- 2. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
+                    <!-- 4. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
                     <img src="final1.jpg" alt="Afterground Adaptive Living Render 4">
                 </div>
-                <!-- 2. GÖRSELİN AÇIKLAMASI -->
+                <!-- 4. GÖRSELİN AÇIKLAMASI BOŞ BIRAKILMIŞ -->
                 <div class="img-caption"></div>
             </div>
         </div>
 
-        <a href="index.html" class="back-link" onclick="transitionToPage(event, 'index.html')">← Back to Projects</a>
+        <a href="index.html" class="back-link en-text" onclick="transitionToPage(event, 'index.html')">← Back to Projects</a>
+        <a href="index.html" class="back-link tr-text" onclick="transitionToPage(event, 'index.html')">← Projelere Dön</a>
     </section>
 
     <footer>
-        <p>© 2026 Gaye Güngör | Architectural Designer</p>
+        <p class="en-text">© 2026 Gaye Güngör | Architectural Designer</p>
+        <p class="tr-text">© 2026 Gaye Güngör | Mimari Tasarımcı</p>
     </footer>
 
     <!-- JS SCRIPTLERİ -->
     <script>
-   // 1. Dil Hafızası (Daha Güçlü Versiyon)
+        // 1. Dil Hafızası (Daha Güçlü Versiyon)
         const savedLang = localStorage.getItem('siteLang') || 'en';
         document.body.classList.remove('lang-en', 'lang-tr');
         document.body.classList.add('lang-' + savedLang);
@@ -211,6 +237,11 @@
             setTimeout(function() {
                 window.location.href = url;
             }, 600);
+        }
+
+        // 5. Scroll Down Butonu İçin Kaydırma Fonksiyonu
+        function scrollToContent() {
+            document.getElementById('content').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
