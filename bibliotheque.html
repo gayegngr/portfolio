@@ -76,7 +76,7 @@
             position: fixed;
             top: 30px;
             right: 40px;
-            color: #111111; /* Eğer arka planın beyazsa rengi koyu yapabilirsin */
+            color: #111111; 
             font-size: 0.9rem;
             font-weight: 500;
             text-transform: uppercase;
@@ -97,34 +97,55 @@
 
     <!-- SAĞ ÜST DİL SEÇENEĞİ -->
     <div class="lang-toggle" onclick="toggleLanguage()">ENG / TR</div>
-<!-- SABİT ANA SAYFA LOGOSU -->
-    <a href="index.html" class="fixed-logo" onclick="transitionToPage(event, 'index.html')">Home</a>
+
+    <!-- SABİT ANA SAYFA LOGOSU -->
+    <a href="index.html" class="fixed-logo en-text" onclick="transitionToPage(event, 'index.html')">Home</a>
+    <a href="index.html" class="fixed-logo tr-text" onclick="transitionToPage(event, 'index.html')">Ana Sayfa</a>
+
     <!-- SİYAH PROJE KAPAK EKRANI -->
     <section class="hero" id="home">
         <h1>06 BIBLIOTHÈQUE</h1>
-        <p>Public Building / Library</p>
-        <a class="scroll-down" onclick="scrollToContent()">Explore Project ↓</a>
+        <p class="en-text">Public Building / Library</p>
+        <p class="tr-text">Kamusal Yapı / Kütüphane</p>
+        <a class="scroll-down en-text" onclick="scrollToContent()">Explore Project ↓</a>
+        <a class="scroll-down tr-text" onclick="scrollToContent()">Projeyi İncele ↓</a>
     </section>
 
     <!-- YAPIŞKAN MENÜ -->
     <nav class="nav-container" id="navbar">
         <ul class="nav-links">
-            <li><a href="index.html" onclick="transitionToPage(event, 'index.html')">Projects</a></li>
-            <li><a href="about.html" onclick="transitionToPage(event, 'about.html')">About</a></li>
+            <li>
+                <a href="index.html" class="en-text" onclick="transitionToPage(event, 'index.html')">Projects</a>
+                <a href="index.html" class="tr-text" onclick="transitionToPage(event, 'index.html')">Projeler</a>
+            </li>
+            <li>
+                <a href="about.html" class="en-text" onclick="transitionToPage(event, 'about.html')">About</a>
+                <a href="about.html" class="tr-text" onclick="transitionToPage(event, 'about.html')">Hakkımda</a>
+            </li>
             <li><a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank">CV / PDF</a></li>
-            <li><a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank">Interactive Portfolio</a></li>
+            <li>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="en-text">Interactive Portfolio</a>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="tr-text">Etkileşimli Portfolyo</a>
+            </li>
         </ul>
     </nav>
 
     <!-- PROJE DETAYLARI (BEYAZ ZEMİN) -->
     <section class="content-section" id="content">
         
-        <!-- YENİ METİN BURADA -->
+        <!-- METİN ALANI -->
         <div class="project-description">
-            <h3>Seferihisar Library</h3>
-            <p>Located in the heart of Seferihisar, this library is envisioned as a vibrant civic space that extends beyond the traditional concept of a reading facility. Designed to encourage learning, collaboration, and everyday social interaction, it offers a variety of spaces for quiet study, group work, and community gathering.</p>
-            <p>The project responds to the character of the city through an accessible and sustainable design approach. Inclusive spaces, modern technologies, and barrier-free circulation ensure that the library welcomes users of all ages and abilities.</p>
-            <p>Complemented by exhibition areas, workshops, and cultural events, the library becomes more than a place for books—it serves as a dynamic community hub where education, culture, and public life come together.</p>
+            <h3 class="en-text">Seferihisar Library</h3>
+            <h3 class="tr-text">Seferihisar Kütüphanesi</h3>
+            
+            <p class="en-text">Located in the heart of Seferihisar, this library is envisioned as a vibrant civic space that extends beyond the traditional concept of a reading facility. Designed to encourage learning, collaboration, and everyday social interaction, it offers a variety of spaces for quiet study, group work, and community gathering.</p>
+            <p class="tr-text">Seferihisar'ın kalbinde yer alan bu kütüphane, geleneksel bir okuma tesisinin ötesine geçen canlı bir kamusal odak noktası olarak kurgulanmıştır. Öğrenmeyi, iş birliğini ve günlük sosyal etkileşimi teşvik etmek için tasarlanan yapı; sessiz çalışma, grup çalışması ve topluluk buluşmaları için zengin mekansal alternatifler sunar.</p>
+            
+            <p class="en-text">The project responds to the character of the city through an accessible and sustainable design approach. Inclusive spaces, modern technologies, and barrier-free circulation ensure that the library welcomes users of all ages and abilities.</p>
+            <p class="tr-text">Proje, erişilebilir ve sürdürülebilir bir tasarım yaklaşımıyla kentin karakterine yanıt verir. Kapsayıcı mekansal kurgusu, modern teknolojileri ve engelsiz sirkülasyonu sayesinde kütüphane, her yaş ve yetenekten kullanıcıyı kucaklar.</p>
+            
+            <p class="en-text">Complemented by exhibition areas, workshops, and cultural events, the library becomes more than a place for books—it serves as a dynamic community hub where education, culture, and public life come together.</p>
+            <p class="tr-text"> Sergi alanları, atölyeler ve kültürel etkinliklerle zenginleştirilen kütüphane, sadece kitapların bulunduğu bir yer olmanın ötesine geçerek; eğitim, kültür ve kamusal yaşamın bir araya geldiği dinamik bir topluluk merkezi işlevi görür.</p>
         </div>
 
         <!-- RENDER ALANI -->
@@ -132,53 +153,50 @@
             <!-- Render 1 -->
             <div>
                 <div class="img-block">
-                    <!-- 1. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
                     <img src="KÜTÜP4.png" alt="Seferihisar Library Exterior View">
                 </div>
-                <!-- 1. GÖRSELİN AÇIKLAMASI -->
-                <div class="img-caption">A vibrant civic space integrating with the heart of Seferihisar</div>
+                <div class="img-caption en-text">A vibrant civic space integrating with the heart of Seferihisar</div>
+                <div class="img-caption tr-text">Seferihisar'ın kalbiyle bütünleşen canlı bir kamusal alan</div>
             </div>
             
             <!-- Render 2 -->
              <div>
                 <div class="img-block">
-                    <!-- 2. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
                     <img src="KÜTÜP2.png" alt="Seferihisar Library Interior Spaces">
                 </div>
-                <!-- 2. GÖRSELİN AÇIKLAMASI -->
-                <div class="img-caption">Barrier-free circulation and inclusive spaces for community gathering</div>
+                <div class="img-caption en-text">Barrier-free circulation and inclusive spaces for community gathering</div>
+                <div class="img-caption tr-text">Topluluk buluşmaları için engelsiz sirkülasyon ve kapsayıcı mekanlar</div>
             </div>
+
             <!-- Render 3 -->
              <div>
                 <div class="img-block">
-                    <!-- 2. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
                     <img src="KÜTÜP3.png" alt="Seferihisar Library Interior Spaces">
                 </div>
-                <!-- 2. GÖRSELİN AÇIKLAMASI -->
-                <div class="img-caption"></div>
-            </div>
-            <!-- Render 4 -->
-             <div>
-                <div class="img-block">
-                    <!-- 2. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
-                    <img src="KÜTÜP1.png" alt="Seferihisar Library Interior Spaces">
-                </div>
-                <!-- 2. GÖRSELİN AÇIKLAMASI -->
                 <div class="img-caption"></div>
             </div>
             
+            <!-- Render 4 -->
+             <div>
+                <div class="img-block">
+                    <img src="KÜTÜP1.png" alt="Seferihisar Library Interior Spaces">
+                </div>
+                <div class="img-caption"></div>
+            </div>
         </div>
 
-        <a href="index.html" class="back-link" onclick="transitionToPage(event, 'index.html')">← Back to Projects</a>
+        <a href="index.html" class="back-link en-text" onclick="transitionToPage(event, 'index.html')">← Back to Projects</a>
+        <a href="index.html" class="back-link tr-text" onclick="transitionToPage(event, 'index.html')">← Projelere Dön</a>
     </section>
 
     <footer>
-        <p>© 2026 Gaye Güngör | Architectural Designer</p>
+        <p class="en-text">© 2026 Gaye Güngör | Architectural Designer</p>
+        <p class="tr-text">© 2026 Gaye Güngör | Mimari Tasarımcı</p>
     </footer>
 
     <!-- JS SCRIPTLERİ -->
     <script>
-     // 1. Dil Hafızası (Daha Güçlü Versiyon)
+        // 1. Dil Hafızası (Daha Güçlü Versiyon)
         const savedLang = localStorage.getItem('siteLang') || 'en';
         document.body.classList.remove('lang-en', 'lang-tr');
         document.body.classList.add('lang-' + savedLang);
@@ -211,6 +229,11 @@
             setTimeout(function() {
                 window.location.href = url;
             }, 600);
+        }
+
+        // 5. Scroll Down Butonu İçin Kaydırma Fonksiyonu
+        function scrollToContent() {
+            document.getElementById('content').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
