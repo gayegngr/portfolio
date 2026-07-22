@@ -76,7 +76,7 @@
             position: fixed;
             top: 30px;
             right: 40px;
-            color: #111111; /* Eğer arka planın beyazsa rengi koyu yapabilirsin */
+            color: #111111; 
             font-size: 0.9rem;
             font-weight: 500;
             text-transform: uppercase;
@@ -97,34 +97,55 @@
 
     <!-- SAĞ ÜST DİL SEÇENEĞİ -->
     <div class="lang-toggle" onclick="toggleLanguage()">ENG / TR</div>
-<!-- SABİT ANA SAYFA LOGOSU -->
-    <a href="index.html" class="fixed-logo" onclick="transitionToPage(event, 'index.html')">Home</a>
+
+    <!-- SABİT ANA SAYFA LOGOSU -->
+    <a href="index.html" class="fixed-logo en-text" onclick="transitionToPage(event, 'index.html')">Home</a>
+    <a href="index.html" class="fixed-logo tr-text" onclick="transitionToPage(event, 'index.html')">Ana Sayfa</a>
+
     <!-- SİYAH PROJE KAPAK EKRANI -->
     <section class="hero" id="home">
         <h1>07 ARCHITECTURAL RENDERINGS</h1>
-        <p>Visualization / 3D Art</p>
-        <a class="scroll-down" onclick="scrollToContent()">Explore Gallery ↓</a>
+        <p class="en-text">Visualization / 3D Art</p>
+        <p class="tr-text">Görselleştirme / 3D Sanat</p>
+        <a class="scroll-down en-text" onclick="scrollToContent()">Explore Gallery ↓</a>
+        <a class="scroll-down tr-text" onclick="scrollToContent()">Galeriyi İncele ↓</a>
     </section>
 
     <!-- YAPIŞKAN MENÜ -->
     <nav class="nav-container" id="navbar">
         <ul class="nav-links">
-            <li><a href="index.html" onclick="transitionToPage(event, 'index.html')">Projects</a></li>
-            <li><a href="about.html" onclick="transitionToPage(event, 'about.html')">About</a></li>
+            <li>
+                <a href="index.html" class="en-text" onclick="transitionToPage(event, 'index.html')">Projects</a>
+                <a href="index.html" class="tr-text" onclick="transitionToPage(event, 'index.html')">Projeler</a>
+            </li>
+            <li>
+                <a href="about.html" class="en-text" onclick="transitionToPage(event, 'about.html')">About</a>
+                <a href="about.html" class="tr-text" onclick="transitionToPage(event, 'about.html')">Hakkımda</a>
+            </li>
             <li><a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank">CV / PDF</a></li>
-            <li><a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank">Interactive Portfolio</a></li>
+            <li>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="en-text">Interactive Portfolio</a>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="tr-text">Etkileşimli Portfolyo</a>
+            </li>
         </ul>
     </nav>
 
     <!-- PROJE DETAYLARI (BEYAZ ZEMİN) -->
     <section class="content-section" id="content">
         
-        <!-- YENİ METİN BURADA -->
+        <!-- METİN ALANI -->
         <div class="project-description">
-            <h3>Renderings</h3>
-            <p>For me, architectural visualization is more than creating realistic images—it is about communicating the atmosphere, emotion, and experience of a space before it is built. Each rendering is carefully developed to reflect how architecture interacts with light, materials, landscape, and everyday life.</p>
-            <p>My approach focuses on creating believable environments where people, nature, and architecture exist in harmony. From natural lighting and material textures to human activity and environmental context, every element is considered to produce visuals that feel authentic rather than staged.</p>
-            <p>Through these visualizations, I aim to transform architectural concepts into immersive experiences, helping viewers understand not only the form of a project, but also how it might be lived, perceived, and remembered.</p>
+            <h3 class="en-text">Renderings</h3>
+            <h3 class="tr-text">Görselleştirmeler</h3>
+            
+            <p class="en-text">For me, architectural visualization is more than creating realistic images—it is about communicating the atmosphere, emotion, and experience of a space before it is built. Each rendering is carefully developed to reflect how architecture interacts with light, materials, landscape, and everyday life.</p>
+            <p class="tr-text">Benim için mimari görselleştirme, gerçekçi görüntüler üretmekten çok daha fazlasıdır; bir mekan inşa edilmeden önce onun atmosferini, duygusunu ve deneyimini aktarmakla ilgilidir. Her bir görselleştirme, mimarinin ışık, malzemeler, peyzaj ve günlük yaşamla nasıl etkileşime girdiğini yansıtacak şekilde özenle geliştirilmiştir.</p>
+            
+            <p class="en-text">My approach focuses on creating believable environments where people, nature, and architecture exist in harmony. From natural lighting and material textures to human activity and environmental context, every element is considered to produce visuals that feel authentic rather than staged.</p>
+            <p class="tr-text">Yaklaşımım; insanların, doğanın ve mimarinin uyum içinde var olduğu inandırıcı çevreler yaratmaya odaklanır. Doğal aydınlatma ve malzeme dokularından insan aktivitesine ve çevresel bağlama kadar her unsur, yapay durmaktan ziyade otantik hissettiren görseller üretmek üzere ele alınır.</p>
+            
+            <p class="en-text">Through these visualizations, I aim to transform architectural concepts into immersive experiences, helping viewers understand not only the form of a project, but also how it might be lived, perceived, and remembered.</p>
+            <p class="tr-text">Bu görselleştirmeler aracılığıyla mimari konseptleri sürükleyici deneyimlere dönüştürmeyi; izleyicilerin bir projenin yalnızca biçimini değil, aynı zamanda nasıl yaşanılabileceğini, algılanabileceğini ve hatırlanabileceğini de anlamalarını sağlamayı hedefliyorum.</p>
         </div>
 
         <!-- RENDER ALANI -->
@@ -152,6 +173,7 @@
                 </div>
                 <div class="img-caption"></div>
             </div>
+            
             <!-- Render 4 -->
              <div>
                 <div class="img-block">
@@ -159,19 +181,20 @@
                 </div>
                 <div class="img-caption"></div>
             </div>
-            
         </div>
 
-        <a href="index.html" class="back-link" onclick="transitionToPage(event, 'index.html')">← Back to Projects</a>
+        <a href="index.html" class="back-link en-text" onclick="transitionToPage(event, 'index.html')">← Back to Projects</a>
+        <a href="index.html" class="back-link tr-text" onclick="transitionToPage(event, 'index.html')">← Projelere Dön</a>
     </section>
 
     <footer>
-        <p>© 2026 Gaye Güngör | Architectural Designer</p>
+        <p class="en-text">© 2026 Gaye Güngör | Architectural Designer</p>
+        <p class="tr-text">© 2026 Gaye Güngör | Mimari Tasarımcı</p>
     </footer>
 
     <!-- JS SCRIPTLERİ -->
     <script>
-    // 1. Dil Hafızası (Daha Güçlü Versiyon)
+        // 1. Dil Hafızası (Daha Güçlü Versiyon)
         const savedLang = localStorage.getItem('siteLang') || 'en';
         document.body.classList.remove('lang-en', 'lang-tr');
         document.body.classList.add('lang-' + savedLang);
@@ -204,6 +227,11 @@
             setTimeout(function() {
                 window.location.href = url;
             }, 600);
+        }
+
+        // 5. Scroll Down Butonu İçin Kaydırma Fonksiyonu
+        function scrollToContent() {
+            document.getElementById('content').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
