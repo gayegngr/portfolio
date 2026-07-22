@@ -63,6 +63,7 @@
             .nav-links { gap: 20px; } 
             .fixed-logo { top: 20px; left: 20px; font-size: 0.8rem; }
         }
+        
         /* DİL GİZLEME/GÖSTERME SİSTEMİ */
         body.lang-tr .en-text { display: none !important; }
         body.lang-en .tr-text { display: none !important; }
@@ -72,7 +73,7 @@
             position: fixed;
             top: 30px;
             right: 40px;
-            color: #111111; /* Eğer arka planın beyazsa rengi koyu yapabilirsin */
+            color: #111111; 
             font-size: 0.9rem;
             font-weight: 500;
             text-transform: uppercase;
@@ -94,55 +95,74 @@
     <!-- SAĞ ÜST DİL SEÇENEĞİ -->
     <div class="lang-toggle" onclick="toggleLanguage()">ENG / TR</div>
 
-    <!-- SABİT ANA SAYFA LOGOSU BURAYA EKLENDİ (İSMİ 'HOME' OLARAK GÜNCELLENDİ) -->
-    <a href="index.html" class="fixed-logo" onclick="transitionToPage(event, 'index.html')">Home</a>
+    <!-- SABİT ANA SAYFA LOGOSU -->
+    <a href="index.html" class="fixed-logo en-text" onclick="transitionToPage(event, 'index.html')">Home</a>
+    <a href="index.html" class="fixed-logo tr-text" onclick="transitionToPage(event, 'index.html')">Ana Sayfa</a>
 
     <section class="hero" id="home">
-        <h1>About</h1>
-        <a class="scroll-down" onclick="scrollToContent()">Scroll Down ↓</a>
+        <h1 class="en-text">About</h1>
+        <h1 class="tr-text">Hakkımda</h1>
+        <a class="scroll-down en-text" onclick="scrollToContent()">Scroll Down ↓</a>
+        <a class="scroll-down tr-text" onclick="scrollToContent()">Aşağı Kaydır ↓</a>
     </section>
 
     <nav class="nav-container" id="navbar">
         <ul class="nav-links">
-            <li><a href="index.html" onclick="transitionToPage(event, 'index.html')">Projects</a></li>
-            <li><a href="#navbar" class="active">About</a></li>
+            <li>
+                <a href="index.html" class="en-text" onclick="transitionToPage(event, 'index.html')">Projects</a>
+                <a href="index.html" class="tr-text" onclick="transitionToPage(event, 'index.html')">Projeler</a>
+            </li>
+            <li>
+                <a href="#navbar" class="active en-text">About</a>
+                <a href="#navbar" class="active tr-text">Hakkımda</a>
+            </li>
             <li><a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank">CV / PDF</a></li>
-            <li><a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank">Interactive Portfolio</a></li>
+            <li>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="en-text">Interactive Portfolio</a>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="tr-text">Etkileşimli Portfolyo</a>
+            </li>
         </ul>
     </nav>
 
     <section class="content-section" id="content">
         <div class="about-grid">
             <div class="bio-text">
-                <p>Hello, I am an architectural designer and a recent architecture graduate from the Izmir Institute of Technology (IZTECH). Over the course of my academic journey and professional development, my design philosophy has evolved to focus deeply on adaptive reuse, heritage conservation, computational design, and sustainable spatial strategies.</p>
-                <p>I am particularly driven by the challenge of how architecture can respond to complex environmental crises and shifting contexts—ranging from rising sea levels to establishing structural resilience in extreme topologies. My methodology relies on rigorous contextual research, advanced 3D modeling, and complex structural design methodologies.</p>
-                <p>By producing high-resolution architectural visualizations and detailed diagrams, I aim to translate innovative infrastructural solutions into compelling spatial narratives that bridge the gap between technical resilience and human experience.</p>
+                <p class="en-text">Hello, I am an architectural designer and a recent architecture graduate from the Izmir Institute of Technology (IZTECH). Over the course of my academic journey and professional development, my design philosophy has evolved to focus deeply on adaptive reuse, heritage conservation, computational design, and sustainable spatial strategies.</p>
+                <p class="tr-text">Merhaba, ben bir mimari tasarımcıyım ve İzmir Yüksek Teknoloji Enstitüsü'nden (İYTE) yeni mezun olmuş bir mimarım. Akademik yolculuğum ve mesleki gelişimim sürecinde tasarım felsefem; yeniden işlevlendirme (adaptive reuse), kültürel mirasın korunması, hesaplamalı tasarım ve sürdürülebilir mekansal stratejiler üzerine odaklanacak şekilde evrildi.</p>
+                
+                <p class="en-text">I am particularly driven by the challenge of how architecture can respond to complex environmental crises and shifting contexts—ranging from rising sea levels to establishing structural resilience in extreme topologies. My methodology relies on rigorous contextual research, advanced 3D modeling, and complex structural design methodologies.</p>
+                <p class="tr-text">Mimarinin, yükselen su seviyelerinden ekstrem topolojilerde yapısal dayanıklılık oluşturmaya kadar uzanan karmaşık çevresel krizlere ve değişen bağlamlara nasıl yanıt verebileceği konusu beni özellikle motive ediyor. Metodolojim; kapsamlı bağlamsal araştırmalara, ileri düzey 3 boyutlu modellemeye ve karmaşık yapısal tasarım yöntemlerine dayanmaktadır.</p>
+                
+                <p class="en-text">By producing high-resolution architectural visualizations and detailed diagrams, I aim to translate innovative infrastructural solutions into compelling spatial narratives that bridge the gap between technical resilience and human experience.</p>
+                <p class="tr-text">Yüksek çözünürlüklü mimari görselleştirmeler ve detaylı diyagramlar üreterek, yenilikçi altyapı çözümlerini; teknik dayanıklılık ile insan deneyimi arasındaki boşluğu kapatan, etkileyici mekansal anlatılara dönüştürmeyi hedefliyorum.</p>
                 
                 <div class="contact-box">
                     <div class="contact-item">
-                        <span>Email</span>
+                        <span class="en-text">Email</span>
+                        <span class="tr-text">E-posta</span>
                         <a href="mailto:gungorggaye174@gmail.com">gungorggaye174@gmail.com</a>
                     </div>
                     <div class="contact-item">
-                        <span>LinkedIn</span>
+                        <span class="en-text">LinkedIn</span>
+                        <span class="tr-text">LinkedIn</span>
                         <a href="https://www.linkedin.com/in/gayeg%C3%BCng%C3%B6r" target="_blank">linkedin.com/in/gayegüngör</a>
                     </div>
                 </div>
             </div>
             
             <div class="profile-img-container">
-                <img src="WhatsApp Image 2026-07-21 at 14.27.58.jpeg
-" alt="Gaye Güngör">
+                <img src="WhatsApp Image 2026-07-21 at 14.27.58.jpeg" alt="Gaye Güngör">
             </div>
         </div>
     </section>
 
     <footer>
-        <p>© 2026 Gaye Güngör | Architectural Designer</p>
+        <p class="en-text">© 2026 Gaye Güngör | Architectural Designer</p>
+        <p class="tr-text">© 2026 Gaye Güngör | Mimari Tasarımcı</p>
     </footer>
 
     <script>
-    // 1. Dil Hafızası (Daha Güçlü Versiyon)
+        // 1. Dil Hafızası (Daha Güçlü Versiyon)
         const savedLang = localStorage.getItem('siteLang') || 'en';
         document.body.classList.remove('lang-en', 'lang-tr');
         document.body.classList.add('lang-' + savedLang);
@@ -175,6 +195,11 @@
             setTimeout(function() {
                 window.location.href = url;
             }, 600);
+        }
+
+        // 5. Scroll Down Butonu İçin Kaydırma Fonksiyonu
+        function scrollToContent() {
+            document.getElementById('content').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
