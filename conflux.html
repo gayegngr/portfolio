@@ -76,7 +76,7 @@
             position: fixed;
             top: 30px;
             right: 40px;
-            color: #111111; /* Eğer arka planın beyazsa rengi koyu yapabilirsin */
+            color: #111111; 
             font-size: 0.9rem;
             font-weight: 500;
             text-transform: uppercase;
@@ -97,34 +97,55 @@
 
     <!-- SAĞ ÜST DİL SEÇENEĞİ -->
     <div class="lang-toggle" onclick="toggleLanguage()">ENG / TR</div>
-<!-- SABİT ANA SAYFA LOGOSU -->
-    <a href="index.html" class="fixed-logo" onclick="transitionToPage(event, 'index.html')">Home</a>
+
+    <!-- SABİT ANA SAYFA LOGOSU -->
+    <a href="index.html" class="fixed-logo en-text" onclick="transitionToPage(event, 'index.html')">Home</a>
+    <a href="index.html" class="fixed-logo tr-text" onclick="transitionToPage(event, 'index.html')">Ana Sayfa</a>
+
     <!-- SİYAH PROJE KAPAK EKRANI -->
     <section class="hero" id="home">
         <h1>04 CONFLUX</h1>
-        <p>Urban Design</p>
-        <a class="scroll-down" onclick="scrollToContent()">Explore Project ↓</a>
+        <p class="en-text">Urban Design</p>
+        <p class="tr-text">Kentsel Tasarım</p>
+        <a class="scroll-down en-text" onclick="scrollToContent()">Explore Project ↓</a>
+        <a class="scroll-down tr-text" onclick="scrollToContent()">Projeyi İncele ↓</a>
     </section>
 
     <!-- YAPIŞKAN MENÜ -->
     <nav class="nav-container" id="navbar">
         <ul class="nav-links">
-            <li><a href="index.html" onclick="transitionToPage(event, 'index.html')">Projects</a></li>
-            <li><a href="about.html" onclick="transitionToPage(event, 'about.html')">About</a></li>
+            <li>
+                <a href="index.html" class="en-text" onclick="transitionToPage(event, 'index.html')">Projects</a>
+                <a href="index.html" class="tr-text" onclick="transitionToPage(event, 'index.html')">Projeler</a>
+            </li>
+            <li>
+                <a href="about.html" class="en-text" onclick="transitionToPage(event, 'about.html')">About</a>
+                <a href="about.html" class="tr-text" onclick="transitionToPage(event, 'about.html')">Hakkımda</a>
+            </li>
             <li><a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank">CV / PDF</a></li>
-            <li><a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank">Interactive Portfolio</a></li>
+            <li>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="en-text">Interactive Portfolio</a>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="tr-text">Etkileşimli Portfolyo</a>
+            </li>
         </ul>
     </nav>
 
     <!-- PROJE DETAYLARI (BEYAZ ZEMİN) -->
     <section class="content-section" id="content">
         
-        <!-- YENİ METİN BURADA -->
+        <!-- METİN ALANI -->
         <div class="project-description">
-            <h3>Urban Studies and Design Center</h3>
-            <p>The Urban Studies and Design Center is conceived as a civic hub that strengthens the relationship between architecture and the city. Shaped by the surrounding urban axes, the project responds to its context while creating a vibrant public destination.</p>
-            <p>The building is organized into two interconnected volumes. One accommodates public functions—including a library, auditorium, and multipurpose spaces—encouraging learning, cultural exchange, and community engagement. The other houses the İzmir Planning Agency, providing a flexible working environment while maintaining a balanced relationship between openness and privacy.</p>
-            <p>At ground level, cafés, exhibition spaces, and public gathering areas extend the life of the adjacent urban square, creating a seamless transition between the city and the building. By combining civic, cultural, and institutional programs, the project offers an inclusive and dynamic environment that enriches everyday urban life.</p>
+            <h3 class="en-text">Urban Studies and Design Center</h3>
+            <h3 class="tr-text">Kentsel Çalışmalar ve Tasarım Merkezi</h3>
+            
+            <p class="en-text">The Urban Studies and Design Center is conceived as a civic hub that strengthens the relationship between architecture and the city. Shaped by the surrounding urban axes, the project responds to its context while creating a vibrant public destination.</p>
+            <p class="tr-text">Kentsel Çalışmalar ve Tasarım Merkezi, mimari ile kent arasındaki ilişkiyi güçlendiren bir kamusal odak noktası olarak tasarlanmıştır. Çevredeki kentsel akslar tarafından biçimlendirilen proje, bağlamına yanıt verirken canlı bir kamusal cazibe merkezi yaratmaktadır.</p>
+            
+            <p class="en-text">The building is organized into two interconnected volumes. One accommodates public functions—including a library, auditorium, and multipurpose spaces—encouraging learning, cultural exchange, and community engagement. The other houses the İzmir Planning Agency, providing a flexible working environment while maintaining a balanced relationship between openness and privacy.</p>
+            <p class="tr-text">Yapı, birbirine bağlı iki hacim halinde kurgulanmıştır. Bunlardan biri kütüphane, oditoryum ve çok amaçlı mekanlar gibi kamusal işlevleri barındırarak öğrenmeyi, kültürel alışverişi ve topluluk katılımını teşvik eder. Diğeri ise İzmir Planlama Ajansı'na ev sahipliği yaparak; şeffaflık ile mahremiyet arasında dengeli bir ilişki kuran esnek bir çalışma ortamı sunar.</p>
+            
+            <p class="en-text">At ground level, cafés, exhibition spaces, and public gathering areas extend the life of the adjacent urban square, creating a seamless transition between the city and the building. By combining civic, cultural, and institutional programs, the project offers an inclusive and dynamic environment that enriches everyday urban life.</p>
+            <p class="tr-text">Zemin kotunda; kafeler, sergi alanları ve kamusal buluşma alanları komşu kent meydanının yaşamını içeriye taşıyarak kent ile bina arasında kesintisiz bir geçiş oluşturur. Kamusal, kültürel ve kurumsal programları birleştiren proje; günlük kentsel yaşamı zenginleştiren, kapsayıcı ve dinamik bir çevre sunmaktadır.</p>
         </div>
 
         <!-- RENDER ALANI -->
@@ -132,25 +153,25 @@
             <!-- Render 1 -->
             <div>
                 <div class="img-block">
-                    <!-- 1. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
                     <img src="confluxrender1.png" alt="Conflux Urban Hub">
                 </div>
-                <!-- 1. GÖRSELİN AÇIKLAMASI -->
-                <div class="img-caption">This visualization emphasizes the building's role as a civic landmark within the urban fabric. The composition highlights the dialogue between the two interconnected volumes, the surrounding public square, and the everyday movement of people through the site. Natural light, human activity, and the openness of the ground level reinforce the project's vision of an accessible and inclusive public destination, where architecture supports social interaction, cultural exchange, and urban life.</div>
+                <div class="img-caption en-text">This visualization emphasizes the building's role as a civic landmark within the urban fabric. The composition highlights the dialogue between the two interconnected volumes, the surrounding public square, and the everyday movement of people through the site. Natural light, human activity, and the openness of the ground level reinforce the project's vision of an accessible and inclusive public destination, where architecture supports social interaction, cultural exchange, and urban life.</div>
+                <div class="img-caption tr-text">Bu görselleştirme, yapının kentsel doku içindeki kamusal bir odak noktası (landmark) olarak rolünü vurgulamaktadır. Kompozisyon; birbirine bağlı iki hacim, çevreleyen kamusal meydan ve alandaki insan hareketliliği arasındaki diyalog unvanını öne çıkarır. Doğal ışık, insan aktivitesi ve zemin katın şeffaflığı; mimarinin sosyal etkileşimi, kültürel alışverişi ve kentsel yaşamı desteklediği, erişilebilir ve kapsayıcı bir kamusal mekan vizyonunu güçlendirir.</div>
             </div>
-            
         </div>
 
-        <a href="index.html" class="back-link" onclick="transitionToPage(event, 'index.html')">← Back to Projects</a>
+        <a href="index.html" class="back-link en-text" onclick="transitionToPage(event, 'index.html')">← Back to Projects</a>
+        <a href="index.html" class="back-link tr-text" onclick="transitionToPage(event, 'index.html')">← Projelere Dön</a>
     </section>
 
     <footer>
-        <p>© 2026 Gaye Güngör | Architectural Designer</p>
+        <p class="en-text">© 2026 Gaye Güngör | Architectural Designer</p>
+        <p class="tr-text">© 2026 Gaye Güngör | Mimari Tasarımcı</p>
     </footer>
 
     <!-- JS SCRIPTLERİ -->
     <script>
-      // 1. Dil Hafızası (Daha Güçlü Versiyon)
+        // 1. Dil Hafızası (Daha Güçlü Versiyon)
         const savedLang = localStorage.getItem('siteLang') || 'en';
         document.body.classList.remove('lang-en', 'lang-tr');
         document.body.classList.add('lang-' + savedLang);
@@ -183,6 +204,11 @@
             setTimeout(function() {
                 window.location.href = url;
             }, 600);
+        }
+
+        // 5. Scroll Down Butonu İçin Kaydırma Fonksiyonu
+        function scrollToContent() {
+            document.getElementById('content').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
