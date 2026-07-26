@@ -84,6 +84,18 @@
         .fixed-logo:hover {
             opacity: 0.6;
         }
+        /* 3. ADIM: YÜKLENİYOR (PULSE) ANİMASYONU */
+        @keyframes pulse {
+            0% { background-color: #e0e0e0; }
+            50% { background-color: #f2f2f2; }
+            100% { background-color: #e0e0e0; }
+        }
+
+        /* Ana Sayfa İçin (.image-placeholder) ve Proje Sayfaları İçin (.img-block) */
+        .image-placeholder, .img-block {
+            animation: pulse 2s infinite ease-in-out;
+            background-color: #e0e0e0; /* Animasyon desteklemeyen tarayıcılar için yedek */
+        }
         @media (max-width: 768px) {
             .fixed-logo { top: 20px; left: 20px; font-size: 0.8rem; }
         }
