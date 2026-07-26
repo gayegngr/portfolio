@@ -206,6 +206,18 @@
             background-color: #ffffff;
         }
 
+        /* 3. ADIM: YÜKLENİYOR (PULSE) ANİMASYONU */
+        @keyframes pulse {
+            0% { background-color: #e0e0e0; }
+            50% { background-color: #f2f2f2; }
+            100% { background-color: #e0e0e0; }
+        }
+
+        /* Ana Sayfa İçin (.image-placeholder) ve Proje Sayfaları İçin (.img-block) */
+        .image-placeholder, .img-block {
+            animation: pulse 2s infinite ease-in-out;
+            background-color: #e0e0e0; /* Animasyon desteklemeyen tarayıcılar için yedek */
+        }
         /* MOBİL UYUM */
         @media (max-width: 768px) {
             .nav-links { gap: 20px; }
