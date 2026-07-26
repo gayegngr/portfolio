@@ -65,6 +65,18 @@
 
         footer { padding: 40px 10%; text-align: center; border-top: 1px solid #eaeaea; font-size: 0.85rem; color: #888888; background-color: #ffffff; }
 
+        /* 3. ADIM: YÜKLENİYOR (PULSE) ANİMASYONU */
+        @keyframes pulse {
+            0% { background-color: #e0e0e0; }
+            50% { background-color: #f2f2f2; }
+            100% { background-color: #e0e0e0; }
+        }
+
+        /* Ana Sayfa İçin (.image-placeholder) ve Proje Sayfaları İçin (.img-block) */
+        .image-placeholder, .img-block {
+            animation: pulse 2s infinite ease-in-out;
+            background-color: #e0e0e0; /* Animasyon desteklemeyen tarayıcılar için yedek */
+        }
         @media (max-width: 768px) { .nav-links { gap: 20px; } .content-section { padding: 50px 5%; } }
         /* SOL ÜST KÖŞE SABİT ANA SAYFA LOGOSU */
         .fixed-logo {
