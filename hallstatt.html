@@ -29,7 +29,19 @@
         .img-block { width: 100%; min-height: 60vh; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #999; overflow: hidden; }
         .img-caption { margin-top: 10px; font-size: 0.85rem; color: var(--text-light); text-align: right; }
         .back-link { display: inline-block; margin-top: 50px; text-decoration: none; color: var(--text-main); border-bottom: 1px solid var(--text-main); padding-bottom: 3px; }
-        
+
+        /* 3. ADIM: YÜKLENİYOR (PULSE) ANİMASYONU */
+        @keyframes pulse {
+            0% { background-color: #e0e0e0; }
+            50% { background-color: #f2f2f2; }
+            100% { background-color: #e0e0e0; }
+        }
+
+        /* Ana Sayfa İçin (.image-placeholder) ve Proje Sayfaları İçin (.img-block) */
+        .image-placeholder, .img-block {
+            animation: pulse 2s infinite ease-in-out;
+            background-color: #e0e0e0; /* Animasyon desteklemeyen tarayıcılar için yedek */
+        }
         @media (max-width: 900px) { 
             body { flex-direction: column; } 
             .sidebar { width: 100%; height: auto; position: relative; padding: 30px; border-right: none; border-bottom: 1px solid #eaeaea; } 
