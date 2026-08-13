@@ -149,15 +149,37 @@
     </section>
 
     <!-- YAPIŞKAN MENÜ -->
-  <!-- Tüm dosyalarda aynı olmalı (Sıralama: About, Projects, Education, Software) -->
-<nav class="nav-container" id="navbar">
-    <ul class="nav-links" style="list-style: none; padding: 0;">
-        <li><a href="about.html" class="[ABOUT_ACTIVE]" onclick="transitionToPage(event, 'about.html')">About</a></li>
-        <li><a href="projects.html" class="[PROJECTS_ACTIVE]" onclick="transitionToPage(event, 'projects.html')">Projects</a></li>
-        <li><a href="education.html" class="[EDUCATION_ACTIVE]" onclick="transitionToPage(event, 'education.html')">Education</a></li>
-        <li><a href="software.html" class="[SOFTWARE_ACTIVE]" onclick="transitionToPage(event, 'software.html')">Software</a></li>
-    </ul>
-</nav>
+    <nav class="nav-container" id="navbar">
+        <ul class="nav-links" style="list-style: none; padding: 0;">
+            <li>
+                <!-- DİKKAT: Artık projects.html'e yönlendiriyor -->
+                <a href="projects.html" class="en-text" onclick="transitionToPage(event, 'projects.html')">Projects</a>
+                <a href="projects.html" class="tr-text" onclick="transitionToPage(event, 'projects.html')">Projeler</a>
+            </li>
+            <li>
+                <a href="about.html" class="en-text" onclick="transitionToPage(event, 'about.html')">About</a>
+                <a href="about.html" class="tr-text" onclick="transitionToPage(event, 'about.html')">Hakkımda</a>
+            </li>
+            <li>
+                <a href="education.html" class="en-text" onclick="transitionToPage(event, 'education.html')">Education</a>
+                <a href="education.html" class="tr-text" onclick="transitionToPage(event, 'education.html')">Eğitim</a>
+            </li>
+            <li>
+                <a href="software.html" class="en-text" onclick="transitionToPage(event, 'software.html')">Software</a>
+                <a href="software.html" class="tr-text" onclick="transitionToPage(event, 'software.html')">Yazılımlar</a>
+            </li>
+            <li><a href="Gaye_Gungor_CV.pdf" target="_blank">CV / PDF</a></li>
+            <li>
+                <a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank" class="en-text">Portfolio / PDF</a>
+                <a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank" class="tr-text">Portfolyo / PDF</a>
+            </li>
+            <li>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="en-text">Interactive Portfolio</a>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="tr-text">Etkileşimli Portfolyo</a>
+            </li>
+        </ul>
+    </nav>
+
     <!-- PROJE DETAYLARI (BEYAZ ZEMİN) -->
     <section class="content-section" id="content">
         
