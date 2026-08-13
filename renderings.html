@@ -37,7 +37,7 @@
         .project-description p { margin-bottom: 20px; }
         
         .project-images { display: flex; flex-direction: column; gap: 60px; }
-       /* GÖRSEL DOKUSUNA HOVER ZOOM EFEKTİ */
+        /* GÖRSEL DOKUSUNA HOVER ZOOM EFEKTİ */
         .img-block { 
             width: 100%; 
             background-color: #e0e0e0; 
@@ -78,6 +78,7 @@
             background-color: #e0e0e0; /* Animasyon desteklemeyen tarayıcılar için yedek */
         }
         @media (max-width: 768px) { .nav-links { gap: 20px; } .content-section { padding: 50px 5%; } }
+        
         /* SOL ÜST KÖŞE SABİT ANA SAYFA LOGOSU */
         .fixed-logo {
             position: fixed;
@@ -99,6 +100,7 @@
         @media (max-width: 768px) {
             .fixed-logo { top: 20px; left: 20px; font-size: 0.8rem; }
         }
+        
         /* DİL GİZLEME/GÖSTERME SİSTEMİ */
         body.lang-tr .en-text { display: none !important; }
         body.lang-en .tr-text { display: none !important; }
@@ -116,9 +118,9 @@
             cursor: pointer;
             z-index: 9999;
             mix-blend-mode: difference;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
-        .lang-toggle:hover { opacity: 0.6; }
+        .lang-toggle:hover { opacity: 0.8; transform: translateY(-2px); }
 
         @media (max-width: 768px) {
             .lang-toggle { top: 20px; right: 20px; font-size: 0.8rem; }
@@ -127,7 +129,7 @@
 </head>
 <body class="lang-en">
 
-   <!-- SAĞ ÜST DİL SEÇENEĞİ -->
+    <!-- SAĞ ÜST DİL SEÇENEĞİ -->
     <div class="lang-toggle" onclick="toggleLanguage()">
         <span class="en-text"><span style="font-weight: 700; opacity: 1;">EN</span> <span style="font-weight: 300; opacity: 0.5;">/ TR</span></span>
         <span class="tr-text"><span style="font-weight: 300; opacity: 0.5;">EN /</span> <span style="font-weight: 700; opacity: 1;">TR</span></span>
@@ -147,22 +149,21 @@
     </section>
 
     <!-- YAPIŞKAN MENÜ -->
-   <nav class="nav-container" id="navbar">
+    <nav class="nav-container" id="navbar">
         <ul class="nav-links" style="list-style: none; padding: 0;">
             <li>
-                <a href="index.html" class="active en-text" onclick="transitionToPage(event, 'index.html')">Projects</a>
-                <a href="index.html" class="active tr-text" onclick="transitionToPage(event, 'index.html')">Projeler</a>
+                <!-- DİKKAT: Artık projects.html'e yönlendiriyor -->
+                <a href="projects.html" class="en-text" onclick="transitionToPage(event, 'projects.html')">Projects</a>
+                <a href="projects.html" class="tr-text" onclick="transitionToPage(event, 'projects.html')">Projeler</a>
             </li>
             <li>
                 <a href="about.html" class="en-text" onclick="transitionToPage(event, 'about.html')">About</a>
                 <a href="about.html" class="tr-text" onclick="transitionToPage(event, 'about.html')">Hakkımda</a>
             </li>
-            <!-- YENİ EKLENEN EĞİTİM SEKMEŞİ -->
             <li>
                 <a href="education.html" class="en-text" onclick="transitionToPage(event, 'education.html')">Education</a>
                 <a href="education.html" class="tr-text" onclick="transitionToPage(event, 'education.html')">Eğitim</a>
             </li>
-            <!-- YENİ EKLENEN PROGRAMLAR SEKMEŞİ -->
             <li>
                 <a href="software.html" class="en-text" onclick="transitionToPage(event, 'software.html')">Software</a>
                 <a href="software.html" class="tr-text" onclick="transitionToPage(event, 'software.html')">Yazılımlar</a>
@@ -178,17 +179,7 @@
             </li>
         </ul>
     </nav>
-<!-- VİZYON / MANİFESTO BÖLÜMÜ -->
-    <section class="philosophy-section">
-        <div class="philosophy-text en-text">
-            Exploring the intersection of structural resilience and human experience through adaptive reuse, heritage conservation, and sustainable spatial strategies.
-        </div>
-        <div class="philosophy-text tr-text">
-            Yeniden işlevlendirme, kültürel mirasın korunması ve sürdürülebilir mekansal stratejiler aracılığıyla yapısal dayanıklılık ile insan deneyiminin kesişimini araştırıyorum.
-        </div>
-        <div class="philosophy-sub en-text">— Design Philosophy</div>
-        <div class="philosophy-sub tr-text">— Tasarım Felsefesi</div>
-    </section>
+
     <!-- PROJE DETAYLARI (BEYAZ ZEMİN) -->
     <section class="content-section" id="content">
         
@@ -242,8 +233,9 @@
             </div>
         </div>
 
-        <a href="index.html" class="back-link en-text" onclick="transitionToPage(event, 'index.html')">← Back to Projects</a>
-        <a href="index.html" class="back-link tr-text" onclick="transitionToPage(event, 'index.html')">← Projelere Dön</a>
+        <!-- GERİ DÖN LİNKİ GÜNCELLENDİ -->
+        <a href="projects.html" class="back-link en-text" onclick="transitionToPage(event, 'projects.html')">← Back to Projects</a>
+        <a href="projects.html" class="back-link tr-text" onclick="transitionToPage(event, 'projects.html')">← Projelere Dön</a>
     </section>
 
     <footer>
