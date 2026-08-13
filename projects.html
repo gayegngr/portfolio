@@ -6,92 +6,220 @@
     <title>Projects | Gaye Güngör</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        /* TEMEL AYARLAR VE ANİMASYON */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Inter', sans-serif; background-color: #fafafa; color: #111111; opacity: 0; transition: opacity 0.6s ease-in-out; }
         body.loaded { opacity: 1; }
         body.fade-out { opacity: 0; }
-        body.lang-tr .en-text { display: none !important; }
-        body.lang-en .tr-text { display: none !important; }
 
-        .hero { height: 60vh; background-color: #050505; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        /* SİYAH GİRİŞ EKRANI */
+        .hero { height: 60vh; background-color: #050505; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; }
         .hero h1 { color: #ffffff; font-size: clamp(3rem, 5vw, 5rem); font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; animation: slideUp 1.5s ease-out forwards; opacity: 0; transform: translateY(30px); }
         @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
 
+        /* YAPIŞKAN MENÜ */
         .nav-container { position: sticky; top: 0; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(5px); padding: 20px 0; border-bottom: 1px solid #eaeaea; z-index: 1000; text-align: center; }
         .nav-links { list-style: none; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
         .nav-links a { text-decoration: none; color: #888888; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s ease; cursor: pointer; }
         .nav-links a:hover, .nav-links a.active { color: #111111; }
 
+        /* PROJELER ALANI (GRID) */
         .content-section { padding: 80px 10%; min-height: 100vh; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px; }
         .project-item { text-decoration: none; color: inherit; display: block; }
-        .image-placeholder { width: 100%; aspect-ratio: 4/3; background-color: #e0e0e0; margin-bottom: 20px; overflow: hidden; animation: pulse 2s infinite ease-in-out; }
-        .image-placeholder img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-        .project-item:hover .image-placeholder img { transform: scale(1.04); }
-        .project-name { font-size: 1.4rem; font-weight: 400; margin-bottom: 5px; }
-        .project-category { font-size: 0.9rem; color: #888888; text-transform: uppercase; letter-spacing: 0.05em; }
         
         @keyframes pulse { 0% { background-color: #e0e0e0; } 50% { background-color: #f2f2f2; } 100% { background-color: #e0e0e0; } }
 
+        .image-placeholder { width: 100%; aspect-ratio: 4/3; background-color: #e0e0e0; margin-bottom: 20px; overflow: hidden; animation: pulse 2s infinite ease-in-out; }
+        .image-placeholder img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .project-item:hover .image-placeholder img { transform: scale(1.04); }
+
+        .project-name { font-size: 1.4rem; font-weight: 400; margin-bottom: 5px; }
+        .project-category { font-size: 0.9rem; color: #888888; text-transform: uppercase; letter-spacing: 0.05em; }
+
         footer { padding: 40px 10%; text-align: center; border-top: 1px solid #eaeaea; font-size: 0.85rem; color: #888888; background-color: #ffffff; }
+
+        /* SOL ÜST KÖŞE SABİT ANA SAYFA LOGOSU */
+        .fixed-logo { position: fixed; top: 30px; left: 40px; color: #ffffff; font-size: 1rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; text-decoration: none; z-index: 9999; mix-blend-mode: difference; transition: opacity 0.3s ease; }
+        .fixed-logo:hover { opacity: 0.6; }
+
+        /* SAĞ ÜST KÖŞE DİL SEÇENEĞİ (ENG / TR) */
+        .lang-toggle { position: fixed; top: 30px; right: 40px; color: #ffffff; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.15em; cursor: pointer; z-index: 9999; mix-blend-mode: difference; transition: opacity 0.3s ease, transform 0.3s ease; }
+        .lang-toggle:hover { opacity: 0.8; transform: translateY(-2px); }
+
+        /* DİL GİZLEME/GÖSTERME SİSTEMİ */
+        body.lang-tr .en-text { display: none !important; }
+        body.lang-en .tr-text { display: none !important; }
+
+        /* MOBİL UYUM */
+        @media (max-width: 768px) { 
+            .nav-links { gap: 20px; } 
+            .content-section { padding: 50px 5%; } 
+            .fixed-logo, .lang-toggle { top: 20px; font-size: 0.8rem; } 
+            .fixed-logo { left: 20px; } 
+            .lang-toggle { right: 20px; } 
+        }
     </style>
 </head>
 <body class="lang-en">
-    <nav class="nav-container" id="navbar">
-        <ul class="nav-links" style="list-style: none; padding: 0;">
-            <li><a href="about.html" onclick="transitionToPage(event, 'about.html')">About</a></li>
-            <li><a href="#navbar" class="active">Projects</a></li>
-            <li><a href="education.html" onclick="transitionToPage(event, 'education.html')">Education</a></li>
-            <li><a href="software.html" onclick="transitionToPage(event, 'software.html')">Software</a></li>
-        </ul>
-    </nav>
-    <section class="hero">
+
+    <!-- SAĞ ÜST DİL SEÇENEĞİ -->
+    <div class="lang-toggle" onclick="toggleLanguage()">
+        <span class="en-text"><span style="font-weight: 700; opacity: 1;">EN</span> <span style="font-weight: 300; opacity: 0.5;">/ TR</span></span>
+        <span class="tr-text"><span style="font-weight: 300; opacity: 0.5;">EN /</span> <span style="font-weight: 700; opacity: 1;">TR</span></span>
+    </div>
+
+    <!-- SABİT ANA SAYFA LOGOSU -->
+    <a href="index.html" class="fixed-logo en-text" onclick="transitionToPage(event, 'index.html')">Home</a>
+    <a href="index.html" class="fixed-logo tr-text" onclick="transitionToPage(event, 'index.html')">Ana Sayfa</a>
+
+    <!-- SİYAH GİRİŞ EKRANI -->
+    <section class="hero" id="home">
         <h1 class="en-text">Projects</h1>
         <h1 class="tr-text">Projeler</h1>
     </section>
-    <section class="content-section">
+
+    <!-- YAPIŞKAN MENÜ -->
+    <nav class="nav-container" id="navbar">
+        <ul class="nav-links" style="list-style: none; padding: 0;">
+            <li>
+                <!-- DİKKAT: Burada "Projects" aktif (koyu) -->
+                <a href="projects.html" class="active en-text" onclick="transitionToPage(event, 'projects.html')">Projects</a>
+                <a href="projects.html" class="active tr-text" onclick="transitionToPage(event, 'projects.html')">Projeler</a>
+            </li>
+            <li>
+                <a href="about.html" class="en-text" onclick="transitionToPage(event, 'about.html')">About</a>
+                <a href="about.html" class="tr-text" onclick="transitionToPage(event, 'about.html')">Hakkımda</a>
+            </li>
+            <li>
+                <a href="education.html" class="en-text" onclick="transitionToPage(event, 'education.html')">Education</a>
+                <a href="education.html" class="tr-text" onclick="transitionToPage(event, 'education.html')">Eğitim</a>
+            </li>
+            <li>
+                <a href="software.html" class="en-text" onclick="transitionToPage(event, 'software.html')">Software</a>
+                <a href="software.html" class="tr-text" onclick="transitionToPage(event, 'software.html')">Yazılımlar</a>
+            </li>
+            <li><a href="Gaye_Gungor_CV.pdf" target="_blank">CV / PDF</a></li>
+            <li>
+                <a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank" class="en-text">Portfolio / PDF</a>
+                <a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank" class="tr-text">Portfolyo / PDF</a>
+            </li>
+            <li>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="en-text">Interactive Portfolio</a>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="tr-text">Etkileşimli Portfolyo</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- PROJELER LİSTESİ (GRID) -->
+    <section class="content-section" id="projects">
         <div class="grid">
             <a href="afterground.html" class="project-item" onclick="transitionToPage(event, 'afterground.html')">
                 <div class="image-placeholder"><img src="yeni iso.png" alt="AFTERGROUND"></div>
-                <div class="project-name">01 AFTERGROUND</div>
-                <div class="project-category">Mezuniyet Projesi</div>
+                <div class="project-info">
+                    <div class="project-name">01 AFTERGROUND</div>
+                    <div class="project-category en-text">Graduation Project</div>
+                    <div class="project-category tr-text">Mezuniyet Projesi</div>
+                </div>
             </a>
+
             <a href="solacepoint.html" class="project-item" onclick="transitionToPage(event, 'solacepoint.html')">
                 <div class="image-placeholder"><img src="giriş solacepoınt.png" alt="SOLACEPOINT"></div>
-                <div class="project-name">02 SOLACEPOINT</div>
-                <div class="project-category">Mimari Tasarım IV</div>
+                <div class="project-info">
+                    <div class="project-name">02 SOLACEPOINT</div>
+                    <div class="project-category en-text">Architectural Design IV</div>
+                    <div class="project-category tr-text">Mimari Tasarım IV</div>
+                </div>
             </a>
+
             <a href="terrahaus.html" class="project-item" onclick="transitionToPage(event, 'terrahaus.html')">
                 <div class="image-placeholder"><img src="terrahaus render1.png" alt="TERRAHAUS"></div>
-                <div class="project-name">03 TERRAHAUS</div>
-                <div class="project-category">Konut Tasarımı</div>
+                <div class="project-info">
+                    <div class="project-name">03 TERRAHAUS</div>
+                    <div class="project-category en-text">Residential Design</div>
+                    <div class="project-category tr-text">Konut Tasarımı</div>
+                </div>
             </a>
+
             <a href="conflux.html" class="project-item" onclick="transitionToPage(event, 'conflux.html')">
                 <div class="image-placeholder"><img src="conflux giriş.png" alt="CONFLUX"></div>
-                <div class="project-name">04 CONFLUX</div>
-                <div class="project-category">Kentsel Tasarım</div>
+                <div class="project-info">
+                    <div class="project-name">04 CONFLUX</div>
+                    <div class="project-category en-text">Urban Design</div>
+                    <div class="project-category tr-text">Kentsel Tasarım</div>
+                </div>
             </a>
+
             <a href="biosphere.html" class="project-item" onclick="transitionToPage(event, 'biosphere.html')">
                 <div class="image-placeholder"><img src="BIOSPHERE NEXUSgiriş.png" alt="BIOSPHERE NEXUS"></div>
-                <div class="project-name">05 BIOSPHERE NEXUS</div>
-                <div class="project-category">Ekolojik Altyapı</div>
+                <div class="project-info">
+                    <div class="project-name">05 BIOSPHERE NEXUS</div>
+                    <div class="project-category en-text">Ecological Infrastructure</div>
+                    <div class="project-category tr-text">Ekolojik Altyapı</div>
+                </div>
             </a>
+
             <a href="bibliotheque.html" class="project-item" onclick="transitionToPage(event, 'bibliotheque.html')">
                 <div class="image-placeholder"><img src="kütüpgiriş.png" alt="BIBLIOTHÈQUE"></div>
-                <div class="project-name">06 BIBLIOTHÈQUE</div>
-                <div class="project-category">Kamusal Yapı</div>
+                <div class="project-info">
+                    <div class="project-name">06 BIBLIOTHÈQUE</div>
+                    <div class="project-category en-text">Public Building</div>
+                    <div class="project-category tr-text">Kamusal Yapı</div>
+                </div>
             </a>
+
             <a href="renderings.html" class="project-item" onclick="transitionToPage(event, 'renderings.html')">
                 <div class="image-placeholder"><img src="render1.png" alt="Architectural Renderings"></div>
-                <div class="project-name">07 ARCHITECTURAL RENDERINGS</div>
-                <div class="project-category">Görselleştirme</div>
+                <div class="project-info">
+                    <div class="project-name">07 ARCHITECTURAL RENDERINGS</div>
+                    <div class="project-category en-text">Visualization / 3D Art</div>
+                    <div class="project-category tr-text">Görselleştirme / 3D Sanat</div>
+                </div>
             </a>
         </div>
     </section>
-    <footer><p>© 2026 Gaye Güngör | Architectural Designer</p></footer>
+
+    <footer>
+        <p class="en-text">© 2026 Gaye Güngör | Architectural Designer</p>
+        <p class="tr-text">© 2026 Gaye Güngör | Mimari Tasarımcı</p>
+    </footer>
+
+    <!-- JS SCRIPTLERİ -->
     <script>
-        window.onload = () => document.body.classList.add('loaded');
-        function transitionToPage(e, url) { e.preventDefault(); document.body.classList.add('fade-out'); setTimeout(() => window.location.href = url, 600); }
+        // 1. Dil Hafızası
+        const savedLang = localStorage.getItem('siteLang') || 'en';
+        document.body.classList.remove('lang-en', 'lang-tr');
+        document.body.classList.add('lang-' + savedLang);
+
+        // 2. Sayfa Yüklenme Animasyonu
+        window.onload = function() { 
+            document.body.classList.add('loaded'); 
+        };
+
+        // 3. Dil Değiştirme Butonu İşlevi
+        function toggleLanguage() {
+            const body = document.body;
+            if (body.classList.contains('lang-en')) {
+                body.classList.remove('lang-en'); 
+                body.classList.add('lang-tr'); 
+                localStorage.setItem('siteLang', 'tr');
+            } else {
+                body.classList.remove('lang-tr'); 
+                body.classList.add('lang-en'); 
+                localStorage.setItem('siteLang', 'en');
+            }
+        }
+
+        // 4. Sayfalar Arası Geçiş
+        function transitionToPage(event, url) {
+            event.preventDefault(); 
+            document.body.classList.remove('loaded'); 
+            document.body.classList.add('fade-out'); 
+            
+            setTimeout(function() { 
+                window.location.href = url; 
+            }, 600);
+        }
     </script>
 </body>
 </html>
