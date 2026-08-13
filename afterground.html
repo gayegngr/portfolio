@@ -32,11 +32,12 @@
         .content-section { padding: 80px 10%; min-height: 100vh; max-width: 1000px; margin: 0 auto; }
         
         .project-description { font-size: 1.1rem; line-height: 1.8; color: #333; margin-bottom: 60px; text-align: justify;}
-        /* Yeni eklenen başlık stili */
+        /* Kalın Başlık Stili */
         .project-description h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 15px; color: #111; }
         .project-description p { margin-bottom: 20px; }
         
         .project-images { display: flex; flex-direction: column; gap: 60px; }
+        
         /* GÖRSEL DOKUSUNA HOVER ZOOM EFEKTİ */
         .img-block { 
             width: 100%; 
@@ -44,7 +45,7 @@
             display: flex; 
             align-items: center; 
             justify-content: center; 
-            overflow: hidden; /* Büyüyen resmin kutudan dışarı taşmasını engeller */
+            overflow: hidden; 
             cursor: pointer;
         }
 
@@ -52,10 +53,9 @@
             width: 100%; 
             height: auto; 
             display: block; 
-            transition: transform 0.6s ease; /* Yumuşak büyüme animasyonu */
+            transition: transform 0.6s ease; 
         }
 
-        /* Fare görselin üzerine geldiğinde hafifçe büyütür */
         .img-block:hover img { 
             transform: scale(1.03); 
         }
@@ -64,20 +64,21 @@
         .back-link { display: inline-block; margin-top: 80px; text-decoration: none; color: #111; font-weight: 500; border-bottom: 1px solid #111; padding-bottom: 3px; text-transform: uppercase; letter-spacing: 0.1em;}
 
         footer { padding: 40px 10%; text-align: center; border-top: 1px solid #eaeaea; font-size: 0.85rem; color: #888888; background-color: #ffffff; }
-
-        /* 3. ADIM: YÜKLENİYOR (PULSE) ANİMASYONU */
+        
+        /* YÜKLENİYOR (PULSE) ANİMASYONU */
         @keyframes pulse {
             0% { background-color: #e0e0e0; }
             50% { background-color: #f2f2f2; }
             100% { background-color: #e0e0e0; }
         }
 
-        /* Ana Sayfa İçin (.image-placeholder) ve Proje Sayfaları İçin (.img-block) */
         .image-placeholder, .img-block {
             animation: pulse 2s infinite ease-in-out;
-            background-color: #e0e0e0; /* Animasyon desteklemeyen tarayıcılar için yedek */
+            background-color: #e0e0e0; 
         }
+
         @media (max-width: 768px) { .nav-links { gap: 20px; } .content-section { padding: 50px 5%; } }
+        
         /* SOL ÜST KÖŞE SABİT ANA SAYFA LOGOSU */
         .fixed-logo {
             position: fixed;
@@ -99,6 +100,7 @@
         @media (max-width: 768px) {
             .fixed-logo { top: 20px; left: 20px; font-size: 0.8rem; }
         }
+        
         /* DİL GİZLEME/GÖSTERME SİSTEMİ */
         body.lang-tr .en-text { display: none !important; }
         body.lang-en .tr-text { display: none !important; }
@@ -147,31 +149,46 @@
     </section>
 
     <!-- YAPIŞKAN MENÜ -->
-  <!-- Tüm dosyalarda aynı olmalı (Sıralama: About, Projects, Education, Software) -->
-<nav class="nav-container" id="navbar">
-    <ul class="nav-links" style="list-style: none; padding: 0;">
-        <li><a href="about.html" class="[ABOUT_ACTIVE]" onclick="transitionToPage(event, 'about.html')">About</a></li>
-        <li><a href="projects.html" class="[PROJECTS_ACTIVE]" onclick="transitionToPage(event, 'projects.html')">Projects</a></li>
-        <li><a href="education.html" class="[EDUCATION_ACTIVE]" onclick="transitionToPage(event, 'education.html')">Education</a></li>
-        <li><a href="software.html" class="[SOFTWARE_ACTIVE]" onclick="transitionToPage(event, 'software.html')">Software</a></li>
-    </ul>
-</nav>
+    <nav class="nav-container" id="navbar">
+        <ul class="nav-links" style="list-style: none; padding: 0;">
+            <li>
+                <a href="projects.html" class="en-text" onclick="transitionToPage(event, 'projects.html')">Projects</a>
+                <a href="projects.html" class="tr-text" onclick="transitionToPage(event, 'projects.html')">Projeler</a>
+            </li>
+            <li>
+                <a href="about.html" class="en-text" onclick="transitionToPage(event, 'about.html')">About</a>
+                <a href="about.html" class="tr-text" onclick="transitionToPage(event, 'about.html')">Hakkımda</a>
+            </li>
+            <li>
+                <a href="education.html" class="en-text" onclick="transitionToPage(event, 'education.html')">Education</a>
+                <a href="education.html" class="tr-text" onclick="transitionToPage(event, 'education.html')">Eğitim</a>
+            </li>
+            <li>
+                <a href="software.html" class="en-text" onclick="transitionToPage(event, 'software.html')">Software</a>
+                <a href="software.html" class="tr-text" onclick="transitionToPage(event, 'software.html')">Yazılımlar</a>
+            </li>
+            <li><a href="Gaye_Gungor_CV.pdf" target="_blank">CV / PDF</a></li>
+            <li>
+                <a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank" class="en-text">Portfolio / PDF</a>
+                <a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank" class="tr-text">Portfolyo / PDF</a>
+            </li>
+            <li>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="en-text">Interactive Portfolio</a>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="tr-text">Etkileşimli Portfolyo</a>
+            </li>
+        </ul>
+    </nav>
+
     <!-- PROJE DETAYLARI (BEYAZ ZEMİN) -->
     <section class="content-section" id="content">
         
-        <!-- YENİ METİN BURADA -->
+        <!-- METİN ALANI -->
         <div class="project-description">
-            <h3 class="en-text">Adaptive Living: A Future Shaped by Water and Landscape</h3>
-            <h3 class="tr-text">Adaptif Yaşam: Su ve Peyzaj Tarafından Şekillenen Bir Gelecek</h3>
+            <h3 class="en-text">Hallstatt, Austria</h3>
+            <h3 class="tr-text">Hallstatt, Avusturya</h3>
             
-            <p class="en-text">This project explores a future where rising lake levels transform existing settlements and redefine the relationship between people, water, and the landscape. Instead of resisting environmental change, the proposal embraces adaptation as a design opportunity, creating a resilient settlement that evolves with its surroundings.</p>
-            <p class="tr-text">Bu proje, yükselen göl seviyelerinin mevcut yerleşimleri dönüştürdüğü; insan, su ve peyzaj arasındaki ilişkinin yeniden tanımlandığı bir geleceği araştırıyor. Çevresel değişime direnmek yerine adaptasyonu bir tasarım fırsatı olarak benimseyen bu öneri, çevresiyle birlikte evrilen dirençli bir yerleşim yaratıyor.</p>
-            
-            <p class="en-text">Organized through a layered terrace system, the settlement follows the natural topography while responding to changing water conditions. A continuous spatial network connects housing, public spaces, and ecological landscapes across different elevations, allowing the community to grow and transform together with the environment.</p>
-            <p class="tr-text">Katmanlı bir teras sistemi ile kurgulanan yerleşim, doğal topografyayı izlerken değişen su koşullarına uyum sağlar. Kesintisiz bir mekansal ağ; konutları, kamusal alanları ve ekolojik peyzajları farklı kotlarda birbirine bağlayarak topluluğun çevreyle birlikte büyümesine ve dönüşmesine olanak tanır.</p>
-            
-            <p class="en-text">Through integrated water management strategies, green corridors, and landscape-based infrastructure, the project proposes a new model of habitation where architecture and nature coexist. It presents a vision of future living that adapts, rather than opposes, the realities of a changing climate.</p>
-            <p class="tr-text">Entegre su yönetimi stratejileri, yeşil koridorlar ve peyzaj tabanlı altyapı aracılığıyla proje, mimari ve doğanın bir arada var olduğu yeni bir yaşama modeli önermektedir. Değişen iklimin gerçeklerine karşı çıkmak yerine ona adapte olan bir geleceğin yaşam vizyonunu sunar.</p>
+            <p class="en-text">Designed as a landslide-resilient settlement located inside a mountain chasm. Responding to local salt mining risks, the project utilizes a structural "zipper" concept to connect and stabilize the rock faces, creating habitable spaces within extreme topologies.</p>
+            <p class="tr-text">Dağ yarığı içinde yer alan, heyelana dayanıklı bir yerleşim yeri olarak tasarlanmıştır. Yerel tuz madenciliği risklerine yanıt veren proje, kaya yüzeylerini bağlamak ve stabilize etmek için yapısal bir "fermuar" konsepti kullanarak ekstrem topolojiler içinde yaşanabilir alanlar yaratır.</p>
         </div>
 
         <!-- RENDER ALANI -->
@@ -179,46 +196,22 @@
             <!-- Render 1 -->
             <div>
                 <div class="img-block">
-                    <!-- 1. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
-                    <img src="final4.jpg" alt="Afterground Adaptive Living Render 1">
+                    <img src="afterground-1.jpg" alt="Afterground Render">
                 </div>
-                <!-- 1. GÖRSELİN AÇIKLAMASI -->
-                <div class="img-caption en-text">Layered terrace system adapting to the topography</div>
-                <div class="img-caption tr-text">Topografyaya uyum sağlayan katmanlı teras sistemi</div>
+                <div class="img-caption en-text">Structural integration with the mountain chasm</div>
+                <div class="img-caption tr-text">Dağ yarığı ile yapısal entegrasyon</div>
             </div>
             
-            <!-- Render 2 -->
+            <!-- Render 2 (Görselin Varsa Buraya Ekle) -->
              <div>
                 <div class="img-block">
-                    <!-- 2. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
-                    <img src="final3.jpg" alt="Afterground Adaptive Living Render 2">
+                    <!-- <img src="gorsel2.jpg" alt="Afterground Render 2"> -->
                 </div>
-                <!-- 2. GÖRSELİN AÇIKLAMASI -->
-                <div class="img-caption en-text">Continuous spatial network and ecological corridors</div>
-                <div class="img-caption tr-text">Kesintisiz mekansal ağ ve ekolojik koridorlar</div>
-            </div>
-
-            <!-- Render 3 -->
-             <div>
-                <div class="img-block">
-                    <!-- 3. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
-                    <img src="final2.jpg" alt="Afterground Adaptive Living Render 3">
-                </div>
-                <!-- 3. GÖRSELİN AÇIKLAMASI BOŞ BIRAKILMIŞ -->
-                <div class="img-caption"></div>
-            </div>
-            
-            <!-- Render 4 -->
-             <div>
-                <div class="img-block">
-                    <!-- 4. GÖRSELİN ADINI BURAYA YAZACAKSIN -->
-                    <img src="final1.jpg" alt="Afterground Adaptive Living Render 4">
-                </div>
-                <!-- 4. GÖRSELİN AÇIKLAMASI BOŞ BIRAKILMIŞ -->
                 <div class="img-caption"></div>
             </div>
         </div>
 
+        <!-- GERİ DÖN LİNKİ -->
         <a href="projects.html" class="back-link en-text" onclick="transitionToPage(event, 'projects.html')">← Back to Projects</a>
         <a href="projects.html" class="back-link tr-text" onclick="transitionToPage(event, 'projects.html')">← Projelere Dön</a>
     </section>
@@ -230,7 +223,7 @@
 
     <!-- JS SCRIPTLERİ -->
     <script>
-        // 1. Dil Hafızası (Daha Güçlü Versiyon)
+        // 1. Dil Hafızası
         const savedLang = localStorage.getItem('siteLang') || 'en';
         document.body.classList.remove('lang-en', 'lang-tr');
         document.body.classList.add('lang-' + savedLang);
