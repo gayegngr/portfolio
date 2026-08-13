@@ -48,15 +48,14 @@
             right: 40px;
             color: #ffffff;
             font-size: 0.9rem;
-            font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.15em;
             cursor: pointer;
             z-index: 9999;
             mix-blend-mode: difference;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
-        .lang-toggle:hover { opacity: 0.6; }
+        .lang-toggle:hover { opacity: 0.8; transform: translateY(-2px); }
 
         /* 1. SİYAH GİRİŞ EKRANI (HERO) */
         .hero {
@@ -173,11 +172,17 @@
             cursor: pointer;
         }
         .nav-links a:hover, .nav-links a.active { color: #111111; }
-/* MANİFESTO / VİZYON BÖLÜMÜ */
+
+        /* MANİFESTO / VİZYON BÖLÜMÜ */
         .philosophy-section {
-            padding: 120px 10%;
+            padding: 150px 10%;
             background-color: #ffffff;
             text-align: center;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             border-bottom: 1px solid #eaeaea;
         }
         .philosophy-text {
@@ -190,34 +195,12 @@
             letter-spacing: -0.02em;
         }
         .philosophy-sub {
-            margin-top: 20px;
+            margin-top: 30px;
             font-size: 0.9rem;
             color: #888888;
             text-transform: uppercase;
             letter-spacing: 0.1em;
         }
-        /* 3. PROJELER ALANI */
-        .content-section { padding: 80px 10%; min-height: 100vh; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px; }
-        .project-item { text-decoration: none; color: inherit; display: block; }
-
-        .image-placeholder {
-            width: 100%;
-            aspect-ratio: 4/3;
-            background-color: #e0e0e0;
-            margin-bottom: 20px;
-            overflow: hidden;
-        }
-        .image-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-        .project-item:hover .image-placeholder img { transform: scale(1.04); }
-
-        .project-name { font-size: 1.4rem; font-weight: 400; margin-bottom: 5px; }
-        .project-category { font-size: 0.9rem; color: #888888; text-transform: uppercase; letter-spacing: 0.05em; }
 
         footer {
             padding: 40px 10%;
@@ -228,22 +211,9 @@
             background-color: #ffffff;
         }
 
-        /* 3. ADIM: YÜKLENİYOR (PULSE) ANİMASYONU */
-        @keyframes pulse {
-            0% { background-color: #e0e0e0; }
-            50% { background-color: #f2f2f2; }
-            100% { background-color: #e0e0e0; }
-        }
-
-        /* Ana Sayfa İçin (.image-placeholder) ve Proje Sayfaları İçin (.img-block) */
-        .image-placeholder, .img-block {
-            animation: pulse 2s infinite ease-in-out;
-            background-color: #e0e0e0; /* Animasyon desteklemeyen tarayıcılar için yedek */
-        }
         /* MOBİL UYUM */
         @media (max-width: 768px) {
             .nav-links { gap: 20px; }
-            .content-section { padding: 50px 5%; }
             .hero-social, .hero-contact { bottom: 20px; gap: 5px; }
             .hero-social { left: 20px; }
             .hero-contact { right: 20px; }
@@ -251,6 +221,7 @@
             .scroll-down { bottom: 80px; }
             .fixed-logo { top: 20px; left: 20px; font-size: 0.8rem; }
             .lang-toggle { top: 20px; right: 20px; font-size: 0.8rem; }
+            .philosophy-section { padding: 80px 5%; }
         }
     </style>
 </head>
@@ -260,11 +231,12 @@
     <a href="index.html" class="fixed-logo en-text" onclick="transitionToPage(event, 'index.html')">Home</a>
     <a href="index.html" class="fixed-logo tr-text" onclick="transitionToPage(event, 'index.html')">Ana Sayfa</a>
     
-   <!-- SAĞ ÜST DİL SEÇENEĞİ -->
+    <!-- SAĞ ÜST DİL SEÇENEĞİ -->
     <div class="lang-toggle" onclick="toggleLanguage()">
         <span class="en-text"><span style="font-weight: 700; opacity: 1;">EN</span> <span style="font-weight: 300; opacity: 0.5;">/ TR</span></span>
         <span class="tr-text"><span style="font-weight: 300; opacity: 0.5;">EN /</span> <span style="font-weight: 700; opacity: 1;">TR</span></span>
     </div>
+
     <section class="hero" id="home">
         <h1>Gaye Güngör</h1>
         <p class="en-text">Architectural Designer</p>
@@ -279,26 +251,25 @@
             <a href="tel:+905522118345" class="contact-link">+90 552 211 8345</a>
         </div>
 
-        <a class="scroll-down en-text" onclick="scrollToProjects()">Scroll Down ↓</a>
-        <a class="scroll-down tr-text" onclick="scrollToProjects()">Aşağı Kaydır ↓</a>
+        <a class="scroll-down en-text" onclick="scrollToManifesto()">Scroll Down ↓</a>
+        <a class="scroll-down tr-text" onclick="scrollToManifesto()">Aşağı Kaydır ↓</a>
     </section>
 
-  <nav class="nav-container" id="navbar">
+    <!-- MENÜ: Artık "Projects" linki projects.html dosyasına gidiyor. -->
+    <nav class="nav-container" id="navbar">
         <ul class="nav-links" style="list-style: none; padding: 0;">
             <li>
-                <a href="index.html" class="active en-text" onclick="transitionToPage(event, 'index.html')">Projects</a>
-                <a href="index.html" class="active tr-text" onclick="transitionToPage(event, 'index.html')">Projeler</a>
+                <a href="projects.html" class="en-text" onclick="transitionToPage(event, 'projects.html')">Projects</a>
+                <a href="projects.html" class="tr-text" onclick="transitionToPage(event, 'projects.html')">Projeler</a>
             </li>
             <li>
                 <a href="about.html" class="en-text" onclick="transitionToPage(event, 'about.html')">About</a>
                 <a href="about.html" class="tr-text" onclick="transitionToPage(event, 'about.html')">Hakkımda</a>
             </li>
-            <!-- YENİ EKLENEN EĞİTİM SEKMEŞİ -->
             <li>
                 <a href="education.html" class="en-text" onclick="transitionToPage(event, 'education.html')">Education</a>
                 <a href="education.html" class="tr-text" onclick="transitionToPage(event, 'education.html')">Eğitim</a>
             </li>
-            <!-- YENİ EKLENEN PROGRAMLAR SEKMEŞİ -->
             <li>
                 <a href="software.html" class="en-text" onclick="transitionToPage(event, 'software.html')">Software</a>
                 <a href="software.html" class="tr-text" onclick="transitionToPage(event, 'software.html')">Yazılımlar</a>
@@ -314,6 +285,7 @@
             </li>
         </ul>
     </nav>
+
     <!-- VİZYON / MANİFESTO BÖLÜMÜ -->
     <section class="philosophy-section">
         <div class="philosophy-text en-text">
@@ -325,86 +297,6 @@
         <div class="philosophy-sub en-text">— Design Philosophy</div>
         <div class="philosophy-sub tr-text">— Tasarım Felsefesi</div>
     </section>
-    <section class="content-section" id="projects">
-        <div class="grid">
-            <a href="afterground.html" class="project-item" onclick="transitionToPage(event, 'afterground.html')">
-                <div class="image-placeholder">
-                    <img src="yeni iso.png" alt="AFTERGROUND">
-                </div>
-                <div class="project-info">
-                    <div class="project-name">01 AFTERGROUND</div>
-                    <div class="project-category en-text">Graduation Project</div>
-                    <div class="project-category tr-text">Mezuniyet Projesi</div>
-                </div>
-            </a>
-
-            <a href="solacepoint.html" class="project-item" onclick="transitionToPage(event, 'solacepoint.html')">
-                <div class="image-placeholder">
-                    <img src="giriş solacepoınt.png" alt="SOLACEPOINT">
-                </div>
-                <div class="project-info">
-                    <div class="project-name">02 SOLACEPOINT</div>
-                    <div class="project-category en-text">Architectural Design IV</div>
-                    <div class="project-category tr-text">Mimari Tasarım IV</div>
-                </div>
-            </a>
-
-            <a href="terrahaus.html" class="project-item" onclick="transitionToPage(event, 'terrahaus.html')">
-                <div class="image-placeholder">
-                    <img src="terrahaus render1.png" alt="TERRAHAUS">
-                </div>
-                <div class="project-info">
-                    <div class="project-name">03 TERRAHAUS</div>
-                    <div class="project-category en-text">Residential Design</div>
-                    <div class="project-category tr-text">Konut Tasarımı</div>
-                </div>
-            </a>
-
-            <a href="conflux.html" class="project-item" onclick="transitionToPage(event, 'conflux.html')">
-                <div class="image-placeholder">
-                    <img src="conflux giriş.png" alt="CONFLUX">
-                </div>
-                <div class="project-info">
-                    <div class="project-name">04 CONFLUX</div>
-                    <div class="project-category en-text">Urban Design</div>
-                    <div class="project-category tr-text">Kentsel Tasarım</div>
-                </div>
-            </a>
-
-            <a href="biosphere.html" class="project-item" onclick="transitionToPage(event, 'biosphere.html')">
-                <div class="image-placeholder">
-                    <img src="BIOSPHERE NEXUSgiriş.png" alt="BIOSPHERE NEXUS">
-                </div>
-                <div class="project-info">
-                    <div class="project-name">05 BIOSPHERE NEXUS</div>
-                    <div class="project-category en-text">Ecological Infrastructure</div>
-                    <div class="project-category tr-text">Ekolojik Altyapı</div>
-                </div>
-            </a>
-
-            <a href="bibliotheque.html" class="project-item" onclick="transitionToPage(event, 'bibliotheque.html')">
-                <div class="image-placeholder">
-                    <img src="kütüpgiriş.png" alt="BIBLIOTHÈQUE">
-                </div>
-                <div class="project-info">
-                    <div class="project-name">06 BIBLIOTHÈQUE</div>
-                    <div class="project-category en-text">Public Building</div>
-                    <div class="project-category tr-text">Kamusal Yapı</div>
-                </div>
-            </a>
-
-            <a href="renderings.html" class="project-item" onclick="transitionToPage(event, 'renderings.html')">
-                <div class="image-placeholder">
-                    <img src="render1.png" alt="Architectural Renderings">
-                </div>
-                <div class="project-info">
-                    <div class="project-name">07 ARCHITECTURAL RENDERINGS</div>
-                    <div class="project-category en-text">Visualization / 3D Art</div>
-                    <div class="project-category tr-text">Görselleştirme / 3D Sanat</div>
-                </div>
-            </a>
-        </div>
-    </section>
 
     <footer>
         <p class="en-text">© 2026 Gaye Güngör | Architectural Designer</p>
@@ -412,7 +304,7 @@
     </footer>
 
     <script>
-        // 1. Dil Hafızası (Daha Güçlü Versiyon)
+        // 1. Dil Hafızası
         const savedLang = localStorage.getItem('siteLang') || 'en';
         document.body.classList.remove('lang-en', 'lang-tr');
         document.body.classList.add('lang-' + savedLang);
@@ -422,9 +314,9 @@
             document.body.classList.add('loaded');
         };
 
-        // 3. Projeler Bölümüne Kaydırma
-        function scrollToProjects() {
-            document.getElementById('navbar').scrollIntoView({ behavior: 'smooth' });
+        // 3. Manifesto Bölümüne Kaydırma
+        function scrollToManifesto() {
+            document.querySelector('.philosophy-section').scrollIntoView({ behavior: 'smooth' });
         }
 
         // 4. Dil Değiştirme Fonksiyonu
