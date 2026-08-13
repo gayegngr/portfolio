@@ -2,36 +2,164 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Education | Gaye Güngör</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #fafafa; }
-        .nav-container { padding: 20px; text-align: center; border-bottom: 1px solid #eaeaea; }
-        .nav-links { list-style: none; display: flex; justify-content: center; gap: 40px; }
-        .nav-links a { text-decoration: none; color: #888; text-transform: uppercase; }
-        .nav-links a.active { color: #111; font-weight: 600; }
-        .content-section { padding: 100px 10%; max-width: 900px; margin: 0 auto; text-align: center; }
-        .edu-item { margin-bottom: 50px; padding: 40px; border: 1px solid #eaeaea; background: #fff; }
+        /* TEMEL AYARLAR VE ANİMASYON */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: #fafafa; color: #111111; opacity: 0; transition: opacity 0.6s ease-in-out; }
+        body.loaded { opacity: 1; }
+        body.fade-out { opacity: 0; }
+
+        /* SİYAH GİRİŞ EKRANI */
+        .hero { height: 60vh; background-color: #050505; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; }
+        .hero h1 { color: #ffffff; font-size: clamp(3rem, 5vw, 5rem); font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; animation: slideUp 1.5s ease-out forwards; opacity: 0; transform: translateY(30px); }
+        @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+
+        /* YAPIŞKAN MENÜ */
+        .nav-container { position: sticky; top: 0; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(5px); padding: 20px 0; border-bottom: 1px solid #eaeaea; z-index: 1000; text-align: center; }
+        .nav-links { list-style: none; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; color: #888888; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s ease; cursor: pointer; }
+        .nav-links a:hover, .nav-links a.active { color: #111111; }
+
+        /* EĞİTİM İÇERİĞİ */
+        .content-section { padding: 100px 10%; min-height: 50vh; max-width: 900px; margin: 0 auto; text-align: center; }
+        .edu-item { margin-bottom: 50px; padding: 40px; border: 1px solid #eaeaea; background-color: #ffffff; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .edu-item:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        
+        .edu-title { font-size: 1.8rem; font-weight: 500; margin-bottom: 10px; color: #111; }
+        .edu-dept { font-size: 1.2rem; font-weight: 300; margin-bottom: 20px; color: #555; }
+        .edu-date { font-size: 0.9rem; font-weight: 500; color: #888; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 25px; display: inline-block; padding-bottom: 5px; border-bottom: 1px solid #eaeaea; }
+
+        footer { padding: 40px 10%; text-align: center; border-top: 1px solid #eaeaea; font-size: 0.85rem; color: #888888; background-color: #ffffff; }
+
+        /* SOL ÜST KÖŞE SABİT ANA SAYFA LOGOSU */
+        .fixed-logo { position: fixed; top: 30px; left: 40px; color: #ffffff; font-size: 1rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; text-decoration: none; z-index: 9999; mix-blend-mode: difference; transition: opacity 0.3s ease; }
+        .fixed-logo:hover { opacity: 0.6; }
+
+        /* DİL GİZLEME/GÖSTERME SİSTEMİ */
+        body.lang-tr .en-text { display: none !important; }
+        body.lang-en .tr-text { display: none !important; }
+
+        /* SAĞ ÜST KÖŞE DİL SEÇENEĞİ (ENG / TR) */
+        .lang-toggle { position: fixed; top: 30px; right: 40px; color: #ffffff; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.15em; cursor: pointer; z-index: 9999; mix-blend-mode: difference; transition: opacity 0.3s ease, transform 0.3s ease; }
+        .lang-toggle:hover { opacity: 0.8; transform: translateY(-2px); }
+
+        /* MOBİL UYUM */
+        @media (max-width: 768px) { 
+            .nav-links { gap: 20px; } 
+            .fixed-logo, .lang-toggle { top: 20px; font-size: 0.8rem; } 
+            .fixed-logo { left: 20px; } 
+            .lang-toggle { right: 20px; } 
+        }
     </style>
 </head>
 <body class="lang-en">
-    <nav class="nav-container">
-        <ul class="nav-links">
-            <li><a href="about.html">About</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="education.html" class="active">Education</a></li>
-            <li><a href="software.html">Software</a></li>
+
+    <!-- SAĞ ÜST DİL SEÇENEĞİ -->
+    <div class="lang-toggle" onclick="toggleLanguage()">
+        <span class="en-text"><span style="font-weight: 700; opacity: 1;">EN</span> <span style="font-weight: 300; opacity: 0.5;">/ TR</span></span>
+        <span class="tr-text"><span style="font-weight: 300; opacity: 0.5;">EN /</span> <span style="font-weight: 700; opacity: 1;">TR</span></span>
+    </div>
+
+    <!-- SABİT ANA SAYFA LOGOSU -->
+    <a href="index.html" class="fixed-logo en-text" onclick="transitionToPage(event, 'index.html')">Home</a>
+    <a href="index.html" class="fixed-logo tr-text" onclick="transitionToPage(event, 'index.html')">Ana Sayfa</a>
+
+    <!-- SİYAH GİRİŞ EKRANI -->
+    <section class="hero" id="home">
+        <h1 class="en-text">Education</h1>
+        <h1 class="tr-text">Eğitim</h1>
+    </section>
+
+    <!-- YAPIŞKAN MENÜ -->
+    <nav class="nav-container" id="navbar">
+        <ul class="nav-links" style="list-style: none; padding: 0;">
+            <li>
+                <!-- DİKKAT: Artık projects.html'e yönlendiriyor -->
+                <a href="projects.html" class="en-text" onclick="transitionToPage(event, 'projects.html')">Projects</a>
+                <a href="projects.html" class="tr-text" onclick="transitionToPage(event, 'projects.html')">Projeler</a>
+            </li>
+            <li>
+                <a href="about.html" class="en-text" onclick="transitionToPage(event, 'about.html')">About</a>
+                <a href="about.html" class="tr-text" onclick="transitionToPage(event, 'about.html')">Hakkımda</a>
+            </li>
+            <li>
+                <!-- DİKKAT: Bu sayfada Education aktif (koyu) olmalı -->
+                <a href="#navbar" class="active en-text">Education</a>
+                <a href="#navbar" class="active tr-text">Eğitim</a>
+            </li>
+            <li>
+                <a href="software.html" class="en-text" onclick="transitionToPage(event, 'software.html')">Software</a>
+                <a href="software.html" class="tr-text" onclick="transitionToPage(event, 'software.html')">Yazılımlar</a>
+            </li>
+            <li><a href="Gaye_Gungor_CV.pdf" target="_blank">CV / PDF</a></li>
+            <li>
+                <a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank" class="en-text">Portfolio / PDF</a>
+                <a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank" class="tr-text">Portfolyo / PDF</a>
+            </li>
+            <li>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="en-text">Interactive Portfolio</a>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="tr-text">Etkileşimli Portfolyo</a>
+            </li>
         </ul>
     </nav>
+
+    <!-- EĞİTİM İÇERİĞİ -->
     <section class="content-section">
         <div class="edu-item">
-            <h2>İzmir Yüksek Teknoloji Enstitüsü (İYTE)</h2>
-            <p>Mimarlık Bölümü - Lisans</p>
-        </div>
-        <div class="edu-item">
-            <h2>Karşıyaka Lisesi</h2>
-            <p>Lise Diploması</p>
+            <h2 class="edu-title en-text">Izmir Institute of Technology (IZTECH)</h2>
+            <h2 class="edu-title tr-text">İzmir Yüksek Teknoloji Enstitüsü (İYTE)</h2>
+            
+            <div class="edu-dept en-text">Department of Architecture</div>
+            <div class="edu-dept tr-text">Mimarlık Bölümü</div>
+            
+            <div class="edu-date en-text">Bachelor's Degree</div>
+            <div class="edu-date tr-text">Lisans Derecesi</div>
         </div>
     </section>
+
+    <footer>
+        <p class="en-text">© 2026 Gaye Güngör | Architectural Designer</p>
+        <p class="tr-text">© 2026 Gaye Güngör | Mimari Tasarımcı</p>
+    </footer>
+
+    <!-- JS SCRIPTLERİ -->
+    <script>
+        // 1. Dil Hafızası
+        const savedLang = localStorage.getItem('siteLang') || 'en';
+        document.body.classList.remove('lang-en', 'lang-tr');
+        document.body.classList.add('lang-' + savedLang);
+
+        // 2. Sayfa Yüklenme Animasyonu
+        window.onload = function() { 
+            document.body.classList.add('loaded'); 
+        };
+
+        // 3. Dil Değiştirme Fonksiyonu
+        function toggleLanguage() {
+            const body = document.body;
+            if (body.classList.contains('lang-en')) {
+                body.classList.remove('lang-en'); 
+                body.classList.add('lang-tr'); 
+                localStorage.setItem('siteLang', 'tr');
+            } else {
+                body.classList.remove('lang-tr'); 
+                body.classList.add('lang-en'); 
+                localStorage.setItem('siteLang', 'en');
+            }
+        }
+
+        // 4. Sayfalar Arası Geçiş Animasyonu
+        function transitionToPage(event, url) {
+            event.preventDefault(); 
+            document.body.classList.remove('loaded'); 
+            document.body.classList.add('fade-out'); 
+            setTimeout(function() { 
+                window.location.href = url; 
+            }, 600);
+        }
+    </script>
 </body>
 </html>
