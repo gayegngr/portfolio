@@ -6,29 +6,24 @@
     <title>Projects | Gaye Güngör</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        /* TEMEL AYARLAR VE ANİMASYON */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Inter', sans-serif; background-color: #fafafa; color: #111111; opacity: 0; transition: opacity 0.6s ease-in-out; }
         body.loaded { opacity: 1; }
         body.fade-out { opacity: 0; }
 
-        body.lang-tr .en-text { display: none !important; }
-        body.lang-en .tr-text { display: none !important; }
-
-        .fixed-logo { position: fixed; top: 30px; left: 40px; color: #ffffff; font-size: 1rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; text-decoration: none; z-index: 9999; mix-blend-mode: difference; transition: opacity 0.3s ease; }
-        .fixed-logo:hover { opacity: 0.6; }
-
-        .lang-toggle { position: fixed; top: 30px; right: 40px; color: #ffffff; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.15em; cursor: pointer; z-index: 9999; mix-blend-mode: difference; transition: opacity 0.3s ease, transform 0.3s ease; }
-        .lang-toggle:hover { opacity: 0.8; transform: translateY(-2px); }
-
+        /* SİYAH GİRİŞ EKRANI */
         .hero { height: 60vh; background-color: #050505; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; }
         .hero h1 { color: #ffffff; font-size: clamp(3rem, 5vw, 5rem); font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; animation: slideUp 1.5s ease-out forwards; opacity: 0; transform: translateY(30px); }
         @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
 
+        /* YAPIŞKAN MENÜ */
         .nav-container { position: sticky; top: 0; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(5px); padding: 20px 0; border-bottom: 1px solid #eaeaea; z-index: 1000; text-align: center; }
         .nav-links { list-style: none; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
         .nav-links a { text-decoration: none; color: #888888; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s ease; cursor: pointer; }
         .nav-links a:hover, .nav-links a.active { color: #111111; }
 
+        /* PROJELER ALANI (GRID) */
         .content-section { padding: 80px 10%; min-height: 100vh; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px; }
         .project-item { text-decoration: none; color: inherit; display: block; }
@@ -44,30 +39,53 @@
 
         footer { padding: 40px 10%; text-align: center; border-top: 1px solid #eaeaea; font-size: 0.85rem; color: #888888; background-color: #ffffff; }
 
-        @media (max-width: 768px) { .nav-links { gap: 20px; } .content-section { padding: 50px 5%; } .fixed-logo, .lang-toggle { top: 20px; font-size: 0.8rem; } .fixed-logo { left: 20px; } .lang-toggle { right: 20px; } }
+        /* SOL ÜST KÖŞE SABİT ANA SAYFA LOGOSU */
+        .fixed-logo { position: fixed; top: 30px; left: 40px; color: #ffffff; font-size: 1rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; text-decoration: none; z-index: 9999; mix-blend-mode: difference; transition: opacity 0.3s ease; }
+        .fixed-logo:hover { opacity: 0.6; }
+
+        /* SAĞ ÜST KÖŞE DİL SEÇENEĞİ (ENG / TR) */
+        .lang-toggle { position: fixed; top: 30px; right: 40px; color: #ffffff; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.15em; cursor: pointer; z-index: 9999; mix-blend-mode: difference; transition: opacity 0.3s ease, transform 0.3s ease; }
+        .lang-toggle:hover { opacity: 0.8; transform: translateY(-2px); }
+
+        /* DİL GİZLEME/GÖSTERME SİSTEMİ */
+        body.lang-tr .en-text { display: none !important; }
+        body.lang-en .tr-text { display: none !important; }
+
+        /* MOBİL UYUM */
+        @media (max-width: 768px) { 
+            .nav-links { gap: 20px; } 
+            .content-section { padding: 50px 5%; } 
+            .fixed-logo, .lang-toggle { top: 20px; font-size: 0.8rem; } 
+            .fixed-logo { left: 20px; } 
+            .lang-toggle { right: 20px; } 
+        }
     </style>
 </head>
 <body class="lang-en">
 
-    <a href="index.html" class="fixed-logo en-text" onclick="transitionToPage(event, 'index.html')">Home</a>
-    <a href="index.html" class="fixed-logo tr-text" onclick="transitionToPage(event, 'index.html')">Ana Sayfa</a>
-    
+    <!-- SAĞ ÜST DİL SEÇENEĞİ -->
     <div class="lang-toggle" onclick="toggleLanguage()">
         <span class="en-text"><span style="font-weight: 700; opacity: 1;">EN</span> <span style="font-weight: 300; opacity: 0.5;">/ TR</span></span>
         <span class="tr-text"><span style="font-weight: 300; opacity: 0.5;">EN /</span> <span style="font-weight: 700; opacity: 1;">TR</span></span>
     </div>
 
+    <!-- SABİT ANA SAYFA LOGOSU -->
+    <a href="index.html" class="fixed-logo en-text" onclick="transitionToPage(event, 'index.html')">Home</a>
+    <a href="index.html" class="fixed-logo tr-text" onclick="transitionToPage(event, 'index.html')">Ana Sayfa</a>
+
+    <!-- SİYAH GİRİŞ EKRANI -->
     <section class="hero" id="home">
         <h1 class="en-text">Projects</h1>
         <h1 class="tr-text">Projeler</h1>
     </section>
 
-    <!-- MENÜ: Burada "Projects" aktif (koyu) -->
+    <!-- YAPIŞKAN MENÜ -->
     <nav class="nav-container" id="navbar">
         <ul class="nav-links" style="list-style: none; padding: 0;">
             <li>
-                <a href="#navbar" class="active en-text">Projects</a>
-                <a href="#navbar" class="active tr-text">Projeler</a>
+                <!-- DİKKAT: Burada "Projects" aktif (koyu) -->
+                <a href="projects.html" class="active en-text" onclick="transitionToPage(event, 'projects.html')">Projects</a>
+                <a href="projects.html" class="active tr-text" onclick="transitionToPage(event, 'projects.html')">Projeler</a>
             </li>
             <li>
                 <a href="about.html" class="en-text" onclick="transitionToPage(event, 'about.html')">About</a>
@@ -93,6 +111,7 @@
         </ul>
     </nav>
 
+    <!-- PROJELER LİSTESİ (GRID) -->
     <section class="content-section" id="projects">
         <div class="grid">
             <a href="afterground.html" class="project-item" onclick="transitionToPage(event, 'afterground.html')">
@@ -165,26 +184,41 @@
         <p class="tr-text">© 2026 Gaye Güngör | Mimari Tasarımcı</p>
     </footer>
 
+    <!-- JS SCRIPTLERİ -->
     <script>
+        // 1. Dil Hafızası
         const savedLang = localStorage.getItem('siteLang') || 'en';
         document.body.classList.remove('lang-en', 'lang-tr');
         document.body.classList.add('lang-' + savedLang);
 
-        window.onload = function() { document.body.classList.add('loaded'); };
+        // 2. Sayfa Yüklenme Animasyonu
+        window.onload = function() { 
+            document.body.classList.add('loaded'); 
+        };
 
+        // 3. Dil Değiştirme Butonu İşlevi
         function toggleLanguage() {
             const body = document.body;
             if (body.classList.contains('lang-en')) {
-                body.classList.remove('lang-en'); body.classList.add('lang-tr'); localStorage.setItem('siteLang', 'tr');
+                body.classList.remove('lang-en'); 
+                body.classList.add('lang-tr'); 
+                localStorage.setItem('siteLang', 'tr');
             } else {
-                body.classList.remove('lang-tr'); body.classList.add('lang-en'); localStorage.setItem('siteLang', 'en');
+                body.classList.remove('lang-tr'); 
+                body.classList.add('lang-en'); 
+                localStorage.setItem('siteLang', 'en');
             }
         }
 
+        // 4. Sayfalar Arası Geçiş
         function transitionToPage(event, url) {
             event.preventDefault(); 
-            document.body.classList.remove('loaded'); document.body.classList.add('fade-out'); 
-            setTimeout(function() { window.location.href = url; }, 600);
+            document.body.classList.remove('loaded'); 
+            document.body.classList.add('fade-out'); 
+            
+            setTimeout(function() { 
+                window.location.href = url; 
+            }, 600);
         }
     </script>
 </body>
