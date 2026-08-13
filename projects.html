@@ -31,26 +31,67 @@
         .project-name { font-size: 1.4rem; font-weight: 400; margin-bottom: 5px; }
         .project-category { font-size: 0.9rem; color: #888888; text-transform: uppercase; letter-spacing: 0.05em; }
         
+        @keyframes pulse { 0% { background-color: #e0e0e0; } 50% { background-color: #f2f2f2; } 100% { background-color: #e0e0e0; } }
+
         footer { padding: 40px 10%; text-align: center; border-top: 1px solid #eaeaea; font-size: 0.85rem; color: #888888; background-color: #ffffff; }
     </style>
 </head>
 <body class="lang-en">
-<!-- Tüm dosyalarda aynı olmalı (Sıralama: About, Projects, Education, Software) -->
-<nav class="nav-container" id="navbar">
-    <ul class="nav-links" style="list-style: none; padding: 0;">
-        <li><a href="about.html" class="[ABOUT_ACTIVE]" onclick="transitionToPage(event, 'about.html')">About</a></li>
-        <li><a href="projects.html" class="[PROJECTS_ACTIVE]" onclick="transitionToPage(event, 'projects.html')">Projects</a></li>
-        <li><a href="education.html" class="[EDUCATION_ACTIVE]" onclick="transitionToPage(event, 'education.html')">Education</a></li>
-        <li><a href="software.html" class="[SOFTWARE_ACTIVE]" onclick="transitionToPage(event, 'software.html')">Software</a></li>
-    </ul>
-</nav>
+    <nav class="nav-container" id="navbar">
+        <ul class="nav-links" style="list-style: none; padding: 0;">
+            <li><a href="about.html" onclick="transitionToPage(event, 'about.html')">About</a></li>
+            <li><a href="#navbar" class="active">Projects</a></li>
+            <li><a href="education.html" onclick="transitionToPage(event, 'education.html')">Education</a></li>
+            <li><a href="software.html" onclick="transitionToPage(event, 'software.html')">Software</a></li>
+        </ul>
+    </nav>
+    <section class="hero">
+        <h1 class="en-text">Projects</h1>
+        <h1 class="tr-text">Projeler</h1>
+    </section>
     <section class="content-section">
         <div class="grid">
-            <!-- Projelerin burada -->
+            <a href="afterground.html" class="project-item" onclick="transitionToPage(event, 'afterground.html')">
+                <div class="image-placeholder"><img src="yeni iso.png" alt="AFTERGROUND"></div>
+                <div class="project-name">01 AFTERGROUND</div>
+                <div class="project-category">Mezuniyet Projesi</div>
+            </a>
+            <a href="solacepoint.html" class="project-item" onclick="transitionToPage(event, 'solacepoint.html')">
+                <div class="image-placeholder"><img src="giriş solacepoınt.png" alt="SOLACEPOINT"></div>
+                <div class="project-name">02 SOLACEPOINT</div>
+                <div class="project-category">Mimari Tasarım IV</div>
+            </a>
+            <a href="terrahaus.html" class="project-item" onclick="transitionToPage(event, 'terrahaus.html')">
+                <div class="image-placeholder"><img src="terrahaus render1.png" alt="TERRAHAUS"></div>
+                <div class="project-name">03 TERRAHAUS</div>
+                <div class="project-category">Konut Tasarımı</div>
+            </a>
+            <a href="conflux.html" class="project-item" onclick="transitionToPage(event, 'conflux.html')">
+                <div class="image-placeholder"><img src="conflux giriş.png" alt="CONFLUX"></div>
+                <div class="project-name">04 CONFLUX</div>
+                <div class="project-category">Kentsel Tasarım</div>
+            </a>
+            <a href="biosphere.html" class="project-item" onclick="transitionToPage(event, 'biosphere.html')">
+                <div class="image-placeholder"><img src="BIOSPHERE NEXUSgiriş.png" alt="BIOSPHERE NEXUS"></div>
+                <div class="project-name">05 BIOSPHERE NEXUS</div>
+                <div class="project-category">Ekolojik Altyapı</div>
+            </a>
+            <a href="bibliotheque.html" class="project-item" onclick="transitionToPage(event, 'bibliotheque.html')">
+                <div class="image-placeholder"><img src="kütüpgiriş.png" alt="BIBLIOTHÈQUE"></div>
+                <div class="project-name">06 BIBLIOTHÈQUE</div>
+                <div class="project-category">Kamusal Yapı</div>
+            </a>
+            <a href="renderings.html" class="project-item" onclick="transitionToPage(event, 'renderings.html')">
+                <div class="image-placeholder"><img src="render1.png" alt="Architectural Renderings"></div>
+                <div class="project-name">07 ARCHITECTURAL RENDERINGS</div>
+                <div class="project-category">Görselleştirme</div>
+            </a>
         </div>
     </section>
+    <footer><p>© 2026 Gaye Güngör | Architectural Designer</p></footer>
     <script>
-        // Dil ve Geçiş scriptleri aynı kalacak
+        window.onload = () => document.body.classList.add('loaded');
+        function transitionToPage(e, url) { e.preventDefault(); document.body.classList.add('fade-out'); setTimeout(() => window.location.href = url, 600); }
     </script>
 </body>
 </html>
