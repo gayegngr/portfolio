@@ -45,16 +45,19 @@
 
         .content-section { padding: 80px 10%; min-height: 100vh; max-width: 1200px; margin: 0 auto; }
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 50px; }
+        
         .bio-text p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px; color: #444; text-align: justify; }
         
-        .contact-box { margin-top: 40px; padding-top: 30px; border-top: 1px solid #eaeaea; }
-        .contact-item { margin-bottom: 15px; }
-        .contact-item span { display: block; font-size: 0.8rem; color: #888; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px; }
-        .contact-item a { color: #111; text-decoration: none; font-size: 1.1rem; border-bottom: 1px solid transparent; transition: border-color 0.3s; }
-        .contact-item a:hover { border-color: #111; }
-
-        .profile-img-container { width: 100%; aspect-ratio: 3/4; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #999; overflow: hidden;}
+        /* SAĞ TARAF (FOTOĞRAF VE İLETİŞİM) KUTUSU */
+        .profile-side { display: flex; flex-direction: column; }
+        .profile-img-container { width: 100%; aspect-ratio: 3/4; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #999; overflow: hidden; }
         .profile-img-container img { width: 100%; height: 100%; object-fit: cover; }
+
+        .contact-box { margin-top: 40px; padding-top: 30px; border-top: 1px solid #eaeaea; display: flex; flex-direction: column; gap: 20px; }
+        .contact-item span { display: block; font-size: 0.8rem; color: #888; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px; }
+        .contact-item a, .contact-item .info-text { color: #111; text-decoration: none; font-size: 1.1rem; }
+        .contact-item a { border-bottom: 1px solid transparent; transition: border-color 0.3s; }
+        .contact-item a:hover { border-color: #111; }
 
         footer { padding: 40px 10%; text-align: center; border-top: 1px solid #eaeaea; font-size: 0.85rem; color: #888888; background-color: #ffffff; }
 
@@ -125,7 +128,6 @@
     <nav class="nav-container" id="navbar">
         <ul class="nav-links" style="list-style: none; padding: 0;">
             <li>
-                <!-- DİKKAT: Artık projects.html'e yönlendiriyor -->
                 <a href="projects.html" class="en-text" onclick="transitionToPage(event, 'projects.html')">Projects</a>
                 <a href="projects.html" class="tr-text" onclick="transitionToPage(event, 'projects.html')">Projeler</a>
             </li>
@@ -155,6 +157,8 @@
 
     <section class="content-section" id="content">
         <div class="about-grid">
+            
+            <!-- SOL TARAF: HAKKIMDA METNİ -->
             <div class="bio-text">
                 <p class="en-text">Hello, I'm a graduate of the Department of Architecture at İzmir Institute of Technology. I built on my academic training through three distinct professional settings — a design office, a construction site, and an archaeological documentation project — giving me firsthand insight into a project's full lifecycle, from concept to implementation. My technical proficiency in Archicad, Revit, AutoCAD, and Twinmotion allowed me to take an active role at every stage of that process.</p>
                 <p class="tr-text">Merhaba, İzmir Yüksek Teknoloji Enstitüsü Mimarlık Bölümü mezunuyum. Akademik eğitimimi tasarım ofisi, inşaat sahası ve arkeolojik belgeleme çalışması olmak üzere üç farklı profesyonel ortamda pekiştirdim; bu deneyim bana bir projenin kavramdan uygulamaya tüm sürecini görme fırsatı verdi. Archicad, Revit, AutoCAD ve Twinmotion'daki teknik yetkinliğim, bu sürecin her aşamasında aktif rol almamı sağladı.</p>
@@ -164,23 +168,50 @@
                 
                 <p class="en-text">As a recent graduate, I believe my interdisciplinary teamwork experience and hands-on field practice allow me to add value to an architecture office from day one. My attention to detail and ability to translate complex problems into actionable solutions make me an effective team member in fast-paced, creative work environments.</p>
                 <p class="tr-text">Yeni mezun olmama rağmen, disiplinler arası ekip deneyimim ve saha pratiğimle bir mimarlık ofisine ilk günden katma değer sunabileceğime inanıyorum. Detaya verdiğim önem ve karmaşık problemleri uygulanabilir çözümlere dönüştürme becerim, yaratıcı çalışma ortamlarında etkin bir ekip üyesi olmamı sağlıyor.</p>
+            </div>
+            
+            <!-- SAĞ TARAF: FOTOĞRAF VE İLETİŞİM BİLGİLERİ -->
+            <div class="profile-side">
+                
+                <div class="profile-img-container">
+                    <img src="WhatsApp Image 2026-07-21 at 14.27.58.jpeg" alt="Gaye Güngör">
+                </div>
                 
                 <div class="contact-box">
+                    <div class="contact-item">
+                        <span class="en-text">Location</span>
+                        <span class="tr-text">Konum</span>
+                        <div class="info-text en-text">Karşıyaka, Izmir, Turkey</div>
+                        <div class="info-text tr-text">Karşıyaka, İzmir, Türkiye</div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="en-text">27.03.2002</span>
+                        <span class="tr-text">27.03.2002</span>
+                        <!-- DOĞUM TARİHİNİ BURADAN DEĞİŞTİREBİLİRSİN -->
+                        <div class="info-text en-text">DD Month YYYY</div>
+                        <div class="info-text tr-text">GG Ay YYYY</div>
+                    </div>
+                    
                     <div class="contact-item">
                         <span class="en-text">Email</span>
                         <span class="tr-text">E-posta</span>
                         <a href="mailto:gungorggaye174@gmail.com">gungorggaye174@gmail.com</a>
                     </div>
+                    
+                    <div class="contact-item">
+                        <span class="en-text">Phone</span>
+                        <span class="tr-text">Telefon</span>
+                        <a href="tel:+905522118345">+90 552 211 8345</a>
+                    </div>
+                    
                     <div class="contact-item">
                         <span class="en-text">LinkedIn</span>
                         <span class="tr-text">LinkedIn</span>
                         <a href="https://www.linkedin.com/in/gayeg%C3%BCng%C3%B6r" target="_blank">linkedin.com/in/gayegüngör</a>
                     </div>
                 </div>
-            </div>
-            
-            <div class="profile-img-container">
-                <img src="WhatsApp Image 2026-07-21 at 14.27.58.jpeg" alt="Gaye Güngör">
+
             </div>
         </div>
     </section>
