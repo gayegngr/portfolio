@@ -7,14 +7,15 @@
     <!-- (Stiller aynı) -->
 </head>
 <body class="lang-en">
-    <nav class="nav-container" id="navbar">
-        <ul class="nav-links" style="list-style: none; padding: 0;">
-            <li><a href="about.html" class="en-text" onclick="transitionToPage(event, 'about.html')">About</a><a href="about.html" class="tr-text" onclick="transitionToPage(event, 'about.html')">Hakkımda</a></li>
-            <li><a href="projects.html" class="en-text" onclick="transitionToPage(event, 'projects.html')">Projects</a><a href="projects.html" class="tr-text" onclick="transitionToPage(event, 'projects.html')">Projeler</a></li>
-            <li><a href="education.html" class="en-text" onclick="transitionToPage(event, 'education.html')">Education</a><a href="education.html" class="tr-text" onclick="transitionToPage(event, 'education.html')">Eğitim</a></li>
-            <li><a href="#navbar" class="active en-text">Software</a><a href="#navbar" class="active tr-text">Yazılımlar</a></li>
-        </ul>
-    </nav>
+   <!-- Tüm dosyalarda aynı olmalı (Sıralama: About, Projects, Education, Software) -->
+<nav class="nav-container" id="navbar">
+    <ul class="nav-links" style="list-style: none; padding: 0;">
+        <li><a href="about.html" class="[ABOUT_ACTIVE]" onclick="transitionToPage(event, 'about.html')">About</a></li>
+        <li><a href="projects.html" class="[PROJECTS_ACTIVE]" onclick="transitionToPage(event, 'projects.html')">Projects</a></li>
+        <li><a href="education.html" class="[EDUCATION_ACTIVE]" onclick="transitionToPage(event, 'education.html')">Education</a></li>
+        <li><a href="software.html" class="[SOFTWARE_ACTIVE]" onclick="transitionToPage(event, 'software.html')">Software</a></li>
+    </ul>
+</nav>
     <section class="content-section">
         <div class="software-grid">
             <!-- Archicad, Revit, AutoCAD vs. -->
