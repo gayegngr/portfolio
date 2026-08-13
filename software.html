@@ -44,6 +44,110 @@
 </head>
 <body class="lang-en">
 
+    <!-- SAĞ ÜST DİL SEÇENEĞİ -->
+    <div class="lang-toggle" onclick="toggleLanguage()">
+        <span class="en-text"><span style="font-weight: 700; opacity: 1;">EN</span> <span style="font-weight: 300; opacity: 0.5;">/ TR</span></span>
+        <span class="tr-text"><span style="font-weight: 300; opacity: 0.5;">EN /</span> <span style="font-weight: 700; opacity: 1;">TR</span></span>
+    </div>
+
+    <!-- SABİT ANA SAYFA LOGOSU -->
+    <a href="index.html" class="fixed-logo en-text" onclick="transitionToPage(event, 'index.html')">Home</a>
+    <a href="index.html" class="fixed-logo tr-text" onclick="transitionToPage(event, 'index.html')">Ana Sayfa</a>
+
+    <!-- SİYAH GİRİŞ EKRANI -->
+    <section class="hero" id="home">
+        <h1 class="en-text">Software & Skills</h1>
+        <h1 class="tr-text">Yazılım & Yetenekler</h1>
+    </section>
+
+    <!-- YAPIŞKAN MENÜ -->
+    <nav class="nav-container" id="navbar">
+        <ul class="nav-links" style="list-style: none; padding: 0;">
+            <li>
+                <!-- DİKKAT: Artık projects.html'e yönlendiriyor -->
+                <a href="projects.html" class="en-text" onclick="transitionToPage(event, 'projects.html')">Projects</a>
+                <a href="projects.html" class="tr-text" onclick="transitionToPage(event, 'projects.html')">Projeler</a>
+            </li>
+            <li>
+                <a href="about.html" class="en-text" onclick="transitionToPage(event, 'about.html')">About</a>
+                <a href="about.html" class="tr-text" onclick="transitionToPage(event, 'about.html')">Hakkımda</a>
+            </li>
+            <li>
+                <a href="education.html" class="en-text" onclick="transitionToPage(event, 'education.html')">Education</a>
+                <a href="education.html" class="tr-text" onclick="transitionToPage(event, 'education.html')">Eğitim</a>
+            </li>
+            <li>
+                <!-- DİKKAT: Bu sayfada Software aktif (koyu) olmalı -->
+                <a href="#navbar" class="active en-text">Software</a>
+                <a href="#navbar" class="active tr-text">Yazılımlar</a>
+            </li>
+            <li><a href="Gaye_Gungor_CV.pdf" target="_blank">CV / PDF</a></li>
+            <li>
+                <a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank" class="en-text">Portfolio / PDF</a>
+                <a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank" class="tr-text">Portfolyo / PDF</a>
+            </li>
+            <li>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="en-text">Interactive Portfolio</a>
+                <a href="https://heyzine.com/flip-book/fa36f7c1f8.html" target="_blank" class="tr-text">Etkileşimli Portfolyo</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- YAZILIMLAR LİSTESİ -->
+    <section class="content-section">
+        <div class="software-grid">
+            <div class="software-item"><div class="software-name">Archicad</div></div>
+            <div class="software-item"><div class="software-name">Revit</div></div>
+            <div class="software-item"><div class="software-name">AutoCAD</div></div>
+            <div class="software-item"><div class="software-name">Twinmotion</div></div>
+            <div class="software-item"><div class="software-name">SketchUp</div></div>
+            <div class="software-item"><div class="software-name">InDesign</div></div>
+        </div>
+    </section>
+
+    <footer>
+        <p class="en-text">© 2026 Gaye Güngör | Architectural Designer</p>
+        <p class="tr-text">© 2026 Gaye Güngör | Mimari Tasarımcı</p>
+    </footer>
+
+    <!-- JS SCRIPTLERİ -->
+    <script>
+        // 1. Dil Hafızası
+        const savedLang = localStorage.getItem('siteLang') || 'en';
+        document.body.classList.remove('lang-en', 'lang-tr');
+        document.body.classList.add('lang-' + savedLang);
+
+        // 2. Sayfa Yüklenme Animasyonu
+        window.onload = function() { document.body.classList.add('loaded'); };
+
+        // 3. Dil Değiştirme Fonksiyonu
+        function toggleLanguage() {
+            const body = document.body;
+            if (body.classList.contains('lang-en')) {
+                body.classList.remove('lang-en'); body.classList.add('lang-tr'); localStorage.setItem('siteLang', 'tr');
+            } else {
+                body.classList.remove('lang-tr'); body.classList.add('lang-en'); localStorage.setItem('siteLang', 'en');
+            }
+        }
+
+        // 4. Sayfalar Arası Geçiş Animasyonu
+        function transitionToPage(event, url) {
+            event.preventDefault(); 
+            document.body.classList.remove('loaded'); document.body.classList.add('fade-out'); 
+            setTimeout(function() { window.location.href = url; }, 600);
+        }
+    </script>
+</body>
+</html>        body.lang-en .tr-text { display: none !important; }
+
+        .lang-toggle { position: fixed; top: 30px; right: 40px; color: #ffffff; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.15em; cursor: pointer; z-index: 9999; mix-blend-mode: difference; transition: opacity 0.3s ease, transform 0.3s ease; }
+        .lang-toggle:hover { opacity: 0.8; transform: translateY(-2px); }
+
+        @media (max-width: 768px) { .nav-links { gap: 20px; } .fixed-logo, .lang-toggle { top: 20px; font-size: 0.8rem; } .fixed-logo { left: 20px; } .lang-toggle { right: 20px; } }
+    </style>
+</head>
+<body class="lang-en">
+
     <div class="lang-toggle" onclick="toggleLanguage()">
         <span class="en-text"><span style="font-weight: 700; opacity: 1;">EN</span> <span style="font-weight: 300; opacity: 0.5;">/ TR</span></span>
         <span class="tr-text"><span style="font-weight: 300; opacity: 0.5;">EN /</span> <span style="font-weight: 700; opacity: 1;">TR</span></span>
