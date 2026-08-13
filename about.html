@@ -58,18 +58,18 @@
 
         footer { padding: 40px 10%; text-align: center; border-top: 1px solid #eaeaea; font-size: 0.85rem; color: #888888; background-color: #ffffff; }
 
-        /* 3. ADIM: YÜKLENİYOR (PULSE) ANİMASYONU */
+        /* YÜKLENİYOR (PULSE) ANİMASYONU */
         @keyframes pulse {
             0% { background-color: #e0e0e0; }
             50% { background-color: #f2f2f2; }
             100% { background-color: #e0e0e0; }
         }
 
-        /* Ana Sayfa İçin (.image-placeholder) ve Proje Sayfaları İçin (.img-block) */
-        .image-placeholder, .img-block {
+        .image-placeholder, .img-block, .profile-img-container {
             animation: pulse 2s infinite ease-in-out;
-            background-color: #e0e0e0; /* Animasyon desteklemeyen tarayıcılar için yedek */
+            background-color: #e0e0e0; 
         }
+
         @media (max-width: 768px) { 
             .about-grid { grid-template-columns: 1fr; } 
             .nav-links { gap: 20px; } 
@@ -93,9 +93,9 @@
             cursor: pointer;
             z-index: 9999;
             mix-blend-mode: difference;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
-        .lang-toggle:hover { opacity: 0.6; }
+        .lang-toggle:hover { opacity: 0.8; transform: translateY(-2px); }
 
         @media (max-width: 768px) {
             .lang-toggle { top: 20px; right: 20px; font-size: 0.8rem; }
@@ -104,11 +104,12 @@
 </head>
 <body class="lang-en">
 
-   <!-- SAĞ ÜST DİL SEÇENEĞİ -->
+    <!-- SAĞ ÜST DİL SEÇENEĞİ -->
     <div class="lang-toggle" onclick="toggleLanguage()">
         <span class="en-text"><span style="font-weight: 700; opacity: 1;">EN</span> <span style="font-weight: 300; opacity: 0.5;">/ TR</span></span>
         <span class="tr-text"><span style="font-weight: 300; opacity: 0.5;">EN /</span> <span style="font-weight: 700; opacity: 1;">TR</span></span>
     </div>
+    
     <!-- SABİT ANA SAYFA LOGOSU -->
     <a href="index.html" class="fixed-logo en-text" onclick="transitionToPage(event, 'index.html')">Home</a>
     <a href="index.html" class="fixed-logo tr-text" onclick="transitionToPage(event, 'index.html')">Ana Sayfa</a>
@@ -120,15 +121,15 @@
         <a class="scroll-down tr-text" onclick="scrollToContent()">Aşağı Kaydır ↓</a>
     </section>
 
-  <nav class="nav-container" id="navbar">
+    <!-- YAPIŞKAN MENÜ -->
+    <nav class="nav-container" id="navbar">
         <ul class="nav-links" style="list-style: none; padding: 0;">
             <li>
-                <!-- DİKKAT: Burada 'active' yazısı YOK, çünkü burası About sayfası -->
-                <a href="index.html" class="en-text" onclick="transitionToPage(event, 'index.html')">Projects</a>
-                <a href="index.html" class="tr-text" onclick="transitionToPage(event, 'index.html')">Projeler</a>
+                <!-- DİKKAT: Artık projects.html'e yönlendiriyor -->
+                <a href="projects.html" class="en-text" onclick="transitionToPage(event, 'projects.html')">Projects</a>
+                <a href="projects.html" class="tr-text" onclick="transitionToPage(event, 'projects.html')">Projeler</a>
             </li>
             <li>
-                <!-- DİKKAT: 'active' kelimesini buraya, About sekmesine taşıdık -->
                 <a href="#navbar" class="active en-text">About</a>
                 <a href="#navbar" class="active tr-text">Hakkımda</a>
             </li>
@@ -152,17 +153,6 @@
         </ul>
     </nav>
 
-    <!-- VİZYON / MANİFESTO BÖLÜMÜ -->
-    <section class="philosophy-section">
-        <div class="philosophy-text en-text">
-            Exploring the intersection of structural resilience and human experience through adaptive reuse, heritage conservation, and sustainable spatial strategies.
-        </div>
-        <div class="philosophy-text tr-text">
-            Yeniden işlevlendirme, kültürel mirasın korunması ve sürdürülebilir mekansal stratejiler aracılığıyla yapısal dayanıklılık ile insan deneyiminin kesişimini araştırıyorum.
-        </div>
-        <div class="philosophy-sub en-text">— Design Philosophy</div>
-        <div class="philosophy-sub tr-text">— Tasarım Felsefesi</div>
-    </section>
     <section class="content-section" id="content">
         <div class="about-grid">
             <div class="bio-text">
@@ -201,7 +191,7 @@
     </footer>
 
     <script>
-        // 1. Dil Hafızası (Daha Güçlü Versiyon)
+        // 1. Dil Hafızası
         const savedLang = localStorage.getItem('siteLang') || 'en';
         document.body.classList.remove('lang-en', 'lang-tr');
         document.body.classList.add('lang-' + savedLang);
