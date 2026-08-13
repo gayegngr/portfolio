@@ -2,32 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Education | Gaye Güngör</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* (Stil kodlarını index'ten kopyalayabilirsin, content-section'a edu-item stillerini ekleyerek) */
+        body { font-family: 'Inter', sans-serif; background-color: #fafafa; }
+        .nav-container { padding: 20px; text-align: center; border-bottom: 1px solid #eaeaea; }
+        .nav-links { list-style: none; display: flex; justify-content: center; gap: 40px; }
+        .nav-links a { text-decoration: none; color: #888; text-transform: uppercase; }
+        .nav-links a.active { color: #111; font-weight: 500; }
         .content-section { padding: 100px 10%; max-width: 900px; margin: 0 auto; text-align: center; }
-        .edu-item { margin-bottom: 50px; padding: 40px; border: 1px solid #eaeaea; background-color: #ffffff; }
+        .edu-item { margin-bottom: 50px; padding: 40px; border: 1px solid #eaeaea; background: #fff; }
     </style>
 </head>
-<body class="lang-en">
-   <!-- Tüm dosyalarda aynı olmalı (Sıralama: About, Projects, Education, Software) -->
-<nav class="nav-container" id="navbar">
-    <ul class="nav-links" style="list-style: none; padding: 0;">
-        <li><a href="about.html" class="[ABOUT_ACTIVE]" onclick="transitionToPage(event, 'about.html')">About</a></li>
-        <li><a href="projects.html" class="[PROJECTS_ACTIVE]" onclick="transitionToPage(event, 'projects.html')">Projects</a></li>
-        <li><a href="education.html" class="[EDUCATION_ACTIVE]" onclick="transitionToPage(event, 'education.html')">Education</a></li>
-        <li><a href="software.html" class="[SOFTWARE_ACTIVE]" onclick="transitionToPage(event, 'software.html')">Software</a></li>
-    </ul>
-</nav>
+<body>
+    <nav class="nav-container">
+        <ul class="nav-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="education.html" class="active">Education</a></li>
+            <li><a href="software.html">Software</a></li>
+        </ul>
+    </nav>
     <section class="content-section">
         <div class="edu-item">
-            <h2 class="edu-title">İzmir Yüksek Teknoloji Enstitüsü (İYTE)</h2>
+            <h2>İzmir Yüksek Teknoloji Enstitüsü (İYTE)</h2>
             <p>Mimarlık Bölümü - Lisans</p>
         </div>
         <div class="edu-item">
-            <h2 class="edu-title">Karşıyaka Lisesi</h2>
+            <h2>Karşıyaka Lisesi</h2>
             <p>Lise Diploması</p>
         </div>
     </section>
