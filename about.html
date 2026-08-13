@@ -2,47 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Gaye Güngör</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', sans-serif; background-color: #fafafa; opacity: 0; transition: opacity 0.6s ease; }
+        body { font-family: 'Inter', sans-serif; background-color: #fafafa; color: #111111; opacity: 0; transition: opacity 0.6s ease; }
         body.loaded { opacity: 1; }
-        body.fade-out { opacity: 0; }
+        body.lang-tr .en-text { display: none !important; }
+        body.lang-en .tr-text { display: none !important; }
+
         .nav-container { position: sticky; top: 0; background-color: rgba(255, 255, 255, 0.95); padding: 20px 0; border-bottom: 1px solid #eaeaea; z-index: 1000; text-align: center; }
-        .nav-links { list-style: none; display: flex; justify-content: center; gap: 40px; }
+        .nav-links { list-style: none; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
         .nav-links a { text-decoration: none; color: #888; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; }
         .nav-links a:hover, .nav-links a.active { color: #111; }
+
         .content-section { padding: 80px 10%; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
-        .bio-text p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px; color: #444; }
+        .bio-text p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px; color: #444; text-align: justify; }
+        .profile-side { display: flex; flex-direction: column; }
         .profile-img-container { width: 100%; aspect-ratio: 3/4; background-color: #e0e0e0; overflow: hidden; }
         .profile-img-container img { width: 100%; height: 100%; object-fit: cover; }
         .contact-box { margin-top: 40px; padding-top: 30px; border-top: 1px solid #eaeaea; display: flex; flex-direction: column; gap: 20px; }
-        @media (max-width: 768px) { .content-section { grid-template-columns: 1fr; } }
+        .contact-item span { display: block; font-size: 0.8rem; color: #888; text-transform: uppercase; }
+        .contact-item a { color: #111; text-decoration: none; font-size: 1.1rem; }
     </style>
 </head>
-<body class="loaded">
+<body class="loaded lang-en">
     <nav class="nav-container">
-        <ul class="nav-links" style="list-style: none;">
-            <li><a href="about.html" class="active" onclick="transitionToPage(event, 'about.html')">About</a></li>
-            <li><a href="projects.html" onclick="transitionToPage(event, 'projects.html')">Projects</a></li>
-            <li><a href="education.html" onclick="transitionToPage(event, 'education.html')">Education</a></li>
-            <li><a href="software.html" onclick="transitionToPage(event, 'software.html')">Software</a></li>
+        <ul class="nav-links">
+            <li><a href="about.html" class="active en-text">About</a><a href="about.html" class="active tr-text">Hakkımda</a></li>
+            <li><a href="projects.html" class="en-text">Projects</a><a href="projects.html" class="tr-text">Projeler</a></li>
+            <li><a href="education.html" class="en-text">Education</a><a href="education.html" class="tr-text">Eğitim</a></li>
+            <li><a href="software.html" class="en-text">Software</a><a href="software.html" class="tr-text">Yazılımlar</a></li>
         </ul>
     </nav>
     <section class="content-section">
         <div class="bio-text">
-            <p>Merhaba, İzmir Yüksek Teknoloji Enstitüsü Mimarlık Bölümü mezunuyum. [Biyografin buraya gelecek...]</p>
-            <div class="contact-box">
-                <div><span>KONUM</span><p>Karşıyaka, İzmir, Türkiye</p></div>
-                <div><span>E-POSTA</span><a href="mailto:gungorggaye174@gmail.com">gungorggaye174@gmail.com</a></div>
-                <div><span>TELEFON</span><a href="tel:+905522118345">+90 552 211 8345</a></div>
-            </div>
+            <p class="en-text">Hello, I'm a graduate of the Department of Architecture at İzmir Institute of Technology...</p>
+            <p class="tr-text">Merhaba, İzmir Yüksek Teknoloji Enstitüsü Mimarlık Bölümü mezunuyum...</p>
+            <!-- [BİYOGRAFİNİN TAMAMI BURAYA] -->
         </div>
         <div class="profile-side">
             <div class="profile-img-container"><img src="WhatsApp Image 2026-07-21 at 14.27.58.jpeg" alt="Gaye Güngör"></div>
+            <div class="contact-box">
+                <div><span>LOCATION / KONUM</span><p>Karşıyaka, İzmir, Türkiye</p></div>
+                <div><span>BIRTHDATE / DOĞUM TARİHİ</span><p>15 May 2001</p></div>
+                <div><span>EMAIL / E-POSTA</span><a href="mailto:gungorggaye174@gmail.com">gungorggaye174@gmail.com</a></div>
+                <div><span>PHONE / TELEFON</span><a href="tel:+905522118345">+90 552 211 8345</a></div>
+            </div>
         </div>
     </section>
-    <script>function transitionToPage(e, u) { e.preventDefault(); document.body.classList.add('fade-out'); setTimeout(() => window.location.href = u, 600); }</script>
 </body>
 </html>
