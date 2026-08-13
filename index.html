@@ -261,21 +261,27 @@
         <a class="scroll-down tr-text" onclick="scrollToProjects()">Aşağı Kaydır ↓</a>
     </section>
 
-   <nav class="nav-container" id="navbar">
+  <nav class="nav-container" id="navbar">
         <ul class="nav-links" style="list-style: none; padding: 0;">
             <li>
-                <a href="index.html" class="active en-text">Projects</a>
-                <a href="index.html" class="active tr-text">Projeler</a>
+                <a href="index.html" class="active en-text" onclick="transitionToPage(event, 'index.html')">Projects</a>
+                <a href="index.html" class="active tr-text" onclick="transitionToPage(event, 'index.html')">Projeler</a>
             </li>
             <li>
                 <a href="about.html" class="en-text" onclick="transitionToPage(event, 'about.html')">About</a>
                 <a href="about.html" class="tr-text" onclick="transitionToPage(event, 'about.html')">Hakkımda</a>
             </li>
-            <!-- YENİ EKLENEN GERÇEK CV SEKMEŞİ -->
+            <!-- YENİ EKLENEN EĞİTİM SEKMEŞİ -->
             <li>
-                <a href="Gaye_Gungor_CV.pdf" target="_blank">CV / PDF</a>
+                <a href="education.html" class="en-text" onclick="transitionToPage(event, 'education.html')">Education</a>
+                <a href="education.html" class="tr-text" onclick="transitionToPage(event, 'education.html')">Eğitim</a>
             </li>
-            <!-- İSMİ DÜZELTİLEN PORTFOLYO PDF SEKMEŞİ -->
+            <!-- YENİ EKLENEN PROGRAMLAR SEKMEŞİ -->
+            <li>
+                <a href="software.html" class="en-text" onclick="transitionToPage(event, 'software.html')">Software</a>
+                <a href="software.html" class="tr-text" onclick="transitionToPage(event, 'software.html')">Yazılımlar</a>
+            </li>
+            <li><a href="Gaye_Gungor_CV.pdf" target="_blank">CV / PDF</a></li>
             <li>
                 <a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank" class="en-text">Portfolio / PDF</a>
                 <a href="Gaye_Gungor_Portfolio%20(1).pdf" target="_blank" class="tr-text">Portfolyo / PDF</a>
@@ -286,7 +292,6 @@
             </li>
         </ul>
     </nav>
-
     <section class="content-section" id="projects">
         <div class="grid">
             <a href="afterground.html" class="project-item" onclick="transitionToPage(event, 'afterground.html')">
